@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://www.efinovatic.es/Spain/Building" xmlns="http://www.efinovatic.es/Spain/Building" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="iEPBxml">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Spain"/>
+			</xs:sequence>
+			<xs:attribute name="areaUnit" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SquareMeters"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="lengthUnit" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Meters"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="temperatureUnit" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="C"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="useSIUnitsForResults" use="required" type="xs:boolean"/>
+			<xs:attribute name="version" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:enumeration value="2.3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="volumeUnit" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CubicMeters"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Spain">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Building"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Building">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CadastralReference"/>
+				<xs:element ref="City"/>
+				<xs:element ref="State"/>
+				<xs:element ref="ApplicableLegislation"/>
+				<xs:element ref="ConstructionYear"/>
+				<xs:element ref="Tipology"/>
+				<xs:element ref="UsageProfile"/>
+				<xs:element ref="HE1ClimaticZone"/>
+				<xs:element ref="HE4ClimaticZone"/>
+				<xs:element ref="NominalFloorToCeilingHeight"/>
+				<xs:element ref="NumberOfStories"/>
+				<xs:element ref="AirChangesPerHou"/>
+				<xs:element ref="DHWDailyDemand"/>
+				<xs:element ref="InternalPartitionMass"/>
+				<xs:element ref="LocationImage"/>
+				<xs:element ref="BuildingImage"/>
+				<xs:element ref="AirtightnessTest"/>
+				<xs:element ref="BloowerDoorTestQ50"/>
+				<xs:element ref="BloowerDoorTestN"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CadastralReference">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="x"/>
+				<xs:enumeration value="xxx"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="City">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="State">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+                <xs:enumeration value="A Coruña"/>
+                <xs:enumeration value="Álava"/>
+                <xs:enumeration value="Albacete"/>
+                <xs:enumeration value="Alicante"/>
+                <xs:enumeration value="Almería"/>
+                <xs:enumeration value="Asturias"/>
+                <xs:enumeration value="Ávila"/>
+                <xs:enumeration value="Badajoz"/>
+                <xs:enumeration value="Barcelona"/>
+                <xs:enumeration value="Burgos"/>
+                <xs:enumeration value="Cáceres"/>
+                <xs:enumeration value="Cádiz"/>
+                <xs:enumeration value="Cantabria"/>
+                <xs:enumeration value="Castellón"/>
+                <xs:enumeration value="Ceuta"/>
+                <xs:enumeration value="Ciudad Real"/>
+                <xs:enumeration value="Córdoba"/>
+                <xs:enumeration value="Cuenca"/>
+                <xs:enumeration value="Girona"/>
+                <xs:enumeration value="Granada"/>
+                <xs:enumeration value="Guadalajara"/>
+                <xs:enumeration value="Guipúzcoa"/>
+                <xs:enumeration value="Huelva"/>
+                <xs:enumeration value="Huesca"/>
+                <xs:enumeration value="Illes Balears"/>
+                <xs:enumeration value="Jaén"/>
+                <xs:enumeration value="La Rioja"/>
+                <xs:enumeration value="Las Palmas"/>
+                <xs:enumeration value="León"/>
+                <xs:enumeration value="Lugo"/>
+                <xs:enumeration value="Lleida"/>
+                <xs:enumeration value="Madrid"/>
+                <xs:enumeration value="Málaga"/>
+                <xs:enumeration value="Melilla"/>
+                <xs:enumeration value="Murcia"/>
+                <xs:enumeration value="Navarra"/>
+                <xs:enumeration value="Ourense"/>
+                <xs:enumeration value="Palencia"/>
+                <xs:enumeration value="Pontevedra"/>
+                <xs:enumeration value="Salamanca"/>
+                <xs:enumeration value="Santa Cruz de Tenerife"/>
+                <xs:enumeration value="Segovia"/>
+                <xs:enumeration value="Sevilla"/>
+                <xs:enumeration value="Soria"/>
+                <xs:enumeration value="Tarragona"/>
+                <xs:enumeration value="Teruel"/>
+                <xs:enumeration value="Toledo"/>
+                <xs:enumeration value="Valencia"/>
+                <xs:enumeration value="Valladolid"/>
+                <xs:enumeration value="Vizcaya"/>
+                <xs:enumeration value="Zamora"/>
+                <xs:enumeration value="Zaragoza"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HE1ClimaticZone">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="alpha1"/>
+				<xs:enumeration value="alpha2"/>
+				<xs:enumeration value="alpha3"/>
+				<xs:enumeration value="alpha4"/>
+				<xs:enumeration value="A1"/>
+				<xs:enumeration value="A2"/>
+				<xs:enumeration value="A3"/>
+				<xs:enumeration value="A4"/>
+				<xs:enumeration value="B1"/>
+				<xs:enumeration value="B2"/>
+				<xs:enumeration value="B3"/>
+				<xs:enumeration value="B4"/>
+				<xs:enumeration value="C1"/>
+				<xs:enumeration value="C2"/>
+				<xs:enumeration value="C3"/>
+				<xs:enumeration value="C4"/>				
+				<xs:enumeration value="D1"/>
+				<xs:enumeration value="D2"/>
+				<xs:enumeration value="D3"/>
+				<xs:enumeration value="E1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HE4ClimaticZone">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="I"/>
+				<xs:enumeration value="II"/>
+				<xs:enumeration value="III"/>
+				<xs:enumeration value="IV"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="NominalFloorToCeilingHeight">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="NumberOfStories">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DHWDailyDemand">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AirChangesPerHou">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="InternalPartitionMass">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Baja"/>
+				<xs:enumeration value="Media"/>
+				<xs:enumeration value="Alta"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="LocationImage">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="8DAAZLVmX4rPc8AAAAAElFTkSuQmCC"/>
+				<xs:enumeration value="fotoPlanoCex.png"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BuildingImage">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="AirtightnessTest">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="BloowerDoorTestN">
+		<xs:complexType>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BloowerDoorTestQ50">
+		<xs:complexType>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ApplicableLegislation">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Anterior"/>
+				<xs:enumeration value="NBE-CT-79"/>
+				<xs:enumeration value="CTE-2013"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ConstructionYear">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Tipology">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Bloque de Viviendas"/>
+				<xs:enumeration value="Edificio completo"/>
+				<xs:enumeration value="Vivienda Individual"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="UsageProfile">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="Intensidad Baja - 8h"/>
+				<xs:enumeration value="Intensidad Baja - 12h"/>
+				<xs:enumeration value="Intensidad Baja - 16h"/>
+				<xs:enumeration value="Intensidad Baja - 24h"/>				
+				<xs:enumeration value="Intensidad Media - 8h"/>
+				<xs:enumeration value="Intensidad Media - 12h"/>
+				<xs:enumeration value="Intensidad Media - 16h"/>
+				<xs:enumeration value="Intensidad Media - 24h"/>
+				<xs:enumeration value="Intensidad Alta - 8h"/>
+				<xs:enumeration value="Intensidad Alta - 12h"/>
+				<xs:enumeration value="Intensidad Alta - 16h"/>
+				<xs:enumeration value="Intensidad Alta - 24h"/>						
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	
+	
+	
+</xs:schema>
