@@ -1,2 +1,3 @@
 # iEPB_schema
 The iEPB schema is extensible and scalable, making it a living, open schema for participation and collaboration with any other EPB assessment tool or other building assessments.
+It is structured as a compressed file with the extension .iEPB, containing four main components: a gbXML.xml file with the building's energy model, an iEPB.xml file with supplementary information, an ILCD folder with data for assessing the climate impact of the life cycle, and an optional “Source” folder for additional images and documents. This structure allows multiple assessments to be stored in a single file.
