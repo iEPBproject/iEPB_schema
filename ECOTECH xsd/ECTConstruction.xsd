@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="ENUMConstructionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EXTERNAL_WALL"/>
+			<xs:enumeration value="EXTERNAL_WALL_TO_EARTH"/>
+			<xs:enumeration value="INTERNAL_WALL"/>
+			<xs:enumeration value="ROOF"/>
+			<xs:enumeration value="GROUND_FLOOR"/>
+			<xs:enumeration value="INTERMEDIATE_FLOOR_NO_HEATFLOW"/>
+			<xs:enumeration value="INTERMEDIATE_FLOOR_HEATFLOW_UPWARDS"/>
+			<xs:enumeration value="INTERMEDIATE_FLOOR_HEATFLOW_DOWNWARDS"/>
+			<xs:enumeration value="SLAB_OVER_THOROUGHFARE"/>
+			<xs:enumeration value="EXTERNAL_WALL_REAR_VENTILATED"/>
+			<xs:enumeration value="ROOF_REAR_VENTILATED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMConstructionInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOT_DEFINED"/>
+			<xs:enumeration value="SCHICHTAUFBAU"/>
+			<xs:enumeration value="UWERT"/>
+			<xs:enumeration value="RCWERT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMLayerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="homogeneous"/>
+			<xs:enumeration value="inhomogeneous"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMCalcThermicType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FLEX_CHECKBOX_STATE_CHECKED"/>
+			<xs:enumeration value="FLEX_CHECKBOX_STATE_CHECKED_GRAYED"/>
+			<xs:enumeration value="FLEX_CHECKBOX_STATE_UNCHECKED"/>
+			<xs:enumeration value="FLEX_CHECKBOX_STATE_UNCHECKED_GRAYED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMAirgapType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="noAirGap"/>
+			<xs:enumeration value="Level0"/>
+			<xs:enumeration value="Level1"/>
+			<xs:enumeration value="Level2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOrientation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="horizontal"/>
+			<xs:enumeration value="vertical"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMEntryType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Absolute"/>
+			<xs:enumeration value="Percentual"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMEpsilonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal_high_emissivity"/>
+			<xs:enumeration value="Low_emissivity"/>
+			<xs:enumeration value="Specified_emissivity"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMdeltaTType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="default"/>
+			<xs:enumeration value="userdefined"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMMeanTemperatureType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M10"/>
+			<xs:enumeration value="P0"/>
+			<xs:enumeration value="P10"/>
+			<xs:enumeration value="P20"/>
+			<xs:enumeration value="P30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMCutToFallAreaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="undefinied"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMCutToFallAreaSlopeInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="slope_direct"/>
+			<xs:enumeration value="thickness"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMThermalMassInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOT_DEFINED"/>
+			<xs:enumeration value="Calculated"/>
+			<xs:enumeration value="FreeInput"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTConstructionAddonsLayer">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="LayerType" type="ENUMLayerType"/>
+			<xs:element name="Thickness" type="xs:float"/>
+			<xs:element name="Materials">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTConstructionAddonsLayersMaterial" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IsCutToFallLayer" type="xs:boolean"/>
+			<xs:element name="CalcThermic" type="ENUMCalcThermicType"/>
+			<xs:element name="CutToFallAreas" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTConstructionAddonsLayersCutToFallArea" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Epsilon1" type="xs:float"/>
+			<xs:element name="Epsilon2" type="xs:float"/>
+			<xs:element name="Epsilon1Type" type="ENUMEpsilonType"/>
+			<xs:element name="Epsilon2Type" type="ENUMEpsilonType"/>
+			<xs:element name="deltaT" type="xs:float"/>
+			<xs:element name="deltaTType" type="ENUMdeltaTType"/>
+			<xs:element name="MeanTemperatureType" type="ENUMMeanTemperatureType"/>
+			<xs:element name="InhomogeneousSettings" type="ECTConstructionAddonsLayersInhomogeneousSettings" minOccurs="0"/>
+			<xs:element name="CalcOI3" type="ENUMCalcThermicType"/>
+			<xs:element name="Renovated" type="xs:boolean"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name=" ID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionAddonsLayersMaterial">
+		<xs:sequence>
+			<xs:element name="Polygon" type="ECTPolygon"/>
+			<xs:element name="BinderCount" type="xs:float"/>
+			<xs:element name="Airgap" type="ENUMAirgapType"/>
+			<xs:element name="YearOfConstruction" type="xs:integer"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name=" MaterialID"/>
+		<xs:attribute name="BinderMaterialID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionAddonsLayersInhomogeneousSettingsMaterials">
+		<xs:sequence>
+			<xs:element name="AbsoluteValue" type="xs:float"/>
+			<xs:element name="ProcentualValue" type="xs:float"/>
+			<xs:element name="EffectiveProcentual" type="xs:float"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name="MaterialID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionAddonsLayersInhomogeneousSettings">
+		<xs:sequence>
+			<xs:element name="EntryType" type="ENUMEntryType"/>
+			<xs:element name="Orientation" type="ENUMOrientation"/>
+			<xs:element name="Material">
+			<xs:complexType>
+<xs:sequence>
+	<xs:element name ="ECTConstructionAddonsLayersInhomogeneousSettingsMaterials" type="ECTConstructionAddonsLayersInhomogeneousSettingsMaterials" minOccurs="2" maxOccurs="unbounded"/>
+</xs:sequence>			
+			</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionAddonsLayersCutToFallArea">
+		<xs:sequence>
+			<xs:element name="CutToFallID" type="xs:short"/>
+			<xs:element name="Typ" type="ENUMCutToFallAreaType"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Count" type="xs:float"/>
+			<xs:element name="BaseLengthOfShapeElement" type="xs:float"/>
+			<xs:element name="HeightOfShapeElement" type="ENUMCutToFallAreaType"/>
+			<xs:element name="Slope" type="xs:float"/>
+			<xs:element name="Thickness" type="xs:float"/>
+			<xs:element name="SlopeInputType" type="ENUMCutToFallAreaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTConstruction">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CounstructionType" type="ENUMConstructionType"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Info" type="xs:string"/>
+			<xs:element name="DateChanged" type="xs:dateTime"/>
+			<xs:element name="DateCreated" type="xs:dateTime"/>
+			<xs:element name="Addons">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Layers">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Item" type="ECTConstructionAddonsLayer" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Physics">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="u" type="xs:float"/>
+									<xs:element name="thickness" type="xs:float"/>
+									<xs:element name="RS_i" type="xs:float"/>
+									<xs:element name="RS_e" type="xs:float"/>
+									<xs:element name="CalcUWertENISO6946R_uIncludeIntoCalc" type="xs:boolean"/>
+									<xs:element name="CalcUWertENISO6946R_u" type="xs:float"/>
+									<xs:element name="R" type="xs:float"/>
+									<xs:element name="ThermalMassInputType" type="ENUMThermalMassInputType"/>
+									<xs:element name="ThermalMassInside" type="xs:float"/>
+									<xs:element name="ThermalMassOutside" type="xs:float"/>
+									<xs:element name="ThermalMassFreeInputInfo" type="xs:string"/>
+									<xs:element name="RT_1" type="xs:float"/>
+									<xs:element name="RT_2" type="xs:float"/>
+									<xs:element name="RT" type="xs:float"/>
+									<xs:element name="u_info" type="xs:string"/>
+									<xs:element name="uDirectAsLayer" type="xs:boolean"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Acustic">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="R_w" type="xs:float"/>
+									<xs:element name="R_Info" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="InputType" type="ENUMConstructionInputType"/>
+						<xs:element name="WeaklyVentilatedAirLayerConfinementDone" type="xs:boolean"/>
+						<xs:element name="RenovatedForInputTypeDirect" type="xs:boolean"/>
+						<xs:element name="IsFlatRoof" type="xs:boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OekoKZInstalled" type="xs:boolean"/>
+			<xs:element name="AutoGenerateName" type="xs:boolean"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name="ConstructionGroupID"/>
+	</xs:complexType>
+	<xs:element name="ECTConstructions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTConstruction" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

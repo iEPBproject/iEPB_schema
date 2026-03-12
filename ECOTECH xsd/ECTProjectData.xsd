@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Markus Graf (ecotech) -->
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ECTProjectData" type="ECTProjectData"/>
+	<xs:complexType name="ECTProjectData">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Postcode" type="xs:string"/>
+			<xs:element name="Town" type="xs:string"/>
+			<xs:element name="DateCreated" type="xs:dateTime"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="theta_m_e" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="ECTConstructionResAddonsLayer">
+		<xs:sequence>
+			<xs:element name="CutToFallWedgesRelevantThickness" type="xs:float"/>
+			<xs:element name="CutToFallAreas">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTConstructionResAddonsLayersCutToFallArea" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lamda_weighted" type="xs:float"/>
+			<xs:element name="R" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionResAddonsLayersCutToFallArea">
+		<xs:sequence>
+			<xs:element name="CutToFallID" type="xs:short"/>
+			<xs:element name="R1" type="xs:float"/>
+			<xs:element name="U" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTConstructionRes">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Addons">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Layers">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Item" type="ECTConstructionResAddonsLayer" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Physics">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ratio_upper_lower_limit_of_thermal_resistance_exceeds_1_5" type="xs:float"/>
+									<xs:element name="DeltaUf" type="xs:float"/>
+									<xs:element name="DeltaUg" type="xs:float"/>
+									<xs:element name="CutToFallR0" type="xs:float"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Acustic">
+							<xs:complexType>
+								<xs:sequence/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ECTConstructionsRes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTConstructionRes" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

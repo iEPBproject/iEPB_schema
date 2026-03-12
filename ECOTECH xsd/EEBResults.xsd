@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+	<xs:include schemaLocation="..\HWKB\HWKBResults.xsd"/>
+	<xs:include schemaLocation="..\HWKB\HWKBCalcData.xsd"/>
+	<xs:include schemaLocation="..\HWKB\HWKBProjectData.xsd"/>
+	<xs:simpleType name="ENUMSchemaVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SchemaVersion_1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="EEBResults">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ECTClasslib" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="StandortKlimaAnlageOrg" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="StandortKlimaAnlageRef26" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="StandortKlimaAnlageBewertung_H5050_Wärmepumpe" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="ReferenzKlimaAnlageOrg" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="ReferenzKlimaAnlageRef26" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="ReferenzKlimaAnlageRefZul" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="ReferenzKlimaAnlageRefZulnatPlan" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="ReferenzKlimaAnlageBewertung_H5050_Wärmepumpe" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="Eingabe" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="f_GEE" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="HWB_Heizperiode" type="xs:anyType" minOccurs="0"/>
+				<xs:element name="EAWDATA" type="xs:anyType" minOccurs="0"/>
+				<xs:element ref="Results" minOccurs="0"/>
+				<xs:element ref="CalcData" minOccurs="0"/>
+				<xs:element ref="ProjectData" minOccurs="0"/>
+				<xs:element name="ExportData" type="xs:anyType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

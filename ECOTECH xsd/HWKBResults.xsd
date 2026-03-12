@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Markus Graf (ecotech) -->
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="HWKBGlobalTypes.xsd"/>
+	<xs:element name="Results">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Referenz" type="LocationResults"/>
+				<xs:element name="Standort" type="LocationResults"/>
+				<xs:element name="Kuehllast" type="Kuehllast"/>
+				<xs:element name="DruckGebaeudeDaten" type="DruckGebaeudeDaten" minOccurs="0"/>
+				<xs:element name="OI3Results" type="OI3Results" minOccurs="0"/>
+				<xs:element name="EAWResults" type="EAWResults" minOccurs="0"/>
+				<xs:element name="Energieindikatoren" type="Energieindikatoren" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DruckGebaeudeDaten">
+		<xs:sequence>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="V" type="xs:float"/>
+			<xs:element name="CharacteristicLength" type="xs:float"/>
+			<xs:element name="Average_Uvalue" type="xs:float"/>
+			<xs:element name="TargetInternalTemperature" type="xs:float"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="p_tot" type="xs:float"/>
+			<xs:element name="Lt_Wand_unbeh_Dachraum" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Dachraum" type="DruckLT"/>
+			<xs:element name="Lt_Aussenwand" type="DruckLT"/>
+			<xs:element name="Lt_Dach" type="DruckLT"/>
+			<xs:element name="Lt_Fenster_Tuer" type="DruckLT"/>
+			<xs:element name="Lt_Wand_unbeh_Keller" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Keller" type="DruckLT"/>
+			<xs:element name="Lt_Fussboden" type="DruckLT"/>
+			<xs:element name="Lt_Wand_Erde" type="DruckLT"/>
+			<xs:element name="Lt_Innenwand_unbeh_Nebenraum" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Nebenraum" type="DruckLT"/>
+			<xs:element name="Lt_Innenwand_unbeh_Stiegenhaus" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Stiegenhaus" type="DruckLT"/>
+			<xs:element name="Lt_Innenwand_unbeh_Garage" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Garage" type="DruckLT"/>
+			<xs:element name="Lt_Innenwand_unbeh_Wintergarten" type="DruckLT"/>
+			<xs:element name="Lt_Decke_unbeh_Wintergarten" type="DruckLT"/>
+			<xs:element name="Lt_Decke_Durchfahrt" type="DruckLT"/>
+			<xs:element name="Lt_WB_vereinfacht" type="xs:boolean"/>
+			<xs:element name="Lt_WB" type="xs:float"/>
+			<xs:element name="Lt_Summe_OBEN" type="xs:float"/>
+			<xs:element name="Lt_Summe_UNTEN" type="xs:float"/>
+			<xs:element name="Lt_Summe_AW" type="xs:float"/>
+			<xs:element name="Lt_Summe_IW" type="xs:float"/>
+			<xs:element name="Lt_Fensteranteil_in_AW" type="DruckFT"/>
+			<xs:element name="Lt_Fensteranteil_in_DA" type="DruckFT"/>
+			<xs:element name="Lt_Fensteranteil_in_IW" type="DruckFT"/>
+			<xs:element name="Lt_Summe" type="xs:float"/>
+			<xs:element name="SpezTransWaermeverlust" type="xs:float"/>
+			<xs:element name="GebaeudeHeizlast" type="xs:float"/>
+			<xs:element name="SpezHeizlast" type="xs:float"/>
+			<xs:element name="LEK_T_Value" type="xs:float"/>
+			<xs:element name="LEK_T_Anf_Wert" type="xs:float"/>
+			<xs:element name="Standort" type="xs:string"/>
+			<xs:element name="MittlereGeschossHoehe" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWBResults">
+		<xs:sequence>
+			<xs:element name="Transmissionen" type="Transmissionen"/>
+			<xs:element name="Lueftungsverluste" type="LueftungsVerluste"/>
+			<xs:element name="SolareGewinneTransparent" type="HWBSolareGewinneTransparent"/>
+			<xs:element name="SolareGewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+						<xs:element name="Sum_Q" type="xs:float"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Erg">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBErg" minOccurs="0" maxOccurs="11"/>
+						<xs:element name="Qh" type="xs:float"/>
+						<xs:element name="Qh_final" type="xs:float"/>
+						<xs:element name="Qh_final_A_spez" type="xs:float"/>
+						<xs:element name="Qh_final_V_spez" type="xs:float"/>
+						<xs:element name="delta_LT_FH" type="xs:float"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HWBEingabe" type="Eingabe"/>
+			<xs:element name="ErdverlusteDetailliert" type="ErdverlusteDetailliert"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationResults">
+		<xs:sequence>
+			<xs:element name="HWB" type="HWBResults"/>
+			<!--<xs:element name="HWB_stern" type="HWBResults" minOccurs="0"/>-->
+			<xs:element name="HWB_ref" type="HWBResults"/>
+			<xs:element name="HWB_zul" type="HWBResults"/>
+			<xs:element name="HWB_zul_natPlan" type="HWBResults"/>
+			<!--zulässiger HWB lt. nationalen Plan (Anforderungsjahr wird zur Laufzeit entschieden)-->
+			<xs:element name="HWB_26" type="HWBResults"/>
+			<xs:element name="HWB_FL" type="HWBResults"/>
+			<xs:element name="KB" type="KBResults"/>
+			<xs:element name="KB_stern" type="KBResults" minOccurs="0"/>
+			<xs:element name="Klimadaten" type="Klimadaten"/>
+			<!-- KST 28.1.2015 ENTFERNT!
+			<xs:element name="fGEE" type="fGEE"/>
+      -->
+			<xs:element name="FederalState_2" type="FederalState_2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandWien">
+		<xs:sequence>
+			<xs:element name="Dummy" type="xs:float"/>
+			<xs:element name="HWB_RK" type="xs:float"/>
+			<xs:element name="HWB_WBF_Neubau_Anforderung_numWert" type="xs:float"/>
+			<xs:element name="HWB_WBF_Neubau_Anforderung_erfuellt_string" type="xs:string" default='""'/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandNiederoesterreich">
+		<xs:sequence>
+			<xs:element name="Dummy" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandBurgenland">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="WBF2021" type="BundeslandBurgenlandWBF2021"/>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandBurgenlandWBF2021">
+		<xs:sequence>
+			<xs:element name="OI3_BGF" type="xs:float"/>
+			<xs:element name="OI3_BGF_Anpassungsfaktor" type="xs:float"/>
+			<xs:element name="EEB_RK" type="xs:float"/>
+			<xs:element name="EEB_RK_Anforderung" type="xs:float"/>
+			<xs:element name="EEB_RK_Anforderung_erfuellt" type="xs:float"/>
+			<xs:element name="f_GEE" type="xs:float"/>
+			<xs:element name="f_GEE_Anforderung" type="xs:float"/>
+			<xs:element name="f_GEE_Anforderung_erfuellt" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_Anforderung" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_Anforderung_erfuellt" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_36_interpoliert" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_36_Stufe1" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_36_Stufe1_erfuellt" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_36_Stufe2" type="xs:float"/>
+			<xs:element name="HWB_Ref_RK_36_Stufe2_erfuellt" type="xs:float"/>
+			<xs:element name="Energiekennzahlen_Anforderung_erfuellt" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandOberoesterreich">
+		<xs:sequence>
+			<xs:element name="WBF2019" type="BundeslandOberoesterreichWBF2019"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandOberoesterreichWBF2019">
+		<xs:sequence>
+			<xs:element name="Niedrigenergiehaus2019" type="BundeslandOberoesterreichWBF2019_Foerderstufe"/>
+			<!--2019 damit ListAndLabel beim XML DOM Provider unterscheiden kann -->
+			<xs:element name="Optimalenergiehaus2019" type="BundeslandOberoesterreichWBF2019_Foerderstufe"/>
+			<!--2019 damit ListAndLabel beim XML DOM Provider unterscheiden kann -->
+			<xs:element name="SanierungMindestanforderung2019" type="BundeslandOberoesterreichWBF2019_Foerderstufe"/>
+			<!--2019 damit ListAndLabel beim XML DOM Provider unterscheiden kann -->
+			<xs:element name="SanierungErhoehteAnforderung2019" type="BundeslandOberoesterreichWBF2019_Foerderstufe"/>
+			<!--2019 damit ListAndLabel beim XML DOM Provider unterscheiden kann -->
+			<xs:element name="NEZ" type="xs:double"/>
+			<xs:element name="NEZ_Stern" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandOberoesterreichWBF2019_Foerderstufe">
+		<xs:sequence>
+			<xs:element name="Nachweisweg_HWB_HWB_REF_RK_Anforderung" type="xs:double"/>
+			<xs:element name="Nachweisweg_HWB_HWB_REF_RK_Anforderung_erfuellt" type="xs:boolean"/>
+			<xs:element name="Nachweisweg_HWB_erfuellt" type="xs:boolean"/>
+			<xs:element name="Nachweisweg_fGEE_HWB_REF_RK_Anforderung" type="xs:double"/>
+			<xs:element name="Nachweisweg_fGEE_HWB_REF_RK_Anforderung_erfuellt" type="xs:boolean"/>
+			<xs:element name="Nachweisweg_fGEE_fGEE_RK_Anforderung" type="xs:double"/>
+			<xs:element name="Nachweisweg_fGEE_fGEE_RK_Anforderung_erfuellt" type="xs:boolean"/>
+			<xs:element name="Nachweisweg_fGEE_erfuellt" type="xs:boolean"/>
+			<xs:element name="Erfuellt" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMBundeslandSalzburgKlasseOI3">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ueber70"/>
+			<xs:enumeration value="_70Bis55"/>
+			<xs:enumeration value="_55Bis45"/>
+			<xs:enumeration value="_45Bis40"/>
+			<xs:enumeration value="_40Bis35"/>
+			<xs:enumeration value="_35Bis30"/>
+			<xs:enumeration value="_30Bis25"/>
+			<xs:enumeration value="_25Bis20"/>
+			<xs:enumeration value="_20Bis15"/>
+			<xs:enumeration value="_15Bis10"/>
+			<xs:enumeration value="_10Bis0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMBundeslandSalzburgKlasseLEK_T">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ueber28"/>
+			<xs:enumeration value="_28Bis26"/>
+			<xs:enumeration value="_26Bis25"/>
+			<xs:enumeration value="_25Bis24"/>
+			<xs:enumeration value="_24Bis23"/>
+			<xs:enumeration value="_23Bis22"/>
+			<xs:enumeration value="_22Bis21"/>
+			<xs:enumeration value="_21Bis20"/>
+			<xs:enumeration value="_20Bis19"/>
+			<xs:enumeration value="_19Bis18"/>
+			<xs:enumeration value="_18Bis0"/>
+			<xs:enumeration value="_18bis0_und_Passivhaus"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMBundeslandSalzburgLEK_S_Spalte">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SpalteLE8"/>
+			<xs:enumeration value="SpalteGT8"/>
+			<xs:enumeration value="SpalteGT12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMSommertauglichkeit">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="keineAngabe"/>
+			<xs:enumeration value="eingehalten"/>
+			<xs:enumeration value="nachgewiesen"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="BundeslandSalzburg">
+		<xs:sequence>
+			<xs:element name="IsWG" type="xs:boolean"/>
+			<xs:element name="IsNWG" type="xs:boolean"/>
+			<xs:element name="IsGrosseRenoveriung" type="xs:boolean"/>
+			<xs:element name="U_Wert_Bauteile_Vorhanden" type="xs:boolean"/>
+			<xs:element name="U_Wert_Bauteile_Mit_Anforderung_Vorhanden" type="xs:boolean"/>
+			<xs:element name="U_Wert_Anforderung_erfuellt" type="xs:boolean"/>
+			<xs:element name="U_Wert_Anforderung_Text" type="xs:string"/>
+			<xs:element name="IstFreiesNutzungsprofil" type="xs:boolean"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="V" type="xs:float"/>
+			<xs:element name="AB" type="xs:float"/>
+			<xs:element name="U_m" type="xs:float"/>
+			<xs:element name="l_c" type="xs:float"/>
+			<xs:element name="l_c_org" type="xs:float"/>
+			<xs:element name="l_c_IsCorrected" type="xs:boolean"/>
+			<xs:element name="OI3" type="xs:float"/>
+			<xs:element name="OI3_Klasse" type="ENUMBundeslandSalzburgKlasseOI3"/>
+			<xs:element name="Heizlast" type="xs:float"/>
+			<xs:element name="ClimateRegion" type="xs:string"/>
+			<xs:element name="HeightAboveSeaLevel" type="xs:float"/>
+			<xs:element name="HeatingDegreeDays_20_20" type="xs:float"/>
+			<xs:element name="HeatingDays" type="xs:float"/>
+			<xs:element name="Normaussentemperatur" type="xs:float"/>
+			<xs:element name="SollInnentemperatur" type="xs:float"/>
+			<xs:element name="Q_T" type="xs:float"/>
+			<xs:element name="LEK_T" type="xs:float"/>
+			<xs:element name="LEK_T_Klasse" type="ENUMBundeslandSalzburgKlasseLEK_T"/>
+			<xs:element name="LEK_T_Grenze_Förderung" type="xs:float"/>
+			<xs:element name="LEK_T_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="LEK_T_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="C_E" type="xs:float"/>
+			<xs:element name="HGT" type="xs:float"/>
+			<xs:element name="VB" type="xs:float"/>
+			<!--Ergänzungen BTVE 2016-->
+			<xs:element name="HGT_ref" type="xs:float"/>
+			<xs:element name="P_i" type="xs:float"/>
+			<xs:element name="P_i_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="P_i_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="Q_PEB" type="xs:float"/>
+			<xs:element name="Q_CO2" type="xs:float"/>
+			<xs:element name="B_i" type="xs:float"/>
+			<xs:element name="Q_PEIne" type="xs:float"/>
+			<xs:element name="Q_GWP" type="xs:float"/>
+			<xs:element name="B_i30" type="xs:float"/>
+			<xs:element name="N_i30" type="xs:float"/>
+			<xs:element name="P_i_KEB" type="xs:float"/>
+			<xs:element name="Einbringung_Beginn_Text" type="xs:string"/>
+			<xs:element name="Innentemperatur_Sonstiges" type="xs:float"/>
+			<!--Ergänzungen BTVE 2016 end-->
+			<xs:element name="Q_PEB_OIB_RL_6" type="xs:float"/>
+			<xs:element name="Q_PEB_nern_OIB_RL_6" type="xs:float"/>
+			<xs:element name="Q_PEB_ern_OIB_RL_6" type="xs:float"/>
+			<xs:element name="Q_PEB_eingerechnet" type="xs:float"/>
+			<xs:element name="LEK_PEB_eingerechnet" type="xs:float"/>
+			<xs:element name="LEK_PEB_eingerechnet_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="LEK_PEB_eingerechnet_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="KBstern" type="xs:float"/>
+			<xs:element name="KBstern_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="KBstern_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="m_CO2_OIB_RL_6" type="xs:float"/>
+			<xs:element name="m_CO2_eingerechnet" type="xs:float"/>
+			<xs:element name="LEK_CO2_eingerechnet" type="xs:float"/>
+			<xs:element name="LEK_CO2_eingerechnet_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="LEK_CO2_eingerechnet_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="Q_HEB_H" type="xs:float"/>
+			<xs:element name="Q_HEB_W" type="xs:float"/>
+			<xs:element name="Q_HEB_H_W" type="xs:float"/>
+			<xs:element name="LEK_HEB_H_W" type="xs:float"/>
+			<xs:element name="Q_BefEB" type="xs:float"/>
+			<xs:element name="LEK_BefEB" type="xs:float"/>
+			<xs:element name="Q_C" type="xs:float"/>
+			<xs:element name="LEK_C" type="xs:float"/>
+			<xs:element name="Q_K" type="xs:float"/>
+			<xs:element name="LEK_K" type="xs:float"/>
+			<xs:element name="Q_Bel" type="xs:float"/>
+			<xs:element name="LEK_Bel" type="xs:float"/>
+			<xs:element name="Q_HHS" type="xs:float"/>
+			<xs:element name="LEK_HHS" type="xs:float"/>
+			<xs:element name="Q_BS" type="xs:float"/>
+			<xs:element name="LEK_BS" type="xs:float"/>
+			<xs:element name="Q_Sol" type="xs:float"/>
+			<xs:element name="LEK_Sol" type="xs:float"/>
+			<xs:element name="Q_PV" type="xs:float"/>
+			<xs:element name="LEK_PV" type="xs:float"/>
+			<xs:element name="Q_HS" type="xs:float"/>
+			<xs:element name="LEK_HS" type="xs:float"/>
+			<xs:element name="Q_V" type="xs:float"/>
+			<xs:element name="LEK_V" type="xs:float"/>
+			<xs:element name="Q_HT" type="xs:float"/>
+			<xs:element name="LEK_HT" type="xs:float"/>
+			<xs:element name="Q_W" type="xs:float"/>
+			<xs:element name="LEK_W" type="xs:float"/>
+			<xs:element name="Q_S" type="xs:float"/>
+			<xs:element name="LEK_S" type="xs:float"/>
+			<xs:element name="LEK_S_Spalte" type="ENUMBundeslandSalzburgLEK_S_Spalte"/>
+			<xs:element name="Q_I" type="xs:float"/>
+			<xs:element name="LEK_I" type="xs:float"/>
+			<xs:element name="Q_HWB" type="xs:float"/>
+			<xs:element name="LEK_HWB" type="xs:float"/>
+			<xs:element name="LEK_S_plus_SOL" type="xs:float"/>
+			<xs:element name="LEK_TVS" type="xs:float"/>
+			<xs:element name="LEK_TVs_Grenze_Förderung" type="xs:float"/>
+			<xs:element name="OI3_LF_20_PEIne" type="xs:float"/>
+			<xs:element name="LEK_OI3_LF_20_PEIne" type="xs:float"/>
+			<xs:element name="OI3_LF_20_GWP" type="xs:float"/>
+			<xs:element name="LEK_OI3_LF_20_GWP" type="xs:float"/>
+			<xs:element name="Vorlauftemperatur" type="xs:float"/>
+			<xs:element name="Vorlauftemperatur_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="Vorlauftemperatur_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="Ruecklauftemperatur" type="xs:float"/>
+			<xs:element name="Ruecklauftemperatur_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="Ruecklauftemperatur_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="SummerSuitability" type="ENUMSommertauglichkeit"/>
+			<xs:element name="IKS_IsSolaranlageRequired" type="xs:boolean"/>
+			<xs:element name="Förderung_Voraussetzung_LEK_T_erfüllt" type="xs:boolean"/>
+			<xs:element name="Förderung_Voraussetzung_IKS_erfüllt" type="xs:boolean"/>
+			<xs:element name="Förderung_Voraussetzung_IKS_SolaranlageAusnahme_benötigt" type="xs:boolean"/>
+			<xs:element name="Förderung_Voraussetzung_IKS_SolaranlageAusnahme_erfüllt" type="xs:boolean"/>
+			<xs:element name="PunkteLekBasiert" type="xs:int"/>
+			<xs:element name="PunkteOI3Basiert" type="xs:int"/>
+			<xs:element name="PunkteOI3BasiertZuschlag" type="xs:int"/>
+			<xs:element name="PunkteGesamt" type="xs:int"/>
+			<xs:element name="WBF_2015_ZuschagspunkteErhGesamtEnergieOekoBaustoff" type="xs:int"/>
+			<xs:element name="WBF_2015_LEK_T_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="WBF_2015_LEK_T_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="WBF_2015_LEK_PEB_eingerechnet_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="WBF_2015_LEK_PEB_eingerechnet_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="WBF_2015_LEK_PEB_eingerechnet_Anforderung_Needed" type="xs:boolean"/>
+			<xs:element name="WBF_2015_LEK_CO2_eingerechnet_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="WBF_2015_LEK_CO2_eingerechnet_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="WBF_2015_LEK_CO2_eingerechnet_Anforderung_Needed" type="xs:boolean"/>
+			<xs:element name="WBF_2016_P_i_Anforderung_Wert" type="xs:float"/>
+			<xs:element name="WBF_2016_P_i_Anforderung_Erfuellt" type="xs:boolean"/>
+			<xs:element name="WBF_2016_P_i_Anforderung_Needed" type="xs:boolean"/>
+			<xs:element name="BTV_erfuellt" type="xs:boolean"/>
+			<xs:element name="WBF_2015_Text_Innovatives_Klimarelevantes_System" type="xs:string"/>
+			<xs:element name="WBF_2015_Erfuellt_Innovatives_Klimarelevantes_System" type="xs:boolean"/>
+			<xs:element name="WBF_2015_NichtErfuelltText_Innovatives_Klimarelevantes_System" type="xs:string"/>
+			<xs:element name="R_Wert_Bauteile_Vorhanden" type="xs:boolean"/>
+			<xs:element name="R_Wert_Bauteile_Mit_Anforderung_Vorhanden" type="xs:boolean"/>
+			<xs:element name="R_Wert_Anforderung_erfuellt" type="xs:boolean"/>
+			<xs:element name="R_Wert_Anforderung_Text" type="xs:string"/>
+			<xs:element name="Dummy" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandTirol">
+		<xs:sequence>
+			<xs:element name="Dummy" type="xs:float"/>
+			<xs:element name="HWB_RK" type="xs:float"/>
+			<xs:element name="HWB_Neubau_Anforderung_numWert" type="xs:float"/>
+			<xs:element name="HWB_Neubau_Anforderung_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HWB_San_Oekostufe_1_Anforderung_numWert" type="xs:float"/>
+			<xs:element name="HWB_San_Oekostufe_1_Anforderung_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HWB_San_Oekostufe_2_Anforderung_numWert" type="xs:float"/>
+			<xs:element name="HWB_San_Oekostufe_2_Anforderung_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HWB_San_Oekostufe_3_Anforderung_numWert" type="xs:float"/>
+			<xs:element name="HWB_San_Oekostufe_3_Anforderung_erfuellt_string" type="xs:string" default='""'/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandVorarlberg">
+		<xs:sequence>
+			<xs:element name="Dummy" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandSteiermark">
+		<xs:sequence>
+			<xs:element name="EKZ_WBF" type="xs:float"/>
+			<xs:element name="HWB_Sanierung_Anf" type="xs:float"/>
+			<xs:element name="HWB_RK" type="xs:float"/>
+			<xs:element name="HEB_RK" type="xs:float"/>
+			<xs:element name="EEB_RK" type="xs:float"/>
+			<xs:element name="fGEE" type="xs:float"/>
+			<xs:element name="PEB_SK" type="xs:float"/>
+			<xs:element name="CO2_SK" type="xs:float"/>
+			<xs:element name="HWB_RK_Anf_HEB" type="xs:float"/>
+			<xs:element name="HWB_RK_Anf_fGEE" type="xs:float"/>
+			<xs:element name="HEB_Anf" type="xs:float"/>
+			<xs:element name="EEB_Anf" type="xs:float"/>
+			<xs:element name="fGEE_Anf" type="xs:float"/>
+			<xs:element name="PEB_Anf" type="xs:float"/>
+			<xs:element name="CO2_Anf" type="xs:float"/>
+			<xs:element name="Anforderung_nach_HEB" type="xs:boolean"/>
+			<xs:element name="HWB_RK_Anf_HEB_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HWB_RK_Anf_fGEE_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="EEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="fGEE_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="PEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="CO2_Anf_erfuellt_string" type="xs:string" default='""'/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BundeslandKaernten">
+		<xs:sequence>
+			<xs:element name="EKZ_WBF" type="xs:float"/>
+			<xs:element name="HWB_RK" type="xs:float"/>
+			<xs:element name="HEB_RK" type="xs:float"/>
+			<xs:element name="EEB_RK" type="xs:float"/>
+			<xs:element name="fGEE" type="xs:float"/>
+			<xs:element name="PEB_SK" type="xs:float"/>
+			<xs:element name="CO2_SK" type="xs:float"/>
+			<xs:element name="HWB_RK_Anf_HEB" type="xs:float"/>
+			<xs:element name="HWB_RK_Anf_fGEE" type="xs:float"/>
+			<xs:element name="HEB_Anf" type="xs:float"/>
+			<xs:element name="EEB_Anf" type="xs:float"/>
+			<xs:element name="fGEE_Anf" type="xs:float"/>
+			<xs:element name="PEB_Anf" type="xs:float"/>
+			<xs:element name="CO2_Anf" type="xs:float"/>
+			<xs:element name="Anforderung_nach_HEB" type="xs:boolean"/>
+			<xs:element name="HWB_RK_Anf_HEB_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HWB_RK_Anf_fGEE_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="HEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="EEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="fGEE_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="PEB_Anf_erfuellt_string" type="xs:string" default='""'/>
+			<xs:element name="CO2_Anf_erfuellt_string" type="xs:string" default='""'/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FederalState_2">
+		<xs:sequence>
+			<xs:element name="Vienna" type="BundeslandWien"/>
+			<xs:element name="LowerAustria" type="BundeslandNiederoesterreich"/>
+			<xs:element name="Burgenland" type="BundeslandBurgenland"/>
+			<xs:element name="UpperAustria" type="BundeslandOberoesterreich"/>
+			<xs:element name="Salzburg" type="BundeslandSalzburg"/>
+			<xs:element name="Tirol" type="BundeslandTirol"/>
+			<xs:element name="Vorarlberg" type="BundeslandVorarlberg"/>
+			<xs:element name="Steiermark" type="BundeslandSteiermark"/>
+			<xs:element name="Kaernten" type="BundeslandKaernten"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- KST 28.1.2015 ENTFERNT!
+	<xs:complexType name="fGEE">
+		<xs:sequence>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="A_V" type="xs:float"/>
+			<xs:element name="BefEB" type="xs:float"/>
+			<xs:element name="BelEB_Def" type="xs:float"/>
+			<xs:element name="BelEB_Ist" type="xs:float"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="BSB" type="xs:float"/>
+			<xs:element name="e_AWZ" type="xs:float"/>
+			<xs:element name="EEB" type="xs:float"/>
+			<xs:element name="EEB_26" type="xs:float"/>
+			<xs:element name="EEB_oPV" type="xs:float"/>
+			<xs:element name="fGEE" type="xs:float"/>
+			<xs:element name="fGEE_RK" type="xs:float"/>
+			<xs:element name="fGEE_WP" type="xs:float"/>
+			<xs:element name="fGEE_UW" type="xs:float"/>
+			<xs:element name="f_GK" type="xs:float"/>
+			<xs:element name="f_KT" type="xs:float"/>
+			<xs:element name="HEB" type="xs:float"/>
+			<xs:element name="HEB_26" type="xs:float"/>
+			<xs:element name="HHSB" type="xs:float"/>
+			<xs:element name="HWB" type="xs:float"/>
+			<xs:element name="HWB_RK" type="xs:float"/>
+			<xs:element name="HWB_SK" type="xs:float"/>
+			<xs:element name="HWB_26" type="xs:float"/>
+			<xs:element name="I_Strahlung" type="xs:float"/>
+			<xs:element name="IsWP" type="xs:boolean"/>
+			<xs:element name="JAZ" type="xs:float"/>
+			<xs:element name="JAZ_26" type="xs:float"/>
+			<xs:element name="KB_NP" type="xs:float"/>
+			<xs:element name="KB_26" type="xs:float"/>
+			<xs:element name="KEB" type="xs:float"/>
+			<xs:element name="KEB_26" type="xs:float"/>
+			<xs:element name="lc" type="xs:float"/>
+			<xs:element name="NEZ" type="xs:float"/>
+			<xs:element name="NEZstern" type="xs:float"/>
+			<xs:element name="NPVE" type="xs:float"/>
+			<xs:element name="SF" type="xs:float"/>
+			<xs:element name="TF" type="xs:float"/>
+			<xs:element name="UW" type="xs:float"/>
+			<xs:element name="UW_26" type="xs:float"/>
+			<xs:element name="V" type="xs:float"/>
+			<xs:element name="wwwb_2" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+  -->
+	<xs:complexType name="Klimadaten">
+		<xs:sequence>
+			<xs:element name="ClimateRegion" type="ENUMKlimaregion"/>
+			<xs:element name="HeightAboveSeaLevel" type="xs:float"/>
+			<xs:element name="theta_ne" type="xs:float"/>
+			<xs:element name="KlimadatenMonatlich">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="KlimadatenMonatlich" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Kuehllast">
+		<xs:sequence>
+			<xs:element name="P_c_max" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Eingabe">
+		<xs:sequence>
+			<xs:element name="UtilizationProfile" type="ENUMNutzungsprofil"/>
+			<xs:element name="Standort" type="xs:string"/>
+			<xs:element name="KlimaregionText" type="xs:string"/>
+			<xs:element name="HeightAboveSeaLevel" type="xs:float"/>
+			<xs:element name="Innentemp" type="xs:float"/>
+			<xs:element name="t_d" type="xs:float"/>
+			<xs:element name="q_in" type="xs:float"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="BF" type="xs:float"/>
+			<xs:element name="C" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="Volumen" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWBSolareFlaecheTransparent">
+		<xs:sequence>
+			<xs:element name="Nr" type="xs:int"/>
+			<xs:element name="FlaechenBezeichnung" type="xs:string"/>
+			<xs:element name="Richtung" type="xs:float"/>
+			<xs:element name="Neigung" type="xs:float"/>
+			<xs:element name="BauteilBezeichnung" type="xs:string"/>
+			<xs:element name="Anzahl" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="FF" type="xs:float"/>
+			<xs:element name="F_s_W" type="xs:float"/>
+			<xs:element name="F_s_S" type="xs:float"/>
+			<xs:element name="F_c" type="xs:float"/>
+			<xs:element name="g_tot" type="xs:float"/>
+			<xs:element name="g" type="xs:float"/>
+			<xs:element name="gw" type="xs:float"/>
+			<xs:element name="A_trans_W" type="xs:float"/>
+			<xs:element name="A_trans_S" type="xs:float"/>
+			<xs:element name="Qs" type="xs:float"/>
+			<xs:element name="HorizontWinkel" type="xs:float"/>
+			<xs:element name="UeberhangWinkel" type="xs:float"/>
+			<xs:element name="SeitenWinkel" type="xs:float"/>
+			<xs:element name="F_h_W" type="xs:float"/>
+			<xs:element name="F_h_S" type="xs:float"/>
+			<xs:element name="F_o_W" type="xs:float"/>
+			<xs:element name="F_o_S" type="xs:float"/>
+			<xs:element name="F_f_W" type="xs:float"/>
+			<xs:element name="F_f_S" type="xs:float"/>
+			<xs:element name="F_s_direkt_W" type="xs:float"/>
+			<xs:element name="F_s_direkt_S" type="xs:float"/>
+			<xs:element name="F_Typ" type="ENUMVerschattungFlaeche"/>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Breite" type="xs:float"/>
+			<xs:element name="Hoehe" type="xs:float"/>
+			<xs:element name="Ug" type="xs:float"/>
+			<xs:element name="Uf" type="xs:float"/>
+			<xs:element name="Uw" type="xs:float"/>
+			<xs:element name="Psi" type="xs:float"/>
+			<xs:element name="lg" type="xs:float"/>
+			<xs:element name="Qs_Anteil" type="xs:float"/>
+			<xs:element name="IstDirekterUwert" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWBSolareGewinneTransparent">
+		<xs:sequence>
+			<xs:element name="Flaechen">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_S">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_O">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_W">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_N">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_SO">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_NO">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_SW">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_NW">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_S_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_O_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_W_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_N_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_SO_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_NO_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_SW_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_NW_exist" type="xs:boolean"/>
+			<xs:element name="Sum_Gewinne_Q" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBResults">
+		<xs:sequence>
+			<xs:element name="Transmissionen" type="Transmissionen"/>
+			<xs:element name="Lueftungsverluste" type="LueftungsVerluste"/>
+			<xs:element name="SolareGewinneTransparent" type="KBSolareGewinneTransparent"/>
+			<xs:element name="SolareGewinneOpak" type="KBSolareGewinneOpak"/>
+			<xs:element name="SolareGewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Erg">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="KBErg" minOccurs="0" maxOccurs="11"/>
+						<xs:element name="Qc" type="xs:float"/>
+						<xs:element name="Qc_final" type="xs:float"/>
+						<xs:element name="Qc_final_A_spez" type="xs:float"/>
+						<xs:element name="Qc_final_V_spez" type="xs:float"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="KBEingabe" type="Eingabe"/>
+			<xs:element name="ErdverlusteDetailliert" type="ErdverlusteDetailliert"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBSolareFlaecheOpak">
+		<xs:sequence>
+			<xs:element name="Nr" type="xs:int"/>
+			<xs:element name="FlaechenBezeichnung" type="xs:string"/>
+			<xs:element name="Richtung" type="xs:float"/>
+			<xs:element name="Neigung" type="xs:float"/>
+			<xs:element name="BauteilBezeichnung" type="xs:string"/>
+			<xs:element name="Anzahl" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="U" type="xs:float"/>
+			<xs:element name="alpha_sc" type="xs:float"/>
+			<xs:element name="A_sol" type="xs:float"/>
+			<xs:element name="Qs" type="xs:float"/>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBSolareFlaecheTransparent">
+		<xs:sequence>
+			<xs:element name="Nr" type="xs:int"/>
+			<xs:element name="FlaechenBezeichnung" type="xs:string"/>
+			<xs:element name="Richtung" type="xs:float"/>
+			<xs:element name="Neigung" type="xs:float"/>
+			<xs:element name="BauteilBezeichnung" type="xs:string"/>
+			<xs:element name="Anzahl" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="FF" type="xs:float"/>
+			<xs:element name="F_s_W" type="xs:float"/>
+			<xs:element name="F_s_S" type="xs:float"/>
+			<xs:element name="F_c" type="xs:float"/>
+			<xs:element name="g_tot" type="xs:float"/>
+			<xs:element name="g" type="xs:float"/>
+			<xs:element name="gw" type="xs:float"/>
+			<xs:element name="A_trans_W" type="xs:float"/>
+			<xs:element name="A_trans_S" type="xs:float"/>
+			<xs:element name="Qs" type="xs:float"/>
+			<xs:element name="HorizontWinkel" type="xs:float"/>
+			<xs:element name="UeberhangWinkel" type="xs:float"/>
+			<xs:element name="SeitenWinkel" type="xs:float"/>
+			<xs:element name="F_h_W" type="xs:float"/>
+			<xs:element name="F_h_S" type="xs:float"/>
+			<xs:element name="F_o_W" type="xs:float"/>
+			<xs:element name="F_o_S" type="xs:float"/>
+			<xs:element name="F_f_W" type="xs:float"/>
+			<xs:element name="F_f_S" type="xs:float"/>
+			<xs:element name="F_s_direkt_W" type="xs:float"/>
+			<xs:element name="F_s_direkt_S" type="xs:float"/>
+			<xs:element name="F_Typ" type="ENUMVerschattungFlaeche"/>
+			<xs:element name="a_mSc_Winter" type="xs:float"/>
+			<xs:element name="a_mSc_Sommer" type="xs:float"/>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IstDirekterUwert" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBSolareGewinneOpak">
+		<xs:sequence>
+			<xs:element name="Flaechen">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="KBSolareFlaecheOpak" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_exist" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBSolareGewinneTransparent">
+		<xs:sequence>
+			<xs:element name="Flaechen">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="KBSolareFlaecheTransparent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Gewinne">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="SolareGewinneErg" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_exist" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWBErg">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="QTh" type="xs:float"/>
+			<xs:element name="QVh" type="xs:float"/>
+			<xs:element name="Q_loss_h" type="xs:float"/>
+			<xs:element name="QSh" type="xs:float"/>
+			<xs:element name="QIh" type="xs:float"/>
+			<xs:element name="Q_gain_h" type="xs:float"/>
+			<xs:element name="q_gain_h_ref" type="xs:float"/>
+			<xs:element name="Q_gain_h_Q_loss_h_Ver" type="xs:float"/>
+			<xs:element name="eta_h" type="xs:float"/>
+			<xs:element name="Qh" type="xs:float"/>
+			<xs:element name="f_heiz" type="xs:float"/>
+			<xs:element name="Qh_final" type="xs:float"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="T" type="xs:float"/>
+			<xs:element name="a_value" type="xs:float"/>
+			<xs:element name="LV" type="xs:float"/>
+			<xs:element name="L_ges" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KBErg">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="QTc" type="xs:float"/>
+			<xs:element name="QVc" type="xs:float"/>
+			<xs:element name="Q_loss_c" type="xs:float"/>
+			<xs:element name="QSc" type="xs:float"/>
+			<xs:element name="QIc" type="xs:float"/>
+			<xs:element name="Q_gain_c" type="xs:float"/>
+			<xs:element name="Q_gain_c_Q_loss_c_Ver" type="xs:float"/>
+			<xs:element name="eta_c" type="xs:float"/>
+			<xs:element name="f_corr" type="xs:float"/>
+			<xs:element name="Qc" type="xs:float"/>
+			<xs:element name="f_cool" type="xs:float"/>
+			<xs:element name="Qc_final" type="xs:float"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="T" type="xs:float"/>
+			<xs:element name="a_value" type="xs:float"/>
+			<xs:element name="LV" type="xs:float"/>
+			<xs:element name="L_ges" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LueftungsVerluste">
+		<xs:sequence>
+			<xs:element name="Item" type="LueftungsVerlusteMonatlich" minOccurs="0" maxOccurs="11"/>
+			<xs:element name="Avg_LV" type="xs:float"/>
+			<xs:element name="LVEingabe" type="HWKBLueftungResultsDruck"/>
+			<xs:element name="Sum_QV" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LueftungsVerlusteMonatlich">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="d_Nutz" type="xs:float"/>
+			<xs:element name="t_Monat" type="xs:float"/>
+			<xs:element name="n_L_m" type="xs:float"/>
+			<xs:element name="LV_RLT" type="xs:float"/>
+			<xs:element name="QV_RLT" type="xs:float"/>
+			<xs:element name="LV_inf" type="xs:float"/>
+			<xs:element name="QV_inf" type="xs:float"/>
+			<xs:element name="LV_gesamt" type="xs:float"/>
+			<xs:element name="QV_gesamt" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SolareGewinneErg">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="Q" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMTransFlaecheBauteilTyp">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Transparent"/>
+			<xs:enumeration value="Opak"/>
+			<xs:enumeration value="Dummy"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TransFlaeche">
+		<xs:sequence>
+			<xs:element name="FlaechenBezeichnung" type="xs:string"/>
+			<xs:element name="BauteilBezeichnung" type="xs:string"/>
+			<xs:element name="BauteilUniqueID" type="xs:string"/>
+			<xs:element name="BauteilTyp" type="ENUMTransFlaecheBauteilTyp"/>
+			<xs:element name="Neigung" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="U" type="xs:float"/>
+			<xs:element name="f_i" type="xs:float"/>
+			<xs:element name="LT" type="xs:float"/>
+			<xs:element name="delta_LT_FH" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KlimadatenMonatlich">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="S_hor" type="xs:float"/>
+			<xs:element name="S_Nord" type="xs:float"/>
+			<xs:element name="S_NordOst" type="xs:float"/>
+			<xs:element name="S_Ost" type="xs:float"/>
+			<xs:element name="S_SüdOst" type="xs:float"/>
+			<xs:element name="S_Süd" type="xs:float"/>
+			<xs:element name="S_SüdWest" type="xs:float"/>
+			<xs:element name="S_West" type="xs:float"/>
+			<xs:element name="S_NordWest" type="xs:float"/>
+			<xs:element name="Tage" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransVerluste">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="QT" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Transmissionen">
+		<xs:sequence>
+			<xs:element name="Flaechen_Le">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="TransFlaeche" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_Lu">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="TransFlaeche" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_Lg">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="TransFlaeche" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WB_LT_IstDetailliert" type="xs:boolean"/>
+			<xs:element name="WB_LT_detailliert" type="xs:float"/>
+			<xs:element name="WB_LT_vereinfacht" type="xs:float"/>
+			<xs:element name="Sum_LT" type="xs:float"/>
+			<xs:element name="Verluste">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="TransVerluste" minOccurs="0" maxOccurs="11"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Flaechen_Le_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_Lg_exist" type="xs:boolean"/>
+			<xs:element name="Flaechen_Lu_exist" type="xs:boolean"/>
+			<xs:element name="Sum_LTe" type="xs:float"/>
+			<xs:element name="Sum_LTu" type="xs:float"/>
+			<xs:element name="Sum_LTg" type="xs:float"/>
+			<xs:element name="Sum_QT" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DruckLT">
+		<xs:sequence>
+			<xs:element name="Ages" type="xs:float"/>
+			<xs:element name="Uges" type="xs:float"/>
+			<xs:element name="Uavg" type="xs:float"/>
+			<xs:element name="LT" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DruckFT">
+		<xs:sequence>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="Share" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3Results">
+		<xs:sequence>
+			<xs:element name="OI3LF17" type="OI3LF17Results" minOccurs="0"/>
+			<xs:element name="OI3LF20" type="OI3LF20Results" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17Results">
+		<xs:sequence>
+			<xs:element name="KOF" type="xs:float"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="Lc" type="xs:float"/>
+			<xs:element name="OI_PEIne" type="xs:float"/>
+			<xs:element name="OI_PEI_pro_KOF" type="xs:float"/>
+			<xs:element name="OI_TGH_PEIne" type="xs:float"/>
+			<xs:element name="OI_GWP" type="xs:float"/>
+			<xs:element name="OI_GWP_pro_KOF" type="xs:float"/>
+			<xs:element name="OI_TGH_GWP" type="xs:float"/>
+			<xs:element name="OI_AP" type="xs:float"/>
+			<xs:element name="OI_AP_pro_KOF" type="xs:float"/>
+			<xs:element name="OI_TGH_AP" type="xs:float"/>
+			<xs:element name="OI3_TGH" type="xs:float"/>
+			<xs:element name="OI3_TGHlc" type="xs:float"/>
+			<xs:element name="OI3_TGHBGF" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="OI3LF17ConstructionResults" type="OI3LF17ConstructionResult" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OI3LF17WindowDoorResults" type="OI3LF17WindowDoorResult" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OI3LF17ConstructionWindowDoorPrintoutResults" type="OI3LF17ConstructionWindowDoorPrintoutResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20ConstructionLayerResult">
+		<xs:sequence>
+			<xs:element name="MasseProM2" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="delta_OI3_BS" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="LayerMaterialResults" type="OI3LF20ConstructionLayerMaterialResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20ConstructionLayerMaterialResult">
+		<xs:sequence>
+			<xs:element name="MasseProM2" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="delta_OI3_BS" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20ConstructionWindowDoorPrintoutResult">
+		<xs:sequence>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="BauteilArtBez" type="xs:string"/>
+			<xs:element name="BauteilUniqueID" type="xs:string"/>
+			<xs:element name="Area" type="xs:float"/>
+			<xs:element name="OI3Kon" type="xs:float"/>
+			<xs:element name="OI3Kon_Mal_Area" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="PEIne_Mal_Area" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="GWP_Mal_Area" type="xs:float"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20ConstructionResult">
+		<xs:sequence>
+			<xs:element name="ECTConstructionName" type="xs:string"/>
+			<xs:element name="ECTConstructionUniqueID" type="xs:string"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="PEIne_Punkte" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="GWP_Punkte" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="AP_Punkte" type="xs:float"/>
+			<xs:element name="OI3Kon" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="LayerResults" type="OI3LF20ConstructionLayerResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17ConstructionWindowDoorPrintoutResult">
+		<xs:sequence>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="BauteilArtBez" type="xs:string"/>
+			<xs:element name="BauteilUniqueID" type="xs:string"/>
+			<xs:element name="Area" type="xs:float"/>
+			<xs:element name="U" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17ConstructionResult">
+		<xs:sequence>
+			<xs:element name="ECTConstructionName" type="xs:string"/>
+			<xs:element name="ECTConstructionUniqueID" type="xs:string"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="LayerResults" type="OI3LF17ConstructionLayerResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17ConstructionLayerResult">
+		<xs:sequence>
+			<xs:element name="MasseProM2" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="LayerMaterialResults" type="OI3LF17ConstructionLayerMaterialResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17ConstructionLayerMaterialResult">
+		<xs:sequence>
+			<xs:element name="MasseProM2" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF17WindowDoorResult">
+		<xs:sequence>
+			<xs:element name="ECTWindowDoorName" type="xs:string"/>
+			<xs:element name="ECTWindowDoorUniqueID" type="xs:string"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<!-- KST dzt. nicht serialisiert!
+      <xs:element name="Glasmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Glasmaterial_GWP" type="xs:float"/>
+      <xs:element name="Glasmaterial_AP" type="xs:float"/>
+      <xs:element name="Glasmaterial_Area" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_GWP" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_AP" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_Area" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_GWP" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_AP" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_Area" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_GWP" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_AP" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_Area" type="xs:float"/>
+      -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20Results">
+		<xs:sequence>
+			<xs:element name="Lc" type="xs:float"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="OI3BG1" type="xs:float"/>
+			<xs:element name="OI3BG1_BGF" type="xs:float"/>
+			<xs:element name="OI3BG1_Lc" type="xs:float"/>
+			<xs:element name="KOF" type="xs:float"/>
+			<xs:element name="OI_PEIne" type="xs:float"/>
+			<xs:element name="OI_PEI_pro_KOF" type="xs:float"/>
+			<xs:element name="OI_GWP" type="xs:float"/>
+			<xs:element name="OI_GWP_pro_KOF" type="xs:float"/>
+			<xs:element name="Sum_Area_Mal_OI3Kon" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<xs:element name="IsValidDichte" type="xs:boolean"/>
+			<xs:element name="OI3LF20ConstructionResults" type="OI3LF20ConstructionResult" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OI3LF20WindowDoorResults" type="OI3LF20WindowDoorResult" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OI3LF20ConstructionWindowDoorPrintoutResults" type="OI3LF20ConstructionWindowDoorPrintoutResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3LF20WindowDoorResult">
+		<xs:sequence>
+			<xs:element name="ECTWindowDoorName" type="xs:string"/>
+			<xs:element name="ECTWindowDoorUniqueID" type="xs:string"/>
+			<xs:element name="PEIne" type="xs:float"/>
+			<xs:element name="PEIne_Punkte" type="xs:float"/>
+			<xs:element name="GWP" type="xs:float"/>
+			<xs:element name="GWP_Punkte" type="xs:float"/>
+			<xs:element name="AP" type="xs:float"/>
+			<xs:element name="AP_Punkte" type="xs:float"/>
+			<xs:element name="OI3Kon" type="xs:float"/>
+			<xs:element name="IsValid" type="xs:boolean"/>
+			<!-- KST dzt. nicht serialisiert!
+      <xs:element name="Glasmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Glasmaterial_GWP" type="xs:float"/>
+      <xs:element name="Glasmaterial_AP" type="xs:float"/>
+      <xs:element name="Glasmaterial_Area" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_GWP" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_AP" type="xs:float"/>
+      <xs:element name="Rahmenmaterial_Area" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_GWP" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_AP" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Sprossenmaterial_Area" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_GWP" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_AP" type="xs:float"/> 
+      <xs:element name="Sonstigesmaterial_PEIne" type="xs:float"/>
+      <xs:element name="Sonstigesmaterial_Area" type="xs:float"/>
+      -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EAWResultValue">
+		<xs:sequence>
+			<xs:element name="Referenz_spez" type="xs:float"/>
+			<xs:element name="Referenz_zone" type="xs:float"/>
+			<xs:element name="Standort_spez" type="xs:float"/>
+			<xs:element name="Standort_zone" type="xs:float"/>
+			<xs:element name="Anforderung_numWert" type="xs:float"/>
+			<xs:element name="Anforderung_erfuellt" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EAWResults">
+		<xs:sequence>
+			<xs:element name="HWB_ref" type="EAWResultValue"/>
+			<xs:element name="HWB" type="EAWResultValue"/>
+			<xs:element name="wwwb_2" type="EAWResultValue"/>
+			<xs:element name="KBstern" type="EAWResultValue"/>
+			<xs:element name="KB" type="EAWResultValue"/>
+			<xs:element name="BefEB" type="EAWResultValue"/>
+			<xs:element name="HTEB_RH" type="EAWResultValue"/>
+			<xs:element name="HTEB_WW" type="EAWResultValue"/>
+			<xs:element name="HTEB" type="EAWResultValue"/>
+			<xs:element name="KTEB" type="EAWResultValue"/>
+			<xs:element name="HEB" type="EAWResultValue"/>
+			<xs:element name="KEB" type="EAWResultValue"/>
+			<xs:element name="BelEB" type="EAWResultValue"/>
+			<xs:element name="BSB" type="EAWResultValue"/>
+			<xs:element name="HHSB" type="EAWResultValue"/>
+			<xs:element name="EEB" type="EAWResultValue"/>
+			<xs:element name="PEB" type="EAWResultValue"/>
+			<xs:element name="PEBnern" type="EAWResultValue"/>
+			<xs:element name="PEB_HEB_nern" type="EAWResultValue"/>
+			<xs:element name="PEBern" type="EAWResultValue"/>
+			<xs:element name="CO2" type="EAWResultValue"/>
+			<xs:element name="fGEE" type="EAWResultValue"/>
+			<xs:element name="LEK" type="EAWResultValue"/>
+			<xs:element name="PVExport" type="EAWResultValue"/>
+			<xs:element name="eAWZ_WW" type="EAWResultValue"/>
+			<xs:element name="eAWZ_RH" type="EAWResultValue"/>
+			<xs:element name="eAWZ_H" type="EAWResultValue"/>
+			<xs:element name="eAWZ_K" type="EAWResultValue"/>
+			<xs:element name="PEBbuero" type="EAWResultValue"/>
+			<xs:element name="CO2buero" type="EAWResultValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliert">
+		<xs:sequence>
+			<xs:element name="Beheizt" type="ErdverlusteDetailliertBeheizt"/>
+			<xs:element name="UnbeheizterKeller" type="ErdverlusteDetailliertUnbeheizterKeller"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertBeheizt">
+		<xs:sequence>
+			<xs:element name="Bodenplatten">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertBeheiztBodenplatten" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Kellerboeden">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertBeheiztKellerboden" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WaendeErde">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertBeheiztWandErde" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Bodenplatten_Exists" type="xs:boolean"/>
+			<xs:element name="Kellerboeden_Exists" type="xs:boolean"/>
+			<xs:element name="WaendeErde_Exists" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertUnbeheizterKellerDummy">
+		<xs:sequence>
+			<xs:element name="Dummy" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertUnbeheizterKeller">
+		<xs:sequence>
+			<xs:element name="Dummy" type="ErdverlusteDetailliertUnbeheizterKellerDummy"/>
+			<xs:element name="Bodenplatte">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertUnbeheiztBodenplatten" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Kellerboden">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertUnbeheiztKellerboden" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WandErde">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertUnbeheiztKellerWandErde" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GroundLosses">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertErdverlust" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VerlusteBauteileLuft">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertBauteil" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="VerlusteBauteileUnbeheiztKeller">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ErdverlusteDetailliertBauteil" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Erdverluste_Sum_Hg" type="xs:double"/>
+			<xs:element name="Lueftungsverluste_V" type="xs:double"/>
+			<xs:element name="Lueftungsverluste_Leitwert" type="xs:double"/>
+			<xs:element name="VerlusteBauteileLuft_Sum_A_mal_U" type="xs:double"/>
+			<xs:element name="VerlusteBauteileUnbeheiztKeller_Sum_A_mal_U" type="xs:double"/>
+			<xs:element name="Faktor" type="xs:double"/>
+			<xs:element name="Bodenplatte_Exists" type="xs:boolean"/>
+			<xs:element name="WandErde_Exists" type="xs:boolean"/>
+			<xs:element name="Kellerboden_Exists" type="xs:boolean"/>
+			<xs:element name="Erdverluste_Exists" type="xs:boolean"/>
+			<xs:element name="VerlusteBauteileLuft_Exists" type="xs:boolean"/>
+			<xs:element name="VerlusteBauteileUnbeheiztKeller_Exists" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertBeheiztBodenplatten">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Randdaemmung_Art" type="ENUMRanddaemmung"/>
+			<xs:element name="D_Rd" type="xs:double"/>
+			<xs:element name="dn_Rd" type="xs:double"/>
+			<xs:element name="Rn_Rd" type="xs:double"/>
+			<xs:element name="Ubf" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="Faktor" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertBeheiztKellerboden">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Ubf" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="Faktor" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertBeheiztWandErde">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Kellerboden_UniqueID" type="xs:string"/>
+			<xs:element name="Kellerboden_Name" type="xs:string"/>
+			<xs:element name="Ubw" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="Faktor" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertUnbeheiztBodenplatten">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Randdaemmung_Art" type="ENUMRanddaemmung"/>
+			<xs:element name="D_Rd" type="xs:double"/>
+			<xs:element name="dn_Rd" type="xs:double"/>
+			<xs:element name="Rn_Rd" type="xs:double"/>
+			<xs:element name="Ubf" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertUnbeheiztKellerboden">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Ubf" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertUnbeheiztKellerWandErde">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="R" type="xs:double"/>
+			<xs:element name="w" type="xs:double"/>
+			<xs:element name="P" type="xs:double"/>
+			<xs:element name="z" type="xs:double"/>
+			<xs:element name="Kellerboden_UniqueID" type="xs:string"/>
+			<xs:element name="Kellerboden_Name" type="xs:string"/>
+			<xs:element name="Ubw" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertErdverlust">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="Ubf_Ubw" type="xs:double"/>
+			<xs:element name="Hg" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErdverlusteDetailliertBauteil">
+		<xs:sequence>
+			<xs:element name="FlaechenName" type="xs:string"/>
+			<xs:element name="BauteilName" type="xs:string"/>
+			<xs:element name="A" type="xs:double"/>
+			<xs:element name="U" type="xs:double"/>
+			<xs:element name="A_mal_U" type="xs:double"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Energieindikatoren">
+		<xs:sequence>
+			<xs:element name="e_AWZ_WW" type="xs:double"/>
+			<xs:element name="e_AWZ_RH" type="xs:double"/>
+			<xs:element name="e_AWZ_H" type="xs:double"/>
+			<xs:element name="e_AWZ_K" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

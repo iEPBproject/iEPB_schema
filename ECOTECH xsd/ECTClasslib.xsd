@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="ECTGlobalTypes.xsd"/>
+	<xs:include schemaLocation="ECTWindowDoor.xsd"/>
+	<xs:include schemaLocation="ECTConstruction.xsd"/>
+	<xs:include schemaLocation="ECTConstructionRes.xsd"/>
+	<xs:include schemaLocation="ECTMaterial.xsd"/>
+	<xs:include schemaLocation="ECTGeometry.xsd"/>
+	<xs:include schemaLocation="ECTZone.xsd"/>
+	<xs:include schemaLocation="ECTProjectData.xsd"/>
+	<xs:element name="ECTClasslib">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ECTMaterials" minOccurs="0"/>
+				<xs:element ref="ECTWindowDoors" minOccurs="0"/>
+				<xs:element ref="ECTConstructions" minOccurs="0"/>
+				<xs:element ref="ECTConstructionsRes" minOccurs="0"/>
+				<xs:element ref="ECTGeometries" minOccurs="0"/>
+				<xs:element ref="ECTZones" minOccurs="0"/>
+				<xs:element ref="ECTProjectData" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

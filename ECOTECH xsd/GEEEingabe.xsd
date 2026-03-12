@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="ECTEPBD2011GEE">
+	<xs:include schemaLocation="GEEGlobalTypes.xsd"/>
+	<xs:simpleType name="ENUMGEEInputSchemaVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EingabeSchemaVersion_38"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T03">
+		<xs:annotation>
+			<xs:documentation>
+        'Wärmebagabesystem in Kombination mit Systemtemperaturen nach ÖNORM H 5056
+        'Tabelle 3: Systemtemperaturen theta_VL,ne und theta_RL,ne [°C]
+        'Tabelle 4: Heizkörperexponent n_HK [-]
+        'Tabelle 23: Spezifischer Wärmeverlust q_H,WA,2 [W/m2]
+        'Tabelle 54: Elektr. Leistungsaufnahme - Hilfsenergie [kW]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="FancoilResidentialBuilding"/>
+			<xs:enumeration value="FancoilNonResidentialBuilding"/>
+			<xs:enumeration value="Radiator9070"/>
+			<xs:enumeration value="Radiator7055"/>
+			<xs:enumeration value="Radiator6035"/>
+			<xs:enumeration value="Radiator5545"/>
+			<xs:enumeration value="Radiator5535"/>
+			<xs:enumeration value="Radiator5030"/>
+			<xs:enumeration value="Radiator4030"/>
+			<xs:enumeration value="PanelHeating6035"/>
+			<xs:enumeration value="PanelHeating4030"/>
+			<xs:enumeration value="PanelHeating3528"/>
+			<xs:enumeration value="PanelHeating3025"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T05">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Warmwasser-Armaturen nach ÖNORM H 5056
+        'Tabelle 5: Spezifischer Wärmeverlust q_TW,WA,1 [W/m2]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="TwoHandleValve"/>
+			<xs:enumeration value="SingleLeverValve"/>
+			<xs:enumeration value="ThermostaticValve"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T06">
+		<xs:annotation>
+			<xs:documentation>
+        'Wärmeverbrauchsermittlung Warmwasser nach ÖNORM H 5056
+        'Tabelle 6: Spezifischer Wärmeverlust q_TW,WA,2 [W/m2]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Individual"/>
+			<xs:enumeration value="FlatRate"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T09">
+		<xs:annotation>
+			<xs:documentation>
+        'Wärmmeverlust Stichleitung nach ÖNORM H 5056
+        'Tabelle 9: Verlust q_Ro,A [W/m]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Steel"/>
+			<xs:enumeration value="Copper"/>
+			<xs:enumeration value="Plastic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumPipeInsulation">
+		<xs:annotation>
+			<xs:documentation>
+        'Dämmung der Leitungen nach ÖNORM H 5056
+        'Tabelle 11: Wärmeanbgabe q_Ro - Warmwasserbereitung [W/(m.K)]
+        'Tabelle 12: Faktor äquivalente Leitungslänge f_ero,1 und f_ero,2 - Warmwasser [-]
+        'Tabelle 27: Wärmeabgabe q_Ro - Heizung und Solaranlage [W/(m.K)]
+        'Tabelle 28: Faktor äquivalente Leitungslänge f_ero,1 und f_ero,2 - Heizung [-]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="_21insulated"/>
+			<xs:enumeration value="_32insulated"/>
+			<xs:enumeration value="_33insulated"/>
+			<xs:enumeration value="_23insulated"/>
+			<xs:enumeration value="_13insulated"/>
+			<xs:enumeration value="_uninsulated"/>
+			<!--OIB 6-2019-->
+			<!--OIB 6-2019-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T12">
+		<xs:annotation>
+			<xs:documentation>
+        'Dämmung der Armaturen nach ÖNORM H 5056
+        'Tabelle 12: Faktor äquivalente Leitungslänge f_ero,1 und f_ero,2 - Warmwasser [-]
+        'Tabelle 28: Faktor äquivalente Leitungslänge f_ero,1 und f_ero,2 - Heizung [-]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Insulated"/>
+			<xs:enumeration value="Uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T15">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Basisanschlüsse nach ÖNORM H 5056
+        'Tabelle 15: Verlust der Anschlußteile q_at [W/K] - Warmwasser
+        'Tabelle 31: Verlust der Anschlußteile q_at [W/K] - Heizung
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Insulated"/>
+			<xs:enumeration value="Uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T16">
+		<xs:annotation>
+			<xs:documentation>
+        'E-Patrone nach ÖNORM H 5056
+        'Anschlüsse Heizregister Solaranlage nach ÖNORM H 5056
+        'Tabelle 16: Verlust der Anschlußteile q_at [W/K] - Warmwasser
+        'Tabelle 32: Verlust der Anschlußteile q_at [W/K] - Heizung
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="NonExistent"/>
+			<xs:enumeration value="Insulated"/>
+			<xs:enumeration value="Uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T22">
+		<xs:annotation>
+			<xs:documentation>
+        Art der Heizungsregelung nach ÖNORM H 5056
+        Tabelle 22: Spezifischer Wärmeverlust q_H,WA,1 [W/m2]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="IndividualRoomControlControlDevice"/>
+			<xs:enumeration value="IndividualRoomControlPI"/>
+			<xs:enumeration value="RoomThermostat"/>
+			<xs:enumeration value="IndividualRoomControlThermostat"/>
+			<xs:enumeration value="ControlDevice"/>
+			<xs:enumeration value="NoControl"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T24">
+		<xs:annotation>
+			<xs:documentation>
+        'Wärmeverbrauchsermittlung Heizung nach ÖNORM H 5056
+        'Tabelle 24: Spezifischer Wärmeverlust q_H,WA,3 [W/m2]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Individual"/>
+			<xs:enumeration value="FlatRate"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T33">
+		<xs:annotation>
+			<xs:documentation>
+        'Art des Wärmespeichers nach ÖNORM H 5056
+        'Tabelle 30: Nenninhalt V_H,WS [Liter]
+        'Tabelle 33: Betriebstemperatur theta_H,WS,m [°C]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="NoStorage"/>
+			<xs:enumeration value="BufferStorage"/>
+			<xs:enumeration value="LoadBalanceHP"/>
+			<xs:enumeration value="LoadBalanceBoiler"/>
+			<xs:enumeration value="LoadBalanceSolar"/>
+			<xs:enumeration value="BufferStorageSolar"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5056T37">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Raumheizgeräte nach ÖNORM H 5056
+        'Tabelle 37: Energie-Aufwandszahl-Faktor f_EAZ [-]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="HearthMultiple"/>
+			<xs:enumeration value="CoalFiredStove"/>
+			<xs:enumeration value="TiledStove"/>
+			<xs:enumeration value="PelletsFiredStove"/>
+			<xs:enumeration value="GasFiredStove"/>
+			<xs:enumeration value="OilFiredStove"/>
+			<xs:enumeration value="WoodFiredStove"/>
+			<!--OIB 6-2019-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumPosition">
+		<xs:annotation>
+			<xs:documentation>
+        'Lage der Rohrleitungen
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="_100heated"/>
+			<xs:enumeration value="_75heated"/>
+			<xs:enumeration value="_50heated"/>
+			<xs:enumeration value="_25heated"/>
+			<xs:enumeration value="_unheated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumHotWaterStorage">
+		<xs:annotation>
+			<xs:documentation>
+        'Art des Warmwasserspeichers nach ÖNORM H 5056
+        'Tabelle 13: Verlust bei Prüfbedingungen q_b,WS [kWh/d]
+        'Tabelle 14: Nenninhalt V_TW,WS [Liter]
+        'Tabelle 17: Mittlere Betriebstemperaturen [°C]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="NoStorage"/>
+			<xs:enumeration value="IndirectOilGasSolidCH"/>
+			<xs:enumeration value="IndirectSolarHP"/>
+			<xs:enumeration value="DirectElectric"/>
+			<xs:enumeration value="SmallElectricStorage"/>
+			<xs:enumeration value="DirectGas"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumGenerationHeating">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Wärmebereitstellung für Heizung
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="CentralHeatingBoiler"/>
+			<xs:enumeration value="Hearth"/>
+			<xs:enumeration value="Electric"/>
+			<xs:enumeration value="HE_HeatExchanger"/>
+			<xs:enumeration value="HP_monovalent"/>
+			<xs:enumeration value="HP_bivalent_alternating"/>
+			<xs:enumeration value="HP_bivalent_parallel"/>
+			<xs:enumeration value="HP_Gas"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumGenerationHotWater">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Wärmebereitstellung für Warmwasser
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Combined"/>
+			<xs:enumeration value="CentralHeatingBoiler"/>
+			<xs:enumeration value="Electric"/>
+			<xs:enumeration value="HE_HeatExchanger"/>
+			<xs:enumeration value="HeatPump"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeHeatExchanger">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Secondary"/>
+			<xs:enumeration value="Tertiary_uninsulatedHE"/>
+			<xs:enumeration value="Tertiary_insulatedHE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--OIB 6-2019-->
+	<xs:simpleType name="enumBoilerType">
+		<xs:annotation>
+			<xs:documentation>
+        'Kesseltyp
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="StandardBoiler"/>
+			<xs:enumeration value="LowTemperatureBoiler"/>
+			<xs:enumeration value="CondensingBoiler"/>
+			<xs:enumeration value="CombiHeater"/>
+			<xs:enumeration value="CombiHeaterSmallStorage"/>
+			<xs:enumeration value="SolidFuel_conveyedManually"/>
+			<xs:enumeration value="SolidFuel_conveyedAuto"/>
+			<xs:enumeration value="SolidFuelCondensing_conveyedAuto"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumOperationMode">
+		<xs:annotation>
+			<xs:documentation>
+        'Betriebsweise Heizkessel (gleitend/konstant)
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="SlidingMode"/>
+			<xs:enumeration value="ConstantMode"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumConveyer">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Biomasseeinbringung
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="NoConveyer"/>
+			<xs:enumeration value="SpiralConveyor"/>
+			<xs:enumeration value="BlowerConveyer"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumHPGasType">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Gaswärmepumpe
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="GasEngineHeatPump"/>
+			<xs:enumeration value="GasAbsorptionHeatPump"/>
+			<xs:enumeration value="AbsorptionZeoliteHeatPump"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumHPSourceHeatingMedium">
+		<xs:annotation>
+			<xs:documentation>
+        'Heizungs- und Quellmedium
+        'RTH 29.04.2010: Erstellt
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="AmbientAir_Water"/>
+			<xs:enumeration value="AmbientAir_HotWater"/>
+			<xs:enumeration value="ExhaustAir_SupplyAir"/>
+			<xs:enumeration value="ExhaustAir_Water"/>
+			<xs:enumeration value="ExhaustAir_HotWater"/>
+			<xs:enumeration value="GroundWater_Water"/>
+			<xs:enumeration value="GreyWater_Water"/>
+			<xs:enumeration value="BrineFlatCollector_Water"/>
+			<xs:enumeration value="BrineDepthProbe_Water"/>
+			<xs:enumeration value="DirectEvaporation_Water"/>
+			<xs:enumeration value="BasementAir_HotWater"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumCalcSolarCrop">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="EN_15316">
+				<xs:annotation>
+					<xs:documentation>Berechnung nach ÖNORM EN 15316-4-3</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="H_5056">
+				<xs:annotation>
+					<xs:documentation>Berechnung nach ÖNORM H 5056 (Beschränkung 20% solare Deckung)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Polysun">
+				<xs:annotation>
+					<xs:documentation>Ergebnis aus Polysun</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeSolarPlant">
+		<xs:annotation>
+			<xs:documentation>
+        'Art der Solaranlage nach ÖNORM H 5056
+        'Diese Option steuert den Zugriff auf Formeln (130a) bis (133c)
+        'Tabelle 61: Betriebsdauer t_Sol,p und t_Sol,Ve [h/a]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="OnlyHotWater"/>
+			<xs:enumeration value="PriorityHotWater"/>
+			<xs:enumeration value="PriorityHeating"/>
+			<xs:enumeration value="DemandWeighted"/>
+			<xs:enumeration value="OnlyHeating"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeSolarCollector">
+		<xs:annotation>
+			<xs:documentation>
+        'Art des Solarkollektors nach ÖNORM H 5056
+        'Tabelle 45: Minimale Speichergröße pro m2 Apertur [Liter/m2]
+        'Tabelle 50: Konversionsrate eta_0,Ap [-] und linearer Verlustfaktor a_1,Ap [-]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="SimpleType"/>
+			<xs:enumeration value="HighlySelective"/>
+			<xs:enumeration value="VacuumTubeCollector"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumPVVentilation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined_2"/>
+			<xs:enumeration value="Unventilated"/>
+			<xs:enumeration value="ModeratelyVentilated"/>
+			<xs:enumeration value="HighlyVentilated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumPVModule">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined_2"/>
+			<xs:enumeration value="FreeInputPeekPower"/>
+			<xs:enumeration value="Silicon_monocrystalline"/>
+			<xs:enumeration value="Silicon_polycrystalline"/>
+			<xs:enumeration value="Silicon_amorphous"/>
+			<xs:enumeration value="CopperIndiumGalliumDiselenide"/>
+			<xs:enumeration value="CadmiumTelluride"/>
+			<xs:enumeration value="OtherThinLayers"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeVentilation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="enumTypeVentilation_NotDefined"/>
+			<xs:enumeration value="enumTypeVentilation_WindowVentilation"/>
+			<xs:enumeration value="enumTypeVentilation_AirRenewal"/>
+			<xs:enumeration value="enumTypeVentilation_ProcessRelatedVVF"/>
+			<xs:enumeration value="enumTypeVentilation_ProcessRelatedCVF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumHeatExchanger">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 219-07-31: Wärmetauscher nach ÖNORM B 8110-6:2019 Tabellen 6 und 8
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="enumHeatExchanger_NotDefined"/>
+			<xs:enumeration value="enumHeatExchanger_None"/>
+			<xs:enumeration value="enumHeatExchanger_FreeInput"/>
+			<xs:enumeration value="enumHeatExchanger_Counterflow_withoutMostureRecovery"/>
+			<xs:enumeration value="enumHeatExchanger_Counterflow_withMostureRecovery"/>
+			<xs:enumeration value="enumHeatExchanger_Rotary_withoutSorption"/>
+			<xs:enumeration value="enumHeatExchanger_Rotary_withSorption"/>
+			<xs:enumeration value="enumHeatExchanger_CrossFlow"/>
+			<xs:enumeration value="enumHeatExchanger_otherTypesHeatRecovery"/>
+			<xs:enumeration value="enumHeatExchanger_CircularCompound"/>
+			<xs:enumeration value="enumHeatExchanger_Plate_withoutMostureRecovery"/>
+			<xs:enumeration value="enumHeatExchanger_Plate_withMostureRecovery"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enum_f_WRG">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 18.02.2015: Implementiert
+        'Enum Für die Abminderung des Temperaturänderungsgrades
+        'ÖNORM B 8110-6:2014 Abschnitt 6.2.4
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="enum_f_WRG_NotDefined"/>
+			<xs:enumeration value="enum_f_WRG_FreeInput"/>
+			<xs:enumeration value="enum_f_WRG_ExistingDucts_LT2cmInsulated"/>
+			<xs:enumeration value="enum_f_WRG_MinimumInsulation_ONH5155"/>
+			<xs:enumeration value="enum_f_WRG_MinimumInsulation_5cm"/>
+			<xs:enumeration value="enum_f_WRG_Detailed"/>
+			<xs:enumeration value="enum_f_WRG_no_ducts_between_VentilationUnit_and_BuildingEnvelope"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumGroundHeatExchanger">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 18.02.2015: Implementiert
+        'Erdwärmetauscher nach ÖNORM B 8110-6 Tabelle 8 bzw. 10
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="enumGroundHeatExchanger_NotDefined"/>
+			<xs:enumeration value="enumGroundHeatExchanger_None">
+				<xs:annotation>
+					<xs:documentation>
+            'd.h. kein Erdwärmetauscher
+          </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumGroundHeatExchanger_FreeInput"/>
+			<xs:enumeration value="enumGroundHeatExchanger_known"/>
+			<xs:enumeration value="enumGroundHeatExchanger_unknown"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeConditioning">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="enumTypeConditioning_NotDefined"/>
+			<xs:enumeration value="enumTypeConditioning_NoVACSystem"/>
+			<xs:enumeration value="enumTypeConditioning_VentilationOnly"/>
+			<xs:enumeration value="enumTypeConditioning_Heating"/>
+			<xs:enumeration value="enumTypeConditioning_Cooling"/>
+			<xs:enumeration value="enumTypeConditioning_HeatingMoistening"/>
+			<xs:enumeration value="enumTypeConditioning_HeatingCooling"/>
+			<xs:enumeration value="enumTypeConditioning_HeatingCoolingMoistening"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumAirHeatingGeneration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Keine"/>
+			<xs:enumeration value="DirectlyHeated"/>
+			<xs:enumeration value="IndirectlyHeated"/>
+			<xs:enumeration value="CombinedHeated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumDamperRegister">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="enumDamperRegister_None"/>
+			<xs:enumeration value="enumDamperRegister_Regulated"/>
+			<xs:enumeration value="enumDamperRegister_Unregulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumPositionAirDucts">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="InsideBuilding"/>
+			<xs:enumeration value="OutsideBuildingInsulated"/>
+			<xs:enumeration value="OutsideBuildingUninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumTypeMoistening">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Keine"/>
+			<xs:enumeration value="EvapourationMoistening"/>
+			<xs:enumeration value="VapourMoistening"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumMoistener">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="enumMoistener_None"/>
+			<xs:enumeration value="enumMoistener_ContactTrickle">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_CirculatingSprayUncontrolled">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_CirculatingSprayValveControlled">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_CirculatingSpraySyncronised">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_CirculatingSprayRotationSpeedControlled">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_HighPressure">
+				<xs:annotation>
+					<xs:documentation>Verdunstungsbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_ElectrodeResistanceHeating">
+				<xs:annotation>
+					<xs:documentation>Dampfbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_GasFired">
+				<xs:annotation>
+					<xs:documentation>Dampfbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_OilFired">
+				<xs:annotation>
+					<xs:documentation>Dampfbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_LongDistanceSteamWithoutJackedHeating">
+				<xs:annotation>
+					<xs:documentation>Dampfbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="enumMoistener_LongDistanceSteamWithJackedHeating">
+				<xs:annotation>
+					<xs:documentation>Dampfbefeuchter</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumMoistureAmount">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="enumMoistureAmount_6g"/>
+			<xs:enumeration value="enumMoistureAmount_8g"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumCoolingSystem">
+		<xs:annotation>
+			<xs:documentation>
+        'Kühlanlagensysteme für die Berechnung nach ÖNORM H 5058
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="enumDamperRegister_None"/>
+			<xs:enumeration value="A1_AirOnlyUnit_CentralVAC"/>
+			<xs:enumeration value="A2_AirOnlyUnit_DecentralVAC"/>
+			<xs:enumeration value="B1_AirWaterUnit_InductionDevice"/>
+			<xs:enumeration value="B2_AirWaterUnit_FanCoilSystem"/>
+			<xs:enumeration value="C1_ThermallyActiveCooling_CoolingCeiling"/>
+			<xs:enumeration value="C2_ThermallyActiveCooling_ComponentActivation"/>
+			<xs:enumeration value="D1_CombinedSystem:CentralVACSystem"/>
+			<xs:enumeration value="E1_PassiveCoolingSystem_FreeCoolingCoolingTower"/>
+			<xs:enumeration value="E2_PassiveCoolingSystem_FreeCoolingWellWater"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_ColdWaterSystemVAC">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 14.05.2008: Kaltwassersysteme - H 5058 Tab. 3
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="ColdWaterSystemVAC_ColdWater_06_12"/>
+			<xs:enumeration value="ColdWaterSystemVAC_ColdWater_14_18"/>
+			<xs:enumeration value="ColdWaterSystemVAC_ColdWater_18_20"/>
+			<xs:enumeration value="ColdWaterSystemVAC_DirectEvaporation"/>
+			<xs:enumeration value="ColdWaterSystemVAC_FreeCoolingCoolingTower"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_ColdWaterSystemCON">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 14.05.2008: Kaltwasssersysteme - H 5058 Tab. 4
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="ColdWaterSystemVAC_ColdWater_06_12"/>
+			<xs:enumeration value="ColdWaterSystemCON_ColdWater_08_14_FanCoil"/>
+			<xs:enumeration value="ColdWaterSystemCON_ColdWater_14_18_Induction"/>
+			<xs:enumeration value="ColdWaterSystemCON_ColdWater_16_18_CoolingCeiling"/>
+			<xs:enumeration value="ColdWaterSystemCON_ColdWater_18_20_ComponentActivation"/>
+			<xs:enumeration value="ColdWaterSystemCON_DirectEvaporation"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_RefrigerationMachine">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 16.05.2008: Art der Kältemaschine
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="CompressionRefrigerationCentralDeviceWaterCooled"/>
+			<xs:enumeration value="CompressionRefrigerationCentralDeviceAirCooled"/>
+			<xs:enumeration value="CompressionRefrigerationLocalDeviceAirCooled"/>
+			<xs:enumeration value="AbsorptionRefrigeration"/>
+			<xs:enumeration value="CommunityCooling"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Factor_fk">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 14.05.2008: H 5058 Abschnitt 10.3, Faktor f_k
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="innerhalb"/>
+			<xs:enumeration value="enumH5058_Factor_fk_outside_insulated"/>
+			<xs:enumeration value="enumH5058_Factor_fk_outside_uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Compressor">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Art des Verdichters - Zugriff auuf H 5058 Tab. 8
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="PistonScrollCompressor"/>
+			<xs:enumeration value="ScrewCompressor"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_PlantSystem">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Anlagensystem nach H 5058 Tabelle 9
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="PlantSystem_SingleSplit"/>
+			<xs:enumeration value="PlantSystem_MultiSplit"/>
+			<xs:enumeration value="PlantSystem_CompactUnit"/>
+			<xs:enumeration value="PlantSystem_VRFSystem"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eunmH5058_HeatingMediumInletTemperature">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Heizmedieneintrittstemperatur nach H 5058 Tabelle 10
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="HeatingMediumInletTemperature_080_deg_C"/>
+			<xs:enumeration value="HeatingMediumInletTemperature_090_deg_C"/>
+			<xs:enumeration value="HeatingMediumInletTemperature_110_deg_C"/>
+			<xs:enumeration value="HeatingMediumInletTemperature_130_deg_C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_ColdWaterOutletTemperature">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Kaltwasseraustrittstemperatur nach H 5058 Tabelle 10
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="ColdWaterOutletTemperature_06"/>
+			<xs:enumeration value="ColdWaterOutletTemperature_14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Ventilatorsystem">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Ventilatorsystem - H 5058 Tabelle 14
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Ventilatorsystem_None"/>
+			<xs:enumeration value="Ventilatorsystem_RoomAirConditioner_DX_AirDistributionDucts"/>
+			<xs:enumeration value="Ventilatorsystem_RoomAirConditioner_DX_CeilingCasette"/>
+			<xs:enumeration value="Ventilatorsystem_RoomAirConditioner_DX_ParapetDevice"/>
+			<xs:enumeration value="Ventilatorsystem_ColdwaterFanCoil_ColdWater_06"/>
+			<xs:enumeration value="Ventilatorsystem_ColdwaterFanCoil_ColdWater_14"/>
+			<xs:enumeration value="Ventilatorsystem_ColdwaterFanCoil_AirDistributionDucts"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_PressureDifference">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Druckverluste von Komponenten in Verteilkreisen - H 5058 Tabelle 16
+        'RTH 06.10.2010: Kein WEärmeüberträger am Erzeuger und am Verbraucher ergänzt
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="PressureDifference_PlateEvaporator"/>
+			<xs:enumeration value="PressureDifference_PipeEvaporator"/>
+			<xs:enumeration value="PressureDifference_Condensor"/>
+			<xs:enumeration value="PressureDifference_NoHeatExchangerGenerator"/>
+			<xs:enumeration value="PressureDifference_CentralAirCooler"/>
+			<xs:enumeration value="PressureDifference_CentralAirHeater"/>
+			<xs:enumeration value="PressureDifference_InductionDevice"/>
+			<xs:enumeration value="PressureDifference_CoolingCeiling"/>
+			<xs:enumeration value="PressureDifference_NoHeatExchangerLoad"/>
+			<xs:enumeration value="PressureDifference_ThrottleValveSteady"/>
+			<xs:enumeration value="PressureDifference_ThrottleValveOnOff"/>
+			<xs:enumeration value="PressureDifference_ThreeWayValve"/>
+			<xs:enumeration value="PressureDifference_NoControlValve"/>
+			<xs:enumeration value="PressureDifference_CoolingTowerClosed"/>
+			<xs:enumeration value="PressureDifference_CoolingTowerOpen"/>
+			<xs:enumeration value="PressureDifference_CoolingTowerNone"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_OperationTime">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 11.07.2008: Betriebszeit der Pumpen - H 5058 Tabelle 17
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="OperationTime_FullyAutomatedDemandDriven"/>
+			<xs:enumeration value="OperationTime_SeasonalShutdownNightWeekend"/>
+			<xs:enumeration value="OperationTime_SeasonalShutdownInMonthsWithoutCoolingDemand"/>
+			<xs:enumeration value="OperationTime_WholeYear"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_CorrectionAdaption">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Korrektur für die Adaption (H 5058 Kap. 16.2.9)
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="CorrectionAdaption_AdaptedPumps"/>
+			<xs:enumeration value="CorrectionAdaption_NotAdaptedPumps"/>
+			<xs:enumeration value="CorrectionAdaption_ElectronicAdaptedPumps"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Compressor_PartialLoadControl">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008: Alte Enum
+        'RTH 14.07.2008: Art der Teillastregelung, H 5058 Tabellle 7 und 12
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="T07_I_PistonScrollCompressor_OnOffControl_chopping"/>
+			<xs:enumeration value="T07_II_PistonScrollCompressor_multilevel_switchable"/>
+			<xs:enumeration value="T07_III_PistonCompressor_controled_by_CylinderSwitching"/>
+			<xs:enumeration value="T07_IV_PistonScrollCompressor_with_HotGasBypassContol"/>
+			<xs:enumeration value="T07_V_ScrewCompressor_with_ValveGearControl_SingleLevel"/>
+			<xs:enumeration value="T07_VI_TurboCompressor_with_InletthrottleControl"/>
+			<xs:enumeration value="T07_VII_LiBr_H20_AbsorptionRefrigeration"/>
+			<xs:enumeration value="T12_A_PistonScrollCompressor_OnOffControl_chopping"/>
+			<xs:enumeration value="T12_B_PistonScrollCompressor_multilevel_switchable"/>
+			<xs:enumeration value="T12_C_PistonCompressor_controled_by_CylinderSwitching"/>
+			<xs:enumeration value="T12_D_OnOffControl_SingleZoneSystem"/>
+			<xs:enumeration value="T12_E_OnOffControl_MultipleZoneSystem"/>
+			<xs:enumeration value="T12_F_InverterControl_SingleZoneSystem"/>
+			<xs:enumeration value="T12_G_VRF_MultipleZoneSystem"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Temperatures">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="ColdWaterOutlet_Evaporation_06_00_deg_C"/>
+			<xs:enumeration value="ColdWaterOutlet_Evaporation_14_08_deg_C"/>
+			<xs:enumeration value="ColdwaterOutletTemperature_06_deg_C"/>
+			<xs:enumeration value="ColdwaterOutletTemperature_14_deg_C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_RefrigeratingAgent">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="RefrigeratingAgent_R134a"/>
+			<xs:enumeration value="RefrigeratingAgent_R407c"/>
+			<xs:enumeration value="RefrigeratingAgent_R717"/>
+			<xs:enumeration value="RefrigeratingAgent_R22"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058_Cooler">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008 - Art des Kühlers - H 5058 Tabellen 7, 10 und 11
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Cooler_DryCooler"/>
+			<xs:enumeration value="Cooler_EvaporativeCooler"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumH5058Recooler">
+		<xs:annotation>
+			<xs:documentation>
+        'RTH 19.05.2008 - Rückkühlung - Art Rückkühler - H 5058 Tabelle 6
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Recooler_DryRCooler"/>
+			<xs:enumeration value="Recooler_EvaporativeCooler_openCircuit"/>
+			<xs:enumeration value="Recooler_EvaporativeCooler_closedCircuit"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="GEEInputFreeInputValue">
+		<xs:sequence>
+			<xs:element name="Wert" type="xs:float"/>
+			<xs:element name="FreieEingabe" type="xs:boolean"/>
+			<xs:element name="Default" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputFreeInputValueDouble">
+		<xs:sequence>
+			<xs:element name="Wert" type="xs:double"/>
+			<xs:element name="FreieEingabe" type="xs:boolean"/>
+			<xs:element name="Default" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputMonthlyValue">
+		<xs:sequence>
+			<xs:element name="January" type="xs:float"/>
+			<xs:element name="February" type="xs:float"/>
+			<xs:element name="March" type="xs:float"/>
+			<xs:element name="April" type="xs:float"/>
+			<xs:element name="May" type="xs:float"/>
+			<xs:element name="June" type="xs:float"/>
+			<xs:element name="July" type="xs:float"/>
+			<xs:element name="August" type="xs:float"/>
+			<xs:element name="September" type="xs:float"/>
+			<xs:element name="October" type="xs:float"/>
+			<xs:element name="November" type="xs:float"/>
+			<xs:element name="December" type="xs:float"/>
+			<xs:element name="TOTAL" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputMonthlyValueDouble">
+		<xs:sequence>
+			<xs:element name="January" type="xs:double"/>
+			<xs:element name="February" type="xs:double"/>
+			<xs:element name="March" type="xs:double"/>
+			<xs:element name="April" type="xs:double"/>
+			<xs:element name="May" type="xs:double"/>
+			<xs:element name="June" type="xs:double"/>
+			<xs:element name="July" type="xs:double"/>
+			<xs:element name="August" type="xs:double"/>
+			<xs:element name="September" type="xs:double"/>
+			<xs:element name="October" type="xs:double"/>
+			<xs:element name="November" type="xs:double"/>
+			<xs:element name="December" type="xs:double"/>
+			<xs:element name="TOTAL" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GEEInput" type="GEEInput"/>
+	<xs:complexType name="GEEInput">
+		<xs:sequence>
+			<xs:element name="SchemaVersion" type="ENUMGEEInputSchemaVersion"/>
+			<xs:element name="General" type="GEEInputGeneral"/>
+			<xs:element name="Heating" type="GEEInputEquipmentHeating"/>
+			<xs:element name="HotWater" type="GEEInputEquipmentHotWater"/>
+			<xs:element name="SolarHeat" type="GEEInputEquipmentSolarHeat"/>
+			<xs:element name="Photovoltaics" type="GEEInputSystemPhotovoltaics"/>
+			<xs:element name="VAC" type="GEEInputEquipmentVAC"/>
+			<xs:element name="Cooling" type="GEEInputEquipmentCooling"/>
+			<!--KST 08.04.2015 Nicht mehr benötigt 
+      <xs:element name="HeatPump" type="GEEInputEquipmentHeatPump"/>
+          KST 08.04.2015 Nicht mehr benötigt -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputGeneral">
+		<xs:sequence>
+			<xs:element name="CreatedOn" type="xs:dateTime"/>
+			<xs:element name="RecentChangeOn" type="xs:dateTime"/>
+			<xs:element name="Denomination" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<xs:element name="IsOIBRichtlinieStandardEquipmentDB" type="xs:boolean"/>
+			<xs:element name="IsReferenceEquipment" type="xs:boolean"/>
+			<xs:element name="HW_StorageExistent" type="xs:boolean"/>
+			<xs:element name="HW_H_IsCombined" type="xs:boolean"/>
+			<xs:element name="HW_Storage_inHeated" type="xs:boolean"/>
+			<xs:element name="HW_Modulating" type="xs:boolean"/>
+			<xs:element name="HW_Boiler_inHeated" type="xs:boolean"/>
+			<xs:element name="HW_Generation_ElectricHeating" type="xs:boolean"/>
+			<xs:element name="HW_Generation_HeatExchanger" type="xs:boolean"/>
+			<xs:element name="HW_Generation_HeatingBoiler" type="xs:boolean"/>
+			<xs:element name="HW_Ciculation" type="xs:boolean"/>
+			<xs:element name="HW_StorageIndirectlyHeated" type="xs:boolean"/>
+			<xs:element name="HW_OilPreheating" type="xs:boolean"/>
+			<xs:element name="HW_SpiralCoveyor" type="xs:boolean"/>
+			<xs:element name="HW_BlowerConveyer" type="xs:boolean"/>
+			<xs:element name="HW_Generation_HP" type="xs:boolean"/>
+			<xs:element name="H_OperationModeSliding" type="xs:boolean"/>
+			<xs:element name="H_Storage_inHeated" type="xs:boolean"/>
+			<xs:element name="H_Boiler_inHeated" type="xs:boolean"/>
+			<xs:element name="H_StorageExistent" type="xs:boolean"/>
+			<xs:element name="H_Modulating" type="xs:boolean"/>
+			<xs:element name="H_Storage_BufferStorage" type="xs:boolean"/>
+			<xs:element name="H_Storage_LoadBalance_HP" type="xs:boolean"/>
+			<xs:element name="H_Storage_LoadBalance_Boiler" type="xs:boolean"/>
+			<xs:element name="H_Storage_LoadBalance_Solar" type="xs:boolean"/>
+			<xs:element name="H_Generation_ElectricHeating" type="xs:boolean"/>
+			<xs:element name="H_Generation_HeatExchanger" type="xs:boolean"/>
+			<xs:element name="H_Generation_Hearth" type="xs:boolean"/>
+			<xs:element name="H_Generation_HeatingBoiler" type="xs:boolean"/>
+			<xs:element name="H_FanCoil" type="xs:boolean"/>
+			<xs:element name="H_OilPreheating" type="xs:boolean"/>
+			<xs:element name="H_SpiralCoveyor" type="xs:boolean"/>
+			<xs:element name="H_BlowerConveyer" type="xs:boolean"/>
+			<xs:element name="Sol_NoPlant" type="xs:boolean"/>
+			<xs:element name="Sol_OnlyHotWater" type="xs:boolean"/>
+			<xs:element name="Sol_PriorityHotWater" type="xs:boolean"/>
+			<xs:element name="Sol_PriorityHeating" type="xs:boolean"/>
+			<xs:element name="Sol_DemandWeighted" type="xs:boolean"/>
+			<xs:element name="Sol_OnlyHeating" type="xs:boolean"/>
+			<xs:element name="theta_Pb" type="xs:float"/>
+			<xs:element name="theta_UPb" type="xs:float"/>
+			<xs:element name="H_HeatEmissionSmallArea" type="xs:boolean"/>
+			<xs:element name="H_Generation_HP" type="xs:boolean"/>
+			<xs:element name="H_Generation_HP_bivalent" type="xs:boolean"/>
+			<xs:element name="H_Generation_HP_bivalent_monoenergetic_avaliable" type="xs:boolean"/>
+			<xs:element name="H_Generation_HP_bivalent_monoenergetic" type="xs:boolean"/>
+			<xs:element name="H_Central" type="xs:boolean"/>
+			<xs:element name="HW_Central" type="xs:boolean"/>
+			<xs:element name="EventBuildingWing_Outside_NGF" type="xs:boolean"/>
+			<!--'KST 03.04.2015 'istReferenzAnlage gab nicht ab, ob die Anlage Referenzausstattung ist oder nicht, sondern Referenzanlage in Datenbank!
+      <xs:element name="IsReferenceEquipment_2" type="xs:boolean"/>
+      -->
+			<!--'KST 03.04.2015 'istReferenzAnlage gab nicht ab, ob die Anlage Referenzausstattung ist oder nicht, sondern Referenzanlage in Datenbank! -->
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeating">
+		<xs:sequence>
+			<xs:element name="optCentral" type="xs:boolean"/>
+			<xs:element name="txtBGF" type="GEEInputFreeInputValue"/>
+			<xs:element name="HeatEmission" type="GEEInputEquipmentHeatingHeatEmission"/>
+			<xs:element name="HeatDistribuntion" type="GEEInputEquipmentHeatingHeatDistribution"/>
+			<xs:element name="HeatStorage" type="GEEInputEquipmentHeatingHeatStorage"/>
+			<xs:element name="HeatGeneration" type="GEEInputEquipmentHeatingHeatGeneration"/>
+			<xs:element name="Calculation" type="GEEInputEquipmentHeatingCalculation"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeatingHeatEmission">
+		<xs:sequence>
+			<xs:element name="cmdControl" type="enumH5056T22"/>
+			<xs:element name="cmbEmissionSystem" type="enumH5056T03"/>
+			<xs:element name="cmbConsumptionDetermination" type="enumH5056T24"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeatingHeatDistribution">
+		<xs:sequence>
+			<xs:element name="freieEingabe" type="xs:boolean"/>
+			<xs:element name="cmbDistibutionPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbRisingPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbConnectionPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbDistibutionPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbRisingPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbConnectionPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbDistibutionPipesMountings" type="enumH5056T12"/>
+			<xs:element name="cmbRisingPipesMountings" type="enumH5056T12"/>
+			<xs:element name="cmbConnectionPipesMountings" type="enumH5056T12"/>
+			<xs:element name="cmbDistibutionPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbRisingPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbConnectionPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkTwoPipeSystem" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeatingHeatStorage">
+		<xs:sequence>
+			<xs:element name="txt_YearOfConstructionHeatingStorage" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbTypeHeatingStorage" type="enumH5056T33"/>
+			<xs:element name="cmbBasicConnection" type="enumH5056T15"/>
+			<xs:element name="cmbECartridge" type="enumH5056T16"/>
+			<xs:element name="cmbDamperRegisterSolar" type="enumH5056T16"/>
+			<xs:element name="chkStorageInHeated" type="xs:boolean"/>
+			<xs:element name="txt_V_H_WS" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_b_WS" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_theta_H_WS" type="GEEInputFreeInputValue"/>
+			<xs:element name="WSCatalogueItem" type="xs:boolean"/>
+			<xs:element name="WSCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="WSCatalogueItemXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeatingHeatGeneration">
+		<xs:sequence>
+			<xs:element name="cmbTypeGeneration" type="enumGenerationHeating"/>
+			<xs:element name="txt_YearOfConstructionHeatigBoiler" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbFuel" type="enumEnergietraeger"/>
+			<xs:element name="cmbOperationMode" type="enumOperationMode"/>
+			<xs:element name="cmbConveyer" type="enumConveyer"/>
+			<xs:element name="chkModulating" type="xs:boolean"/>
+			<xs:element name="chkBoilerInHeated" type="xs:boolean"/>
+			<xs:element name="txt_P_H_KN" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_eta_100" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_eta_30" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_bb_Pb" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_P_H_WT" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_b_WT" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_YearOfConstructionSpaceHeater" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbTypeSpaceHeater" type="enumH5056T37"/>
+			<xs:element name="txt_f_EAZ" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbTypeHeatExchanger" type="enumTypeHeatExchanger"/>
+			<xs:element name="cmbTypeCommunityHeating" type="enumEnergietraeger"/>
+			<xs:element name="f_PE" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_PE_nern" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_PE_ern" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_CO2" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbHPSourceHeatingMedium" type="enumHPSourceHeatingMedium"/>
+			<xs:element name="txt_HPYearOfConstruktion" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_H_COP" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkHPModulating" type="xs:boolean"/>
+			<xs:element name="chkHPMonoenergetic" type="xs:boolean"/>
+			<xs:element name="txt_P_H_WP_KN" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_P_WP_HE" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_theta_bp" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkCirculatingPumpStandard" type="xs:boolean"/>
+			<xs:element name="HPCatalogueItem" type="xs:boolean"/>
+			<!--OIB 6-2019 umbenannt von WB auf WP-->
+			<xs:element name="HPCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<!--OIB 6-2019 umbenannt von WB auf WP-->
+			<xs:element name="HPCatalogueItemXML" type="xs:string" minOccurs="0"/>
+			<!--OIB 6-2019 umbenannt von WB auf WP-->
+			<xs:element name="HeatingBoilerCatalogueItem" type="xs:boolean"/>
+			<xs:element name="HeatingBoilerCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="HeatingBoilerCatalogueItemXML" type="xs:string" minOccurs="0"/>
+			<!--OIB 6-2019-->
+			<xs:element name="cmbHPGasType" type="enumHPGasType"/>
+			<!--OIB 6-2019-->
+			<xs:element name="cmbHeatingBoilerType" type="enumBoilerType"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkHeatingBoilerBurnerFanYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkHeatingBoilerBurnerFanExistent" type="xs:boolean"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkHeatingBoilerConveyerYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkHeatingBoilerOilpumpYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkHeatingBoilerOilpumpExistent" type="xs:boolean"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkInfraredHeating" type="xs:boolean"/>
+			<!--OIB 6-2019-->
+			<xs:element name="SpaceHeatingCatalogueItem" type="xs:boolean"/>
+			<xs:element name="SpaceHeatingCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="SpaceHeatingCatalogueItemXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHeatingCalculation">
+		<xs:sequence>
+			<xs:element name="l_H_ro_Ver_beh" type="xs:float"/>
+			<xs:element name="l_H_ro_Ste_beh" type="xs:float"/>
+			<xs:element name="l_H_ro_Anb_beh" type="xs:float"/>
+			<xs:element name="l_H_ro_Sl" type="xs:float"/>
+			<xs:element name="l_H_ro_Ver_u" type="xs:float"/>
+			<xs:element name="q_H_ro_Ver" type="xs:float"/>
+			<xs:element name="q_H_ro_Ste" type="xs:float"/>
+			<xs:element name="q_H_ro_Anb" type="xs:float"/>
+			<xs:element name="f_H_ero_Ver" type="xs:float"/>
+			<xs:element name="f_H_ero_Ste" type="xs:float"/>
+			<xs:element name="f_H_ero_Anb" type="xs:float"/>
+			<xs:element name="q_at_H" type="xs:float"/>
+			<xs:element name="q_H_WA_1" type="xs:float"/>
+			<xs:element name="q_H_WA_2" type="xs:float"/>
+			<xs:element name="q_H_WA_3" type="xs:float"/>
+			<xs:element name="n_HK" type="xs:float"/>
+			<xs:element name="theta_RL_ne" type="xs:float"/>
+			<xs:element name="theta_VL_ne" type="xs:float"/>
+			<xs:element name="f_EAZ" type="xs:float"/>
+			<xs:element name="Delta_theta_H_WS_Pb" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWater">
+		<xs:sequence>
+			<xs:element name="optCentral" type="xs:boolean"/>
+			<xs:element name="txtBGF" type="GEEInputFreeInputValue"/>
+			<xs:element name="HeatEmission" type="GEEInputEquipmentHotWaterHeatEmission"/>
+			<xs:element name="HeatDistribuntion" type="GEEInputEquipmentHotWaterHeatDistribution"/>
+			<xs:element name="HeatStorage" type="GEEInputEquipmentHotWaterHeatStorage"/>
+			<xs:element name="HeatGeneration" type="GEEInputEquipmentHotWaterHeatGeneration"/>
+			<xs:element name="Calculation" type="GEEInputEquipmentHotWaterCalculation"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWaterHeatEmission">
+		<xs:sequence>
+			<xs:element name="cmbConsumptionDetermination" type="enumH5056T06"/>
+			<xs:element name="cmbTypeMountings" type="enumH5056T05"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWaterHeatDistribution">
+		<xs:sequence>
+			<xs:element name="freieEingabe" type="xs:boolean"/>
+			<xs:element name="cmbDistibutionPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbRisingPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbDistibutionPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbRisingPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbDistibutionPipesMountings" type="enumH5056T12"/>
+			<xs:element name="cmbRisingPipesMountings" type="enumH5056T12"/>
+			<xs:element name="chkCirculation" type="xs:boolean"/>
+			<xs:element name="cmbStubPipes" type="enumH5056T09"/>
+			<xs:element name="cmbDistibutionPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbRisingPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="txtStubPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="txtCirculationDistributionPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="txtCirculationRisingPipesLength" type="GEEInputFreeInputValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWaterHeatStorage">
+		<xs:sequence>
+			<xs:element name="txt_YearOfConstructionHWStorage" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbTypeHWStorage" type="enumHotWaterStorage"/>
+			<xs:element name="cmbBasicConnection" type="enumH5056T15"/>
+			<xs:element name="cmbECartridge" type="enumH5056T16"/>
+			<xs:element name="cmbConnectionDamperRegisterSolar" type="enumH5056T16"/>
+			<xs:element name="chkStorageInHeated" type="xs:boolean"/>
+			<xs:element name="txt_V_TW_WS" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_b_WS" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_theta_TW_WS_m" type="GEEInputFreeInputValue"/>
+			<xs:element name="WSCatalogueItem" type="xs:boolean"/>
+			<xs:element name="WSCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="WSCatalogueItemXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWaterHeatGeneration">
+		<xs:sequence>
+			<xs:element name="cmbTypeGeneration" type="enumGenerationHotWater"/>
+			<xs:element name="txt_YearOfConstructionHWHeatBoiler" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbFuelHWHeatBoiler" type="enumEnergietraeger"/>
+			<xs:element name="cmbHWHeatBoilerConveyer" type="enumConveyer"/>
+			<xs:element name="chkModulating" type="xs:boolean"/>
+			<xs:element name="chkBoilerInHeated" type="xs:boolean"/>
+			<xs:element name="cmbHWHeatBoilerFan" type="xs:boolean"/>
+			<xs:element name="txt_P_TW_KN" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_eta_100" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_eta_30" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_bb_Pb" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_P_TW_WT" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_q_b_WT" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbTypeHeatExchanger" type="enumTypeHeatExchanger"/>
+			<xs:element name="cmbTypeCommunityHeating" type="enumEnergietraeger"/>
+			<xs:element name="f_PE" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_PE_nern" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_PE_ern" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_CO2" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbHPSourceHeatingMedium" type="enumHPSourceHeatingMedium"/>
+			<xs:element name="txt_HPYearOfConstruktion" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_TW_COP" type="GEEInputFreeInputValue"/>
+			<xs:element name="txtHPRatedPower" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbHWHeatBoilerType" type="enumBoilerType"/>
+			<xs:element name="cmbHWHeatBoilerOilpump" type="xs:boolean"/>
+			<xs:element name="cmbHWHeatBoilerFanYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbHWHeatBoilerConveyerYearOfConstruction" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbHWHeatBoilerOilpumpYearOfConstruction" type="GEEInputFreeInputValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentHotWaterCalculation">
+		<xs:sequence>
+			<xs:element name="l_TW_Ro_Ver_beh" type="xs:float"/>
+			<xs:element name="l_TW_Ro_Ste_beh" type="xs:float"/>
+			<xs:element name="l_TW_Ro_ZirVer_beh" type="xs:float"/>
+			<xs:element name="l_TW_Ro_ZirSte_beh" type="xs:float"/>
+			<xs:element name="l_TW_Ro_Sti" type="xs:float"/>
+			<xs:element name="l_TW_Ro_Ver_u" type="xs:float"/>
+			<xs:element name="l_TW_Ro_Ste_u" type="xs:float"/>
+			<xs:element name="l_TW_Ro_ZirVer_u" type="xs:float"/>
+			<xs:element name="l_TW_Ro_ZirSte_u" type="xs:float"/>
+			<xs:element name="q_TW_Ro_Ver" type="xs:float"/>
+			<xs:element name="q_TW_Ro_Ste" type="xs:float"/>
+			<xs:element name="q_TW_ro_ZirVer" type="xs:float"/>
+			<xs:element name="q_TW_ro_ZirSte" type="xs:float"/>
+			<xs:element name="q_TW_ro_A" type="xs:float"/>
+			<xs:element name="f_TW_ero_Ver" type="xs:float"/>
+			<xs:element name="f_TW_ero_Ste" type="xs:float"/>
+			<xs:element name="q_at_TW" type="xs:float"/>
+			<xs:element name="q_TW_WA_1" type="xs:float"/>
+			<xs:element name="q_TW_WA_2" type="xs:float"/>
+			<xs:element name="theta_TW_K_m" type="xs:float"/>
+			<xs:element name="Delta_theta_TW_WS_Pb" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeat">
+		<xs:sequence>
+			<xs:element name="SolarPlant" type="GEEInputEquipmentSolarHeatSolarPlant"/>
+			<xs:element name="SolarHeatCollectors" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SolarHeatCollector" type="GEEInputEquipmentSolarHeatSolarCollector" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CollectorCircuitPipes" type="GEEInputEquipmentSolarHeatSolarCollectorCircuitPipes"/>
+			<xs:element name="Calculation" type="GEEInputEquipmentSolarHeatCalculation"/>
+			<xs:element name="Polysun" type="GEEInputEquipmentSolarHeatPolysun"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeatSolarPlant">
+		<xs:sequence>
+			<xs:element name="SolarHeatExistent" type="xs:boolean"/>
+			<xs:element name="CalcSolarCrop" type="enumCalcSolarCrop"/>
+			<xs:element name="cmbTypeSolarPlant" type="enumTypeSolarPlant"/>
+			<xs:element name="txt_VolumeSolarStorage" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkDwelling_with_solar_HeatGeneration_separately" type="xs:boolean"/>
+			<!--OIB 6-2019-->
+			<xs:element name="chkLayeredStorage" type="xs:boolean"/>
+			<xs:element name="chkMixedStorage" type="xs:boolean"/>
+			<!--OIB 6-2019-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeatSolarCollector">
+		<xs:sequence>
+			<xs:element name="cmbTypeSolarCollector" type="enumTypeSolarCollector"/>
+			<xs:element name="txtAperture" type="xs:float"/>
+			<xs:element name="txtAzimuthAngle" type="xs:float"/>
+			<xs:element name="txtInclinationAngle" type="xs:float"/>
+			<xs:element name="txtTerrainElevationAngle" type="xs:float"/>
+			<xs:element name="txt_eta_0_Ap" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_a_1_Ap" type="GEEInputFreeInputValue"/>
+			<xs:element name="txt_a_2_Ap" type="GEEInputFreeInputValue"/>
+			<xs:element name="SolCatalogueItem" type="xs:boolean"/>
+			<xs:element name="SolCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="SolCatalogueItemXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeatSolarCollectorCircuitPipes">
+		<xs:sequence>
+			<xs:element name="cmbHorizontalPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbVerticalPipesPosition" type="enumPosition"/>
+			<xs:element name="cmbHorizontalPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbVerticalPipesInsulation" type="enumPipeInsulation"/>
+			<xs:element name="cmbHorizontalPipesLength" type="GEEInputFreeInputValue"/>
+			<xs:element name="cmbVerticalPipesLength" type="GEEInputFreeInputValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeatCalculation">
+		<xs:sequence>
+			<xs:element name="H_n" type="GEEInputMonthlyValue"/>
+			<xs:element name="l_Sol_hor_beh" type="xs:float"/>
+			<xs:element name="l_Sol_hor_u" type="xs:float"/>
+			<xs:element name="l_Sol_ver_beh" type="xs:float"/>
+			<xs:element name="l_Sol_ver_u" type="xs:float"/>
+			<xs:element name="q_Ro_hor" type="xs:float"/>
+			<xs:element name="q_Ro_ver" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentSolarHeatPolysun">
+		<xs:sequence>
+			<xs:element name="Q_Sol_beh" type="GEEInputMonthlyValue"/>
+			<xs:element name="Q_Sol_TW" type="GEEInputMonthlyValue"/>
+			<xs:element name="Q_Sol_H" type="GEEInputMonthlyValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputSystemPhotovoltaics">
+		<xs:sequence>
+			<xs:element name="Photovoltaics_existent" type="xs:boolean"/>
+			<xs:element name="chkPVBatterySystem_existent" type="xs:boolean"/>
+			<xs:element name="PVBatterySystemCapacity" type="xs:float"/>
+			<xs:element name="PhotovoltaicCollectors" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PhotovoltaicCollector" type="GEEInputEquipmentPhotovoltaicCollector" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentPhotovoltaicCollector">
+		<xs:sequence>
+			<xs:element name="RatedPower_ManufacturerData" type="xs:boolean"/>
+			<xs:element name="AzimuthAngle" type="xs:float"/>
+			<xs:element name="InclinationAngle" type="xs:float"/>
+			<xs:element name="txtPV_TerrainElevationAngle" type="xs:float"/>
+			<xs:element name="BuildingIntegration" type="enumPVVentilation"/>
+			<xs:element name="Type_PV_Module" type="enumPVModule"/>
+			<xs:element name="txtPV_Aperture" type="xs:float"/>
+			<xs:element name="txtPV_Ppk" type="xs:float"/>
+			<xs:element name="txtPV_ModuleCount" type="xs:int"/>
+			<xs:element name="txtPV_ModuleAperture" type="xs:float"/>
+			<xs:element name="txtPV_ModulePpk" type="xs:float"/>
+			<xs:element name="PVCatalogueItem" type="xs:boolean"/>
+			<xs:element name="PVCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="PVCatalogueXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--KST 08.04.2015 nicht mehr benötigt
+  <xs:complexType name="GEEInputEquipmentHeatPump">
+    <xs:sequence>
+      <xs:element name="HeatPump" type="GEEInputEquipmentHeatPumpHeatPump"/>
+      <xs:element name="Calculation">
+        <xs:complexType/>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GEEInputEquipmentHeatPumpHeatPump">
+    <xs:sequence>
+      <xs:element name="txt_theta_bp" type="xs:float"/>
+      <xs:element name="txt_P_WP_KN" type="xs:float"/>
+      <xs:element name="txt_P_WP_HE" type="xs:float"/>
+      <xs:element name="optHeatPumpModulating" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+      KST 08.04.2015 nicht mehr benötigt END -->
+	<xs:complexType name="GEEInputEquipmentVAC">
+		<xs:sequence>
+			<xs:element name="VentilationAndAirConditioning" type="GEEInputEquipmentVACVentilationAndAirConditioning"/>
+			<xs:element name="AirHeating" type="GEEInputEquipmentVACAirHeating"/>
+			<xs:element name="AirMoistening" type="GEEInputEquipmentVACAirMoistening"/>
+			<xs:element name="HeatRecovery" type="GEEInputEquipmentVACHeatRecovery"/>
+			<xs:element name="Calculation" type="GEEInputEquipmentVACCalculation"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentVACVentilationAndAirConditioning">
+		<xs:sequence>
+			<xs:element name="cmbTypeVentilation" type="enumTypeVentilation"/>
+			<xs:element name="cmbTypeConditioning" type="enumTypeConditioning"/>
+			<xs:element name="chkNightVentilation" type="xs:boolean"/>
+			<xs:element name="P_SFP_InletAir" type="GEEInputFreeInputValue"/>
+			<xs:element name="P_SFP_OutletAir" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkThresholdTemperature14" type="xs:boolean"/>
+			<xs:element name="chkThresholdTemperature50" type="xs:boolean"/>
+			<xs:element name="txtv_RLT_max" type="GEEInputFreeInputValueDouble"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentVACAirHeating">
+		<xs:sequence>
+			<xs:element name="cmbAirHeatingGeneration" type="enumAirHeatingGeneration"/>
+			<xs:element name="cmbAirHeatingDamperRegister" type="enumDamperRegister"/>
+			<xs:element name="cmbAirHeatingAirDucts" type="enumPositionAirDucts"/>
+			<xs:element name="chkAirHeatingSystemInside" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentVACAirMoistening">
+		<xs:sequence>
+			<xs:element name="cmbTypeMoistening" type="enumTypeMoistening"/>
+			<xs:element name="cmbTypeMoistener" type="enumMoistener"/>
+			<xs:element name="cmbAmountOfMoisture" type="enumMoistureAmount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentVACHeatRecovery">
+		<xs:sequence>
+			<xs:element name="chkBlowerDoor" type="xs:boolean"/>
+			<xs:element name="n_50" type="xs:float"/>
+			<xs:element name="p_mech" type="xs:float"/>
+			<xs:element name="HeatExchanger" type="enumHeatExchanger"/>
+			<xs:element name="txt_HeatExchanger_YearOfConstruction" type="GEEInputFreeInputValue"/>
+			<xs:element name="SelectionOfReduction" type="enum_f_WRG"/>
+			<xs:element name="GroundHeatExchanger" type="enumGroundHeatExchanger"/>
+			<xs:element name="eta_WRG" type="GEEInputFreeInputValue"/>
+			<xs:element name="f_WRG" type="GEEInputFreeInputValue"/>
+			<xs:element name="eta_EWT" type="GEEInputFreeInputValue"/>
+			<xs:element name="chkSorption" type="xs:boolean"/>
+			<xs:element name="VACCatalogueItem" type="xs:boolean"/>
+			<xs:element name="VACCatalogueItemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="VACCatalogueXML" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentVACCalculation">
+		<xs:sequence>
+			<xs:element name="Q_corr_h" type="GEEInputMonthlyValueDouble"/>
+			<xs:element name="Q_H_RLT_SO" type="GEEInputMonthlyValueDouble"/>
+			<xs:element name="Q_St_RLT_SO" type="GEEInputMonthlyValueDouble"/>
+			<xs:element name="n_L_RLT_h" type="GEEInputMonthlyValueDouble"/>
+			<xs:element name="Q_LF_c" type="GEEInputMonthlyValueDouble"/>
+			<xs:element name="Q_C_RLT_SO" type="GEEInputMonthlyValueDouble"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCooling">
+		<xs:sequence>
+			<xs:element name="CoolingSystem" type="enumCoolingSystem"/>
+			<xs:element name="VAC_OperationTime" type="enumH5058_OperationTime"/>
+			<xs:element name="ColdSupplyVACSystem" type="GEEInputEquipmentCoolingColdSupplyVACSystem"/>
+			<xs:element name="ColdSupplySpaceCooling" type="GEEInputEquipmentCoolingColdSupplySpaceCooling"/>
+			<xs:element name="Recooling" type="GEEInputEquipmentCoolingReooling"/>
+			<xs:element name="GenerationLosses" type="GEEInputEquipmentCoolingGenerationLosses"/>
+			<xs:element name="AuxiliaryEnergy" type="GEEInputEquipmentCoolingAuxiliaryEnergy"/>
+			<xs:element name="Details" type="GEEInputEquipmentCoolingDetails"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingColdSupplyVACSystem">
+		<xs:sequence>
+			<xs:element name="cmbPositionAirDucts" type="enumH5058_Factor_fk"/>
+			<xs:element name="cmbRefrigerationSystemVAC" type="enumH5058_ColdWaterSystemVAC"/>
+			<xs:element name="chkColdWaterPipesInside" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingColdSupplySpaceCooling">
+		<xs:sequence>
+			<xs:element name="cmbRefrigerationSystemCON" type="enumH5058_ColdWaterSystemCON"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingReooling">
+		<xs:sequence>
+			<xs:element name="cmbRecooler" type="enumH5058Recooler"/>
+			<xs:element name="chkAdditionalSoundAbsorber" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingGenerationLosses">
+		<xs:sequence>
+			<xs:element name="cmbTypeRefrigerationMaschine" type="enumH5058_RefrigerationMachine"/>
+			<xs:element name="P_Nenn" type="GEEInputFreeInputValue"/>
+			<xs:element name="CompressionRefrigerationCentralDeviceWaterCooled" type="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationCentralDeviceWaterCooled"/>
+			<xs:element name="CompressionRefrigerationCentralDeviceAirCooled" type="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationCentralDeviceAirCooled"/>
+			<xs:element name="CompressionRefrigerationLocalDeviceAirCooled" type="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationLocalDeviceAirCooled"/>
+			<xs:element name="AbsorptionRefrigeration_2" type="GEEInputEquipmentCoolingGenerationLossesAbsorptionRefrigeration"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationCentralDeviceWaterCooled">
+		<xs:sequence>
+			<xs:element name="cmbCRM_CW_CompressorPartialLoadControl" type="enumH5058_Compressor_PartialLoadControl"/>
+			<xs:element name="cmbCRM_CW_Temperatures" type="enumH5058_Temperatures"/>
+			<xs:element name="cmbCRM_CW_RefrigeratingAgent" type="enumH5058_RefrigeratingAgent"/>
+			<xs:element name="cmbCRM_CW_Cooler" type="enumH5058_Cooler"/>
+			<xs:element name="chkCRM_CW_ColdWaterInletVariabel" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationCentralDeviceAirCooled">
+		<xs:sequence>
+			<xs:element name="cmbCRM_CA_CompressorPartialLoadControl" type="enumH5058_Compressor_PartialLoadControl"/>
+			<xs:element name="cmbCRM_CA_Temperatures" type="enumH5058_Temperatures"/>
+			<xs:element name="cmbCRM_CA_RefrigeratingAgent" type="enumH5058_RefrigeratingAgent"/>
+			<xs:element name="cmbCRM_CA_Compressor" type="enumH5058_Compressor"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingGenerationLossesCompressionRefrigerationLocalDeviceAirCooled">
+		<xs:sequence>
+			<xs:element name="cmbCRM_LA_System" type="enumH5058_PlantSystem"/>
+			<xs:element name="cmbCRM_LA_CompressorPartialLoadControl" type="enumH5058_Compressor_PartialLoadControl"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingGenerationLossesAbsorptionRefrigeration">
+		<xs:sequence>
+			<xs:element name="cmbARM_CompressorPartialLoadControl" type="enumH5058_Compressor_PartialLoadControl"/>
+			<xs:element name="cmbARM_HeatingMediumInletTemperature" type="eunmH5058_HeatingMediumInletTemperature"/>
+			<xs:element name="cmbARM_ColdWaterOutletTemperature" type="enumH5058_ColdWaterOutletTemperature"/>
+			<xs:element name="cmbARM_Cooler" type="enumH5058_Cooler"/>
+			<xs:element name="chkARM_ColdWaterInletVariabel" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergy">
+		<xs:sequence>
+			<xs:element name="RecirculationFans" type="GEEInputEquipmentCoolingAuxiliaryEnergyRecirculationFans"/>
+			<xs:element name="CoolingCircuit_con" type="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_con"/>
+			<xs:element name="CoolingCircuit_mech" type="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_mech"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergyRecirculationFans">
+		<xs:sequence>
+			<xs:element name="cmbRecirculationFans" type="enumH5058_Ventilatorsystem"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_con">
+		<xs:sequence>
+			<xs:element name="chkRatedPowerCirculatingPumpKnown" type="xs:boolean"/>
+			<xs:element name="P_N_Pump" type="xs:float"/>
+			<xs:element name="PressureLoss_con" type="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_conPressureLoss_con"/>
+			<xs:element name="cmbPump_CorrectionAdaption" type="enumH5058_CorrectionAdaption"/>
+			<xs:element name="chkPump_HydraulicBalancing" type="xs:boolean"/>
+			<xs:element name="chkPump_PumpOperationRegulated" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_conPressureLoss_con">
+		<xs:sequence>
+			<xs:element name="cmbPump_HeatExchangerGenerator" type="enumH5058_PressureDifference"/>
+			<xs:element name="cmbPump_HeatExchangerLoad" type="enumH5058_PressureDifference"/>
+			<xs:element name="cmbPump_ControlValves" type="enumH5058_PressureDifference"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_mech">
+		<xs:sequence>
+			<xs:element name="chkRatedPowerCirculatingPumpKnown" type="xs:boolean"/>
+			<xs:element name="P_N_Pump" type="xs:float"/>
+			<xs:element name="PressureLoss_mech" type="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_mechPressureLoss_mech"/>
+			<xs:element name="cmbPump_CorrectionAdaption" type="enumH5058_CorrectionAdaption"/>
+			<xs:element name="chkPump_HydraulicBalancing" type="xs:boolean"/>
+			<xs:element name="chkPump_PumpOperationRegulated" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingAuxiliaryEnergyCoolingCircuit_mechPressureLoss_mech">
+		<xs:sequence>
+			<xs:element name="cmbPump_HeatExchangerGenerator" type="enumH5058_PressureDifference"/>
+			<xs:element name="cmbPump_HeatExchangerLoad" type="enumH5058_PressureDifference"/>
+			<xs:element name="cmbPump_ControlValves" type="enumH5058_PressureDifference"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GEEInputEquipmentCoolingDetails">
+		<xs:sequence>
+			<xs:element name="delta_p_WUE_kon" type="xs:float"/>
+			<xs:element name="delta_p_WUV_kon" type="xs:float"/>
+			<xs:element name="delta_p_RV_kon" type="xs:float"/>
+			<xs:element name="L_max_kon" type="GEEInputFreeInputValue"/>
+			<xs:element name="delta_p_WUE_mech" type="xs:float"/>
+			<xs:element name="delta_p_WUV_mech" type="xs:float"/>
+			<xs:element name="delta_p_RV_mech" type="xs:float"/>
+			<xs:element name="L_max_mech" type="GEEInputFreeInputValue"/>
+			<xs:element name="c_pc" type="GEEInputFreeInputValue"/>
+			<xs:element name="rho_c" type="GEEInputFreeInputValue"/>
+			<xs:element name="delta_T_c" type="GEEInputFreeInputValue"/>
+			<xs:element name="a_value" type="GEEInputFreeInputValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+  KST 18.02.2015 'WICHTIG:
+  Im XML-Schema kann man nicht den numerischne Wert definieren, den ein Wert erhalten soll
+  daher:  -1 für NotDefined nicht möglich.
+  Alle Enumerationen, die im XML Vorkommen, müssen als ersten Wert NotDefined enthalten -> erhält Wert 0
+  aH5056GlobalToolsM.ComboGetItemData liefert für nicht definierte Einträge jetzt 0 zurück anstatt -1!
+  -->
+	<!-- So gehts nicht: EXCEPTION: Cannot serialize ... consider changing type from float to string!
+  <xs:complexType name="GEEInputFreeInputValue">
+    <xs:simpleContent>
+      <xs:extension base="xs:float">
+        <xs:attribute name="FreeInput" type="xs:byte" use="required"/>
+        <xs:attribute name="Default_2" type="xs:byte" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+   -->
+	<!--
+  <xs:complexType name="GEEInputComboboxItem">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute name="Desription_2" type = "xs:string" minOccurs = "0" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  -->
+	<!--
+  <xs:complexType name="GEEInputComboboxItem">
+    <xs:sequence>
+      <xs:element name="EnumValue" type="xs:int"/>
+      <xs:element name="Desription_2" type = "xs:string" minOccurs = "0"/>
+    </xs:sequence>
+  </xs:complexType>
+  -->
+</xs:schema>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Markus Graf (ecotech) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="HWKBGlobalTypes.xsd"/>
+	<xs:simpleType name="ENUMProjectDataSchemaVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ProjectDataSchemaVersion_6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="ProjectData" type="HWKBProjectData"/>
+	<xs:complexType name="HWKBPerson">
+		<xs:sequence>
+			<xs:element name="Salutation" type="xs:string" minOccurs="0"/>
+			<xs:element name="Title" type="xs:string" minOccurs="0"/>
+			<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Surname" type="xs:string" minOccurs="0"/>
+			<xs:element name="Company" type="xs:string" minOccurs="0"/>
+			<xs:element name="Telephone" type="xs:string" minOccurs="0"/>
+			<xs:element name="Fax" type="xs:string" minOccurs="0"/>
+			<xs:element name="Email" type="xs:string" minOccurs="0"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Site" type="xs:string" minOccurs="0"/>
+			<xs:element name="Street" type="xs:string" minOccurs="0"/>
+			<xs:element name="HouseNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Stair" type="xs:string" minOccurs="0"/>
+			<xs:element name="Door" type="xs:string" minOccurs="0"/>
+			<xs:element name="Function" type="xs:string" minOccurs="0"/>
+			<xs:element name="ContentCreatorNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Info" type="xs:string" minOccurs="0"/>
+			<xs:element name="UnterschriftBildPfad" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBProjectData">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="BuildingPartOfBuilding" type="xs:string" minOccurs="0"/>
+			<xs:element name="Street" type="xs:string" minOccurs="0"/>
+			<xs:element name="Plz" type="xs:string" minOccurs="0"/>
+			<xs:element name="Site" type="xs:string" minOccurs="0"/>
+			<xs:element name="PropertyNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Baujahr" type="xs:string" minOccurs="0"/>
+			<xs:element name="RecentChange" type="xs:string" minOccurs="0"/>
+			<xs:element name="CadastalCommunityName" type="xs:string" minOccurs="0"/>
+			<xs:element name="CadastalCommunityNumber" type="xs:integer"/>
+			<xs:element name="HeightAboveSeaLevel" type="xs:float"/>
+			<xs:element name="GWRNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="IssueDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="ValidityDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="ContentCreator" type="xs:string" minOccurs="0"/>
+			<xs:element name="theta_e" type="xs:float"/>
+			<xs:element name="theta_m_e" type="xs:float"/>
+			<xs:element name="PersonOwner" type="HWKBPerson"/>
+			<xs:element name="PersonBuilder" type="HWKBPerson"/>
+			<xs:element name="PersonContentCreator" type="HWKBPerson"/>
+			<xs:element name="PersonDesigner" type="HWKBPerson"/>
+			<xs:element name="Municipality" type="xs:string" minOccurs="0"/>
+			<xs:element name="DepositNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="HouseNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="Stair" type="xs:string" minOccurs="0"/>
+			<xs:element name="Door" type="xs:string" minOccurs="0"/>
+			<xs:element name="ReferenceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProgramVersionLong" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProgramVersionShort" type="xs:string" minOccurs="0"/>
+			<xs:element name="ProgramName" type="xs:string" minOccurs="0"/>
+			<xs:element name="OI3_Calc_Method" type="ENUM_OI3_Calc_Method"/>
+			<xs:element name="theta_e_T13" type="xs:float"/>
+			<xs:element name="State" type="xs:string" minOccurs="0"/>
+			<xs:element name="ClimateRegion" type="ENUMKlimaregion"/>
+			<xs:element name="ClimateRegionStr" type="xs:string" minOccurs="0"/>
+			<xs:element name="CadastalCommunityNumber_IsFreeInput" type="xs:boolean"/>
+			<xs:element name="Info" type="xs:string" minOccurs="0"/>
+			<xs:element name="OIBDefaultUValues" type="OIBDefaultUValues"/>
+			<xs:element name="PlanNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionPermitNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionPermitDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionPermitDateFreeInput" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionPermitDateIsFreeInput" type="xs:boolean"/>
+			<xs:element name="ConstructionNotificationDateRefurbishment" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionNotificationDateRefurbishmentFreeInput" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionNotificationDateRefurbishmentIsFreeInput" type="xs:boolean"/>
+			<xs:element name="ProjectDataSchemaVersion" type="ENUMProjectDataSchemaVersion"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OIBDefaultUValues">
+		<xs:sequence>
+			<xs:element name="FederalState" type="ENUMBundesland"/>
+			<xs:element name="TypeOfBuilding" type="ENUMOIBGebaeudetyp"/>
+			<xs:element name="TypeOfConstruction" type="ENUMOIBBauweise"/>
+			<xs:element name="Baujahr" type="xs:integer"/>
+			<xs:element name="Subsidy" type="ENUMOIBFoerderung"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

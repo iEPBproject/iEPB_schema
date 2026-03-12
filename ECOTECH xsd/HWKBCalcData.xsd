@@ -1,0 +1,1911 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Markus Graf (ecotech) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="HWKBGlobalTypes.xsd"/>
+	<xs:simpleType name="ENUMCalcDataSchemaVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CalcDataSchemaVersion_113"/>
+			<!-- unterschiedliche Versionsnummern HWKB.xsd und HWBCalcdata.xsd! zwei unterschiedliche converts (convert und  ConvertCalcData, wenn HWBCalcdata.xsd Version erhöht wird, muss auch HWKB.xsd erhöht werden!!! -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="CalcData" type="HWKBCalcData"/>
+	<xs:complexType name="HWKBCalcData">
+		<xs:sequence>
+			<xs:element name="RequirementFor" type="ENUMAnforderungFuer"/>
+			<xs:element name="RequirementConcerning" type="ENUMAnforderungUeber"/>
+			<xs:element name="RequirementTimeSpace" type="ENUMAnforderungZeitraum"/>
+			<xs:element name="UtilizationProfile" type="ENUMNutzungsprofil"/>
+			<xs:element name="IsMultiFamilyHouseTwoFamilySemiDetachedTerracedHouse" type="xs:boolean"/>
+			<!-- KST 20.02.2014 -->
+			<xs:element name="TypeOfConstruction" type="ENUMBauweise"/>
+			<xs:element name="IsRenovationCertificate" type="xs:boolean"/>
+			<xs:element name="StateOfRealisation" type="ENUMUmsetzungsstand"/>
+			<xs:element name="EA_Type" type="ENUMEA_Art"/>
+			<xs:element name="SunProtection" type="HWKBShading"/>
+			<xs:element name="Ventilation" type="HWKBVentilation"/>
+			<xs:element name="VentilationResults" type="HWKBLueftungResults"/>
+			<xs:element name="Wintergarden" type="HWKBWintergarden"/>
+			<xs:element name="ThermalBridges" type="ENUMWaermebruecken"/>
+			<xs:element name="BasementInsulation" type="ENUMKellerdaemmung"/>
+			<xs:element name="Clouding" type="ENUMVerschattung"/>
+			<xs:element name="GroundLosses" type="ENUMErdverluste"/>
+			<xs:element name="TemperatureCorrectionFactorsDetailed" type="xs:boolean"/>
+			<xs:element name="IsExistingBuilding" type="xs:boolean"/>
+			<xs:element name="BGFgross" type="xs:float"/>
+			<xs:element name="BGFReduction" type="xs:float"/>
+			<xs:element name="BGFnet" type="xs:float"/>
+			<xs:element name="BF" type="xs:float"/>
+			<xs:element name="A" type="xs:float"/>
+			<xs:element name="V_brutto" type="xs:float"/>
+			<xs:element name="V_Ventilation" type="xs:float"/>
+			<xs:element name="Building_Type" type="ENUM_Gebaeude_Art"/>
+			<xs:element name="PanelHeating" type="HWKBPanelHeating"/>
+			<xs:element name="A_V" type="xs:float"/>
+			<xs:element name="CharacteristicLength" type="xs:float"/>
+			<xs:element name="Partial_BGF" type="xs:float"/>
+			<xs:element name="Partial_VB" type="xs:float"/>
+			<xs:element name="Average_Uvalue" type="xs:float"/>
+			<xs:element name="LEK_T_Value" type="xs:float"/>
+			<xs:element name="ClimateRegionName" type="xs:string" minOccurs="0"/>
+			<xs:element name="HeatingDays" type="xs:float"/>
+			<xs:element name="HeatingDegreeDays" type="xs:float"/>
+			<xs:element name="HeatingDegreeDays_20_20" type="xs:float"/>
+			<xs:element name="TargetInternalTemperature" type="xs:float"/>
+			<xs:element name="FederalState" type="ENUMBundesland"/>
+			<xs:element name="Requirements" type="HWKBRequirements"/>
+			<xs:element name="UtilizationProfileData" type="UtilizationProfile"/>
+			<xs:element name="AppendixEAW" type="AppendixEAW"/>
+			<xs:element name="BuildingPartOverride" type="xs:boolean"/>
+			<xs:element name="BuildingPartOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="Zeus31" type="Zeus31"/>
+			<xs:element name="C_E" type="xs:float"/>
+			<xs:element name="Basement_existent" type="xs:boolean"/>
+			<xs:element name="EAWZ" type="EAWZ"/>
+			<xs:element name="Lighting" type="HWKBLighting"/>
+			<xs:element name="ReferenceNumberOverride" type="xs:boolean"/>
+			<xs:element name="ReferenceNumberOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="GWRNumberOverride" type="xs:boolean"/>
+			<xs:element name="GWRNumberOverridenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="DepositNumberOverride" type="xs:boolean"/>
+			<xs:element name="DepositNumberOverridenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="PropertyNumberOverride" type="xs:boolean"/>
+			<xs:element name="PropertyNumberOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="StreetOverride" type="xs:boolean"/>
+			<xs:element name="StreetOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="HouseNumberOverride" type="xs:boolean"/>
+			<xs:element name="HouseNumberOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="StairOverride" type="xs:boolean"/>
+			<xs:element name="StairOverriddenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="DoorOverride" type="xs:boolean"/>
+			<xs:element name="DoorOverridenValue" type="xs:string" minOccurs="0"/>
+			<xs:element name="CalculationName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Simulator" type="Simulator"/>
+			<xs:element name="TyrolWBF2013AddonData" type="TyrolWBF2013AddonData"/>
+			<xs:element name="MajorRenovationTypeOfRenovation" type="ENUMMajorRenovationType"/>
+			<xs:element name="MajorRenovationReasonThermalOnly" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Emission_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Distribution_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Storage_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Generation_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Emission_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Distribution_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Storage_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Generation_Checked" type="xs:boolean"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Emission_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Distribution_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Storage_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_H_Generation_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Emission_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Distribution_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Storage_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="MajorRenovation_NotChangeable_TW_Generation_Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="BuildingBio2014InputData" type="xs:string" minOccurs="0"/>
+			<xs:element name="SalzburgTVERequirementsData" type="SalzburgTVERequirements"/>
+			<xs:element name="FederalStateCalcData" type="FederalStateCalcData"/>
+			<xs:element name="OI3" type="OI3"/>
+			<xs:element name="CalcDataSchemaVersion" type="ENUMCalcDataSchemaVersion"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMSbgSubmissionUntil">
+		<xs:annotation>
+			<xs:documentation>
+				bis 31.12.2016
+				bis 31.12.2018
+				bis 31.12.2020
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="until_2016"/>
+			<xs:enumeration value="until_2018"/>
+			<xs:enumeration value="until_2020"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMUtilizationProfileValue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undefinded"/>
+			<xs:enumeration value="d_Nutz_n_Month_01"/>
+			<xs:enumeration value="d_Nutz_n_Month_02"/>
+			<xs:enumeration value="d_Nutz_n_Month_03"/>
+			<xs:enumeration value="d_Nutz_n_Month_04"/>
+			<xs:enumeration value="d_Nutz_n_Month_05"/>
+			<xs:enumeration value="d_Nutz_n_Month_06"/>
+			<xs:enumeration value="d_Nutz_n_Month_07"/>
+			<xs:enumeration value="d_Nutz_n_Month_08"/>
+			<xs:enumeration value="d_Nutz_n_Month_09"/>
+			<xs:enumeration value="d_Nutz_n_Month_10"/>
+			<xs:enumeration value="d_Nutz_n_Month_11"/>
+			<xs:enumeration value="d_Nutz_n_Month_12"/>
+			<xs:enumeration value="d_Nutz_a"/>
+			<xs:enumeration value="t_Nutz_d"/>
+			<xs:enumeration value="t_Tag_a"/>
+			<xs:enumeration value="t_Nacht_a"/>
+			<xs:enumeration value="t_RLT_d"/>
+			<xs:enumeration value="d_RLT_a"/>
+			<xs:enumeration value="t_h_d"/>
+			<xs:enumeration value="d_h_a"/>
+			<xs:enumeration value="t_c_d"/>
+			<xs:enumeration value="d_c_a"/>
+			<xs:enumeration value="t_NL_d"/>
+			<xs:enumeration value="theta_ih"/>
+			<xs:enumeration value="theta_ic"/>
+			<xs:enumeration value="X"/>
+			<xs:enumeration value="n_L_RLT"/>
+			<xs:enumeration value="n_L_NL"/>
+			<xs:enumeration value="E_m"/>
+			<xs:enumeration value="q_i_h_n"/>
+			<xs:enumeration value="q_i_h_PH"/>
+			<xs:enumeration value="q_i_c_n"/>
+			<xs:enumeration value="WWWB"/>
+			<xs:enumeration value="t_Bel_D"/>
+			<xs:enumeration value="t_Bel_N"/>
+			<xs:enumeration value="n_L_hyg"/>
+			<xs:enumeration value="X_Per_q"/>
+			<xs:enumeration value="X_Ger_q"/>
+			<!--OIB 2018-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UtilizationProfileValue">
+		<xs:sequence>
+			<xs:element name="ValueType" type="ENUMUtilizationProfileValue"/>
+			<xs:element name="ValueExistent" type="xs:boolean"/>
+			<xs:element name="ValueDefault" type="xs:double"/>
+			<xs:element name="ValueFreeInput" type="xs:double"/>
+			<xs:element name="IsFreeInput" type="xs:boolean"/>
+			<xs:element name="IsValueFreeInputSet" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UtilizationProfileMonthly">
+		<xs:sequence>
+			<xs:element name="Month" type="xs:int"/>
+			<xs:element name="d_Nutz" type="UtilizationProfileValue"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UtilizationProfile">
+		<xs:sequence>
+			<xs:element name="t_Nutz_d" type="UtilizationProfileValue"/>
+			<xs:element name="d_Nutz_a" type="UtilizationProfileValue"/>
+			<xs:element name="t_Tag_a" type="UtilizationProfileValue"/>
+			<xs:element name="t_Nacht_a" type="UtilizationProfileValue"/>
+			<xs:element name="t_RLT_d" type="UtilizationProfileValue"/>
+			<xs:element name="d_RLT_a" type="UtilizationProfileValue"/>
+			<xs:element name="t_h_d" type="UtilizationProfileValue"/>
+			<xs:element name="d_h_a" type="UtilizationProfileValue"/>
+			<xs:element name="t_c_d" type="UtilizationProfileValue"/>
+			<xs:element name="t_NL_d" type="UtilizationProfileValue"/>
+			<xs:element name="d_c_a" type="UtilizationProfileValue"/>
+			<xs:element name="theta_ih" type="UtilizationProfileValue"/>
+			<xs:element name="theta_ic" type="UtilizationProfileValue"/>
+			<xs:element name="x_Moisture" type="ENUMNutzungsprofilFeuchteanforderung"/>
+			<xs:element name="n_L_RLT" type="UtilizationProfileValue"/>
+			<xs:element name="n_L_NL" type="UtilizationProfileValue"/>
+			<xs:element name="E_m" type="UtilizationProfileValue"/>
+			<xs:element name="q_i_h_n" type="UtilizationProfileValue"/>
+			<xs:element name="q_i_h_PH" type="UtilizationProfileValue"/>
+			<xs:element name="q_i_c_n" type="UtilizationProfileValue"/>
+			<xs:element name="wwwb" type="UtilizationProfileValue"/>
+			<!--neu OIB 2018-->
+			<xs:element name="t_Bel_D" type="UtilizationProfileValue"/>
+			<xs:element name="t_Bel_N" type="UtilizationProfileValue"/>
+			<xs:element name="n_L_hyg" type="UtilizationProfileValue"/>
+			<!--wird statt n_L_FL verwendet-->
+			<xs:element name="X_Per_q" type="UtilizationProfileValue"/>
+			<xs:element name="X_Ger_q" type="UtilizationProfileValue"/>
+			<xs:element name="UtilizationProfileMonthly">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="UtilizationProfileMonthly" minOccurs="0" maxOccurs="12"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AppendixEAW">
+		<xs:sequence>
+			<xs:element name="UsedAuxiliaryMeans" type="xs:string" minOccurs="0"/>
+			<xs:element name="AcquisitionDataGeometry" type="xs:string" minOccurs="0"/>
+			<xs:element name="AcquisitionDataBuildingPhysics" type="xs:string" minOccurs="0"/>
+			<xs:element name="AcquisitionDataTechnicalBuildingEquipment" type="xs:string" minOccurs="0"/>
+			<xs:element name="AcquisitionDataFurtherInfo" type="xs:string" minOccurs="0"/>
+			<xs:element name="Comments" type="xs:string" minOccurs="0"/>
+			<xs:element name="RenewableShare_Requirement_fulfilled_OverrideDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="MeasureBetterClassEAW" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBWintergarden">
+		<xs:sequence>
+			<xs:element name="Glazing" type="ENUMGlasvorbau"/>
+			<xs:element name="gValue_ValueDefault" type="xs:float"/>
+			<xs:element name="gValue_IsFreeInput" type="xs:boolean"/>
+			<xs:element name="gValue_ValueFreeInput" type="xs:float"/>
+			<xs:element name="Clouding" type="ENUMVerschattungWintergarten"/>
+			<xs:element name="FK" type="xs:float"/>
+			<xs:element name="Wintergarden_existent" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUM_Lighting_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Default"/>
+			<xs:enumeration value="Calculated"/>
+			<xs:enumeration value="FreeInput"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Lighting_LightingSystem_Luminaire">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Tub"/>
+			<xs:enumeration value="Indirect"/>
+			<xs:enumeration value="Grid"/>
+			<xs:enumeration value="MirrorGrid"/>
+			<xs:enumeration value="Pendulum"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Lighting_LightingSystem_Lamp">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LightBulb"/>
+			<xs:enumeration value="Halogen_Glow"/>
+			<xs:enumeration value="Halogen_LowVoltage"/>
+			<xs:enumeration value="FuorescentLamp_Compact"/>
+			<xs:enumeration value="FluorescentLamp_T26_KVG"/>
+			<xs:enumeration value="FluorescentLamp_T26_VVG"/>
+			<xs:enumeration value="FluorescentLamp_T26_EVG"/>
+			<xs:enumeration value="FluorescentLamp_T16_EVG"/>
+			<xs:enumeration value="HighPressure_Halogen"/>
+			<xs:enumeration value="HighPressure_Natrium"/>
+			<xs:enumeration value="HighPressure_Mercury"/>
+			<xs:enumeration value="EnergySavingLamp"/>
+			<xs:enumeration value="LED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Lighting_LightingSystem_Control">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="manually_OnOff"/>
+			<xs:enumeration value="manually_OnOff_MotionDetector"/>
+			<xs:enumeration value="manually_On_dimmed"/>
+			<xs:enumeration value="manually_On_Auto_Off"/>
+			<xs:enumeration value="auto_On_dimmed"/>
+			<xs:enumeration value="auto_OnOff"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Lighting_LightingSystem_Dimmable">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDimmable"/>
+			<xs:enumeration value="HalogenHeadlight"/>
+			<xs:enumeration value="FluorescentTube_hanging"/>
+			<xs:enumeration value="LED"/>
+			<xs:enumeration value="FluorescentLamp_CableDuct"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HWKBLighting">
+		<xs:sequence>
+			<xs:element name="Typ" type="ENUM_Lighting_Type"/>
+			<xs:element name="BelEB_ValueFreeInput" type="xs:float"/>
+			<xs:element name="HWKBLightingSystem" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWKBLightingSystem" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBLightingSystem">
+		<xs:sequence>
+			<xs:element name="Share" type="xs:float"/>
+			<xs:element name="Luminaire" type="ENUM_Lighting_LightingSystem_Luminaire"/>
+			<xs:element name="Lamp" type="ENUM_Lighting_LightingSystem_Lamp"/>
+			<xs:element name="Control" type="ENUM_Lighting_LightingSystem_Control"/>
+			<xs:element name="Dimmable" type="ENUM_Lighting_LightingSystem_Dimmable"/>
+			<xs:element name="EmergencyLighting" type=" xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBPanelHeating">
+		<xs:sequence>
+			<xs:element name="Existent" type="xs:boolean"/>
+			<xs:element name="Item">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HWKBFHBuildingComponent" type="HWKBFHBuildingComponent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBFHBuildingComponent">
+		<xs:sequence>
+			<xs:element name="Denomination" type="xs:string" minOccurs="0"/>
+			<xs:element name="Share" type="xs:float"/>
+			<xs:element name="RValue" type="xs:float"/>
+			<xs:element name="RValueRequirement" type="xs:float"/>
+			<xs:element name="RValueRequirementFulfilled" type="xs:string" minOccurs="0"/>
+			<xs:element name="Existent" type="xs:boolean"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+	<xs:complexType name="HWKBVentilation">
+		<xs:sequence>
+			<xs:element name="Ventilation_Type" type="ENUM_L_Art"/>
+			<xs:element name="n50" type="xs:float"/>
+			<xs:element name="NightVentilation_Cooling_existent" type="xs:boolean"/>
+			<xs:element name="eta_WRG" type="xs:float"/>
+			<xs:element name="eta_EWT_h" type="xs:float"/>
+			<xs:element name="eta_EWT_c" type="xs:float"/>
+			<xs:element name="f_WRG" type="xs:float"/>
+			<xs:element name="p_mech" type="xs:float"/>
+		</xs:sequence>
+		<!--
+    KST 14.08.2013 Wichtig: wird ab jetzt verwendet in: 
+         /CalcData/Lueftung
+         /CalcData/Simulator/LueftungSimulator
+    um auch die Lueftung Simulieren zu können wie in der alten EPBD2007 Berechnung.
+    Bei Convert beide Vorkommen behandeln!
+    -->
+	</xs:complexType>
+	<xs:complexType name="HWKBBuildingComponentsU">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Umax" type="xs:float"/>
+			<xs:element name="Uanf" type="xs:float"/>
+			<xs:element name="Status" type="ENUMEPBDAnforderung"/>
+			<xs:element name="BuildingComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Denomination" type="xs:string" minOccurs="0"/>
+									<xs:element name="U" type="xs:float"/>
+									<xs:element name="Status" type="ENUMEPBDAnforderung"/>
+									<xs:element name="SumAreas" type="xs:float"/>
+									<xs:element name="Deleted" type="xs:boolean"/>
+									<!--KST 21.01.2015 -->
+									<xs:element name="IsDummy" type="xs:boolean"/>
+									<!--KST 21.01.2015 END -->
+								</xs:sequence>
+								<xs:attribute name="ID"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Visible" type="xs:boolean"/>
+			<!--KST 18.11.2014-->
+			<xs:element name="SumAreas" type="xs:float"/>
+			<xs:element name="LimitSmallArea" type="xs:float"/>
+			<!--KST 18.11.2014 END-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBBuildingComponentsR">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Rmin" type="xs:float"/>
+			<xs:element name="RAnf" type="xs:float"/>
+			<xs:element name="Status" type="ENUMEPBDAnforderung"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBShading">
+		<xs:sequence>
+			<xs:element name="Art" type="ENUMSonnenschutzEinrichtung"/>
+			<xs:element name="Control" type="ENUMSonnenschutzSteuerung"/>
+			<xs:element name="Surface_Shading" type="ENUMSonnenschutzEinrichtungOberflaeche"/>
+			<xs:element name="Surface_Building" type="ENUMOberflaeche_Gebaeude"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBRequirements">
+		<xs:sequence>
+			<!-- KST 26.11.2014 Anforderungen umgestellt auf neue Kapitelnummern + Aufgeräume
+      'KST 26.11.2014 'Wurden nie gefüllt!
+			<xs:element name="Anforderung3_2_Wert" type="xs:float"/>          'KST: OIB RL 6 2011: HWB WG Neubau
+			<xs:element name="Anforderung3_2" type="ENUMEPBDAnforderung"/>    'KST: OIB RL 6 2011: HWB WG Neubau 
+			<xs:element name="Anforderung3_3_1_Wert" type="xs:float"/>        'KST: OIB RL 6 2011: HWB* NWG Neubau
+			<xs:element name="Anforderung3_3_1" type="ENUMEPBDAnforderung"/>  'KST: OIB RL 6 2011: HWB* NWG Neubau
+			<xs:element name="Anforderung3_3_2_Wert" type="xs:float"/>        'KST: OIB RL 6 2011: KB* NWG Nebau
+			<xs:element name="Anforderung3_3_2" type="ENUMEPBDAnforderung"/>  'KST: OIB RL 6 2011: KB* NWG Nebau
+			<xs:element name="Anforderung3_4_Wert" type="xs:float"/>          'KST: OIB RL 6 2011: HWB WG Größere Renovierung 
+			<xs:element name="Anforderung3_4" type="ENUMEPBDAnforderung"/>    'KST: OIB RL 6 2011: HWB WG Größere Renovierung 
+			<xs:element name="Anforderung3_5_1_Wert" type="xs:float"/>        'KST: OIB RL 6 2011: HWB* WG Größere Renovierung   
+			<xs:element name="Anforderung3_5_1" type="ENUMEPBDAnforderung"/>  'KST: OIB RL 6 2011: HWB* WG Größere Renovierung
+			<xs:element name="Anforderung3_5_3_Wert" type="xs:float"/>        'KST: OIB RL 6 2011: KB* WG Größere Renovierung, Falsche Nummer ist Kapitel 3.5.2!
+			<xs:element name="Anforderung3_5_3" type="ENUMEPBDAnforderung"/>  'KST: OIB RL 6 2011: KB* WG Größere Renovierung, Falsche Nummer ist Kapitel 3.5.2!
+      'KST 26.11.2014 'Wurden nie gefüllt! 'END
+			<xs:element name="Anforderung4_Wert" type="xs:float"/>            'KST: OIB RL 6 2011: EEB
+			<xs:element name="Anforderung4" type="ENUMEPBDAnforderung"/>      'KST: OIB RL 6 2011: EEB
+			<xs:element name="Anforderung10_2_Bauteile">                      'KST: OIB RL 6 2011: Bauteile, U-Wert-Anforderungen
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWKBBuildingComponentsU" minOccurs="34" maxOccurs="34"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Anforderung10_3_1" type="ENUMEPBDAnforderung"/> 'KST: OIB RL 6 2011: 10.3.1 Wand-, Fußboden- und Deckenheizungen 
+			<xs:element name="Anforderung10_3_1_Bauteile">                    'KST: OIB RL 6 2011: 10.3.1 Wand-, Fußboden- und Deckenheizungen 
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWKBBuildingComponentsR" minOccurs="2" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Anforderung10_3_2" type="ENUMEPBDAnforderung"/> 'KST: OIB RL 6 2011: 10.3.2 Heizkörper vor transparenten Bauteilen
+			<xs:element name="Anforderung11_1" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 11.1 Wärmeverteilung
+			<xs:element name="Anforderung11_2" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 11.2 Lüftungsanlagen, gestrichen in OIB RL 6 2014!
+			<xs:element name="Anforderung11_3" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 11.3 Wärmerückgewinnung
+			<xs:element name="Anforderung12_1" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 12.1 Wärmebrückenvermeidung ÖNORM B 8110-2
+			<xs:element name="Anforderung12_2_1" type="ENUMEPBDAnforderung"/> 'KST: OIB RL 6 2011: 12.2.1 Luft- und Winddichte (Gebäudehülle)
+			<xs:element name="Anforderung12_2_2" type="ENUMEPBDAnforderung"/> 'KST: OIB RL 6 2011: 12.2.2 Luft- und Winddichte (Luftwechselrate) gestrichen!
+			<xs:element name="Anforderung12_3" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 12.3 Sommerliche Überwärmung
+			<xs:element name="Anforderung12_4" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 12.4 Hocheffiziente alternative Energiesysteme
+			<xs:element name="Anforderung12_5" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 12.5 Zentrale Wärmebereitstellungsanlage
+			<xs:element name="Anforderung12_6" type="ENUMEPBDAnforderung"/>   'KST: OIB RL 6 2011: 12.6 Elektr. Widerstandsheizungen
+      -->
+			<xs:element name="HWB_ref_Requirement_numValue" type="xs:float"/>
+			<xs:element name="HWB_ref_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="HEB_Requirement_numValue" type="xs:float"/>
+			<xs:element name="HEB_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="RenewableShare_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="KBStern_Requirement_numValue" type="xs:float"/>
+			<xs:element name="KBStern_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="EEB_Requirement_numValue" type="xs:float"/>
+			<xs:element name="EEB_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="fGEE_Requirement_numValue" type="xs:float"/>
+			<xs:element name="fGEE_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="LEK_Requirement_numValue" type="xs:float"/>
+			<xs:element name="LEK_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="PEB_Requirement_numValue" type="xs:float"/>
+			<xs:element name="PEB_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="CO2_Requirement_numValue" type="xs:float"/>
+			<xs:element name="CO2_Requirement_fulfilled" type="xs:boolean"/>
+			<xs:element name="Requirement4_5_1_U_Value_BuildingComponents">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWKBBuildingComponentsU" minOccurs="34" maxOccurs="34"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Requirement4_5_1_U_Value_BuildingComponents_Footnotes">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="FootnoteTextPrint" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Requirement4_5_1_BuildingComponents_Footnotes_existent" type="xs:boolean"/>
+			<xs:element name="Requirement4_7_PanelHeating" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_7_PanelHeating_BuildingComponents">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="HWKBBuildingComponentsR" minOccurs="2" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Requirement4_3_RenewableShare">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CompliedOverride" type="xs:boolean"/>
+						<xs:element name="CompliedOverrideDescription" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Requirement4_8_CondensationThermalBridges" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_9_SummerOverheat" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_10_AirTightness" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_13_HeatRecovery" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement5_1_HighlyEfficientEnergySystems" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_12_CentralHeatGeneration" type="ENUMEPBDAnforderung"/>
+			<xs:element name="Requirement4_11_Measures" type="ENUMEPBDAnforderung"/>
+			<!-- MGR 2021 03 09 zusätzliche Anforderung -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FootnoteTextPrint">
+		<xs:sequence>
+			<xs:element name="Number" type="xs:string" minOccurs="0"/>
+			<xs:element name="Text" type="xs:string" minOccurs="0"/>
+			<xs:element name="IsDummy" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMZeus31FederalState">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undefinded"/>
+			<xs:enumeration value="stmk_Styria"/>
+			<xs:enumeration value="Carintia"/>
+			<xs:enumeration value="sbg_Salzburg"/>
+			<xs:enumeration value="Burgenland"/>
+			<xs:enumeration value="LowerAustria_2"/>
+			<xs:enumeration value="Tyrol"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeusXMLVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="XML_3_1"/>
+			<xs:enumeration value="XML_4_0"/>
+			<xs:enumeration value="XML_5_0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31Instance">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undefinded"/>
+			<xs:enumeration value="stmk_Styria"/>
+			<xs:enumeration value="Carintia"/>
+			<xs:enumeration value="sbg_Salzburg"/>
+			<xs:enumeration value="ImmoZeus"/>
+			<xs:enumeration value="Burgenland"/>
+			<xs:enumeration value="LowerAustria_2"/>
+			<xs:enumeration value="Tyrol"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31UtilizationZone">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OneFamilyHouse"/>
+			<xs:enumeration value="SemiDetachedHouse"/>
+			<xs:enumeration value="TerracedBuilding"/>
+			<xs:enumeration value="MultiFamilyHouse"/>
+			<xs:enumeration value="MultiStorey_Housing"/>
+			<xs:enumeration value="OfficeBuilding"/>
+			<xs:enumeration value="Kindergarden_PrimarySchool"/>
+			<xs:enumeration value="HigherSchool_University"/>
+			<xs:enumeration value="Hospital"/>
+			<xs:enumeration value="NursingHome"/>
+			<xs:enumeration value="GuestHouse"/>
+			<xs:enumeration value="Hotel"/>
+			<xs:enumeration value="Restaurant"/>
+			<xs:enumeration value="EventFacility"/>
+			<xs:enumeration value="SportsFacility"/>
+			<xs:enumeration value="SalesFacility"/>
+			<xs:enumeration value="Other_Conditioned_Buildings"/>
+			<xs:enumeration value="TwoFamilyHouse"/>
+			<xs:enumeration value="IndoorSwimmingPool"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31ProjectType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NewBuildingPlanning"/>
+			<xs:enumeration value="RefurbishmentPlanning"/>
+			<xs:enumeration value="AsIsState"/>
+			<xs:enumeration value="NewBuildingCompletion"/>
+			<xs:enumeration value="RefurbishmentCompletion"/>
+			<xs:enumeration value="RefurbishmentConcept"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31Owner">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Private"/>
+			<xs:enumeration value="ResidentialDeveloper_FacilityManagement"/>
+			<xs:enumeration value="IndustrialEstablishment_Association_CommercialLike"/>
+			<xs:enumeration value="Municipality_3"/>
+			<xs:enumeration value="Land"/>
+			<xs:enumeration value="Federation"/>
+			<xs:enumeration value="Miscellaneous_2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31CalculationMethod">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Simplified"/>
+			<xs:enumeration value="DETAILLIERT"/>
+			<xs:enumeration value="Mixed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31EAZoningType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WholeBuilding"/>
+			<xs:enumeration value="TechnicalBuildingEquipmentZone"/>
+			<xs:enumeration value="UtilizationUnit_2"/>
+			<xs:enumeration value="UtilizationZone_2"/>
+			<xs:enumeration value="BuildingPart"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31OwnershipStructure">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Leased_2"/>
+			<xs:enumeration value="Leased"/>
+			<xs:enumeration value="OwnUsed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeus31PhotovoltaicSystemType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IsolatedSystem"/>
+			<xs:enumeration value="GridFeedIn"/>
+			<xs:enumeration value="Miscellaneous_2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Zeus31_FederalStateData">
+		<xs:sequence>
+			<xs:element name="Styria" type="Zeus31_FederalStateData_Steiermark"/>
+			<xs:element name="Salzburg" type="Zeus31_FederalStateData_Salzburg"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zeus31_FederalStateData_Steiermark">
+		<xs:sequence>
+			<xs:element name="ekzwbf" type="xs:float"/>
+			<xs:element name="HWB_Refurfishment" type="xs:float"/>
+			<xs:element name="RefurbishmentPlannedHeating" type="xs:boolean"/>
+			<xs:element name="RefurbishmentPlannedHotWater" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zeus31_FederalStateData_Salzburg">
+		<xs:sequence>
+			<xs:element name="SubsidyDate" type="ENUMZeusFederalStateDataSalzburgSubsidyDate"/>
+			<xs:element name="BuildingType" type="ENUMZeusFederalStateDataSalzburgBuildingType"/>
+			<xs:element name="Proofs_HousingTechnologyNewBuildingPlanned" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMZeusFederalStateDataSalzburgSubsidyDate">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="from_20150401"/>
+			<xs:enumeration value="from_July_2020"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMZeusFederalStateDataSalzburgBuildingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SemiDetached_and_DetachedHouses"/>
+			<xs:enumeration value="Farmhouses"/>
+			<xs:enumeration value="ReservedProperties"/>
+			<xs:enumeration value="HousesInGroup"/>
+			<xs:enumeration value="Other_Housings"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Zeus31_WarningsAnnotationsAdvices">
+		<xs:sequence>
+			<xs:element name="General_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="bauteile" type="xs:string" minOccurs="0"/>
+			<xs:element name="Wiindow" type="xs:string" minOccurs="0"/>
+			<xs:element name="Geometry" type="xs:string" minOccurs="0"/>
+			<xs:element name="TechnicalBuildingEquipment" type="xs:string" minOccurs="0"/>
+			<xs:element name="Miscellaneous" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zeus31">
+		<xs:sequence>
+			<xs:element name="ZEUS_XML_Version" type="ENUMZeusXMLVersion"/>
+			<xs:element name="ProgramVersion" type="xs:string" minOccurs="0"/>
+			<xs:element name="bundesland" type="ENUMZeus31FederalState"/>
+			<xs:element name="Instance" type="ENUMZeus31Instance"/>
+			<xs:element name="UseableArea" type="xs:float"/>
+			<xs:element name="bezeichnung" type="xs:string" minOccurs="0"/>
+			<xs:element name="typ" type="ENUMZeus31ProjectType"/>
+			<xs:element name="CalculationMethod" type="ENUMZeus31CalculationMethod"/>
+			<xs:element name="EA_ZoningType" type="ENUMZeus31EAZoningType"/>
+			<xs:element name="UtilizationZone" type="ENUMZeus31UtilizationZone"/>
+			<xs:element name="OwnershipStructure" type="ENUMZeus31OwnershipStructure"/>
+			<xs:element name="Owner" type="ENUMZeus31Owner"/>
+			<xs:element name="UtilizationUnitEA" type="xs:int"/>
+			<xs:element name="UtilizationUnitWholeBuilding" type="xs:int"/>
+			<xs:element name="UtilizationZoneWholeBuilding" type="xs:int"/>
+			<xs:element name="TechnicalBuildingEquipmentZonesWholeBuilding" type="xs:int"/>
+			<xs:element name="Basement" type="xs:int"/>
+			<xs:element name="StoreysWholeBuilding" type="xs:int"/>
+			<xs:element name="BuildingSubmission" type="xs:dateTime"/>
+			<xs:element name="BuildingSubmission_entered" type="xs:boolean"/>
+			<xs:element name="PersonsInHousehold" type="xs:int"/>
+			<xs:element name="MultiZoneConstruction" type="xs:boolean"/>
+			<xs:element name="MultiZoneTechnicalBuildingEquipment" type="xs:boolean"/>
+			<xs:element name="MonumentProtection" type="xs:boolean"/>
+			<xs:element name="OtherProtectionWorthyBuildings" type="xs:boolean"/>
+			<xs:element name="Municipality_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostalCode_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Site_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Street_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="HouseNumber_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Stair_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Door_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="CadastralMunicipality" type="xs:string" minOccurs="0"/>
+			<xs:element name="CadastralMunicipalityNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="DepositNumber_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="PropertyNumbers" type="xs:string" minOccurs="0"/>
+			<xs:element name="YearOfConstruction_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Issuing" type="xs:dateTime"/>
+			<xs:element name="Validity" type="xs:dateTime"/>
+			<xs:element name="autotransferproject" type="xs:boolean"/>
+			<xs:element name="Solar_CommunitySystem" type="xs:boolean"/>
+			<xs:element name="HygienicWaterHeating" type="xs:boolean"/>
+			<xs:element name="Photovoltaics" type="xs:boolean"/>
+			<xs:element name="Photovoltaic_System" type="ENUMZeus31PhotovoltaicSystemType"/>
+			<xs:element name="HP_SeasonalEnergyEfficiencyRatio" type="xs:float"/>
+			<xs:element name="HP_CoefficientOfPerformance" type="xs:float"/>
+			<xs:element name="HP_ElectricSubmeter" type="xs:boolean"/>
+			<xs:element name="HP_HeatMeter" type="xs:boolean"/>
+			<xs:element name="HP_COP" type="xs:float"/>
+			<xs:element name="Warning" type="Zeus31_WarningsAnnotationsAdvices"/>
+			<xs:element name="Annotations" type="Zeus31_WarningsAnnotationsAdvices"/>
+			<xs:element name="Recommendations" type="Zeus31_WarningsAnnotationsAdvices"/>
+			<xs:element name="FederalStateData" type="Zeus31_FederalStateData"/>
+			<xs:element name="Salzburg_Proofs_HousingTechnologyNweBuildingPlanned" type="xs:boolean"/>
+			<xs:element name="Salzburg_Proofs_geeException" type="xs:boolean"/>
+			<xs:element name="Salzburg_Proofs_geeException_Reason" type="xs:string" minOccurs="0"/>
+			<xs:element name="Salzburg_wbf_manualCheck" type="xs:boolean"/>
+			<xs:element name="Salzburg_wbf_manualCheck_Reason" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUM_EAWZ_BasementStorey">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BasementStorey_conditioned"/>
+			<xs:enumeration value="BasementStorey_partly_conditioned"/>
+			<xs:enumeration value="BasementStorey_not_conditioned"/>
+			<xs:enumeration value="BasementStorey_not_existent"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_Public_Buildings">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="no_Public_Building"/>
+			<xs:enumeration value="Land"/>
+			<xs:enumeration value="Municipality"/>
+			<xs:enumeration value="Bund"/>
+			<xs:enumeration value="Sonstige"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_StateOfRealisation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="in_Planning"/>
+			<xs:enumeration value="AsIs_State"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_Reason_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NewBuilding"/>
+			<xs:enumeration value="Significant_Change_in_Usage"/>
+			<xs:enumeration value="Renewal_Refurbishment"/>
+			<xs:enumeration value="MajorRenovation"/>
+			<xs:enumeration value="no_BuildingLaw_Procedure_ExistingBuilding"/>
+			<xs:enumeration value="Extension_less_then_100m2_netGF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_Despription_BuildingStructure_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Detached_BuildingStructure"/>
+			<xs:enumeration value="Extension_to_existing_building"/>
+			<xs:enumeration value="Zoned_Area_in_WholeBuilding"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_LegalBasis_Type">
+		<xs:annotation>
+			<xs:documentation>
+				1: BTV LGBl.Nr. 83/2007 (2008-2009)
+				2: BTV LGBl.Nr. 83/2007 (2010-2012)
+				3: BTV LGBl.Nr. xx/2012
+				4: BTV LGBl.Nr. 92/2016 (2017-01-01)
+				5: BTV LGBNr. xx/2021 i.V.m BEV LGBNr. Xx/2021 - bis 01.01.2023
+				6: BTV LGBNr. xx/2021 i.V.m BEV LGBNr. Xx/2021 - ab 01.01.2023 bis 01.01.2024
+				7: BTV LGBNr. xx/2021 i.V.m BEV LGBNr. Xx/2021 - ab 01.01.2024
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BTV_LGBL_NR_83_2007_2008_2009"/>
+			<xs:enumeration value="BTV_LGBL_NR_83_2007_2010_2012"/>
+			<xs:enumeration value="BTV_LGBL_NR_XX_2012"/>
+			<xs:enumeration value="BTV_LGBL_NR_92_2016"/>
+			<xs:enumeration value="BTV_LGBL_NR_xx_2021_until2023"/>
+			<xs:enumeration value="BTV_LGBL_NR_xx_2021_from2023until2024"/>
+			<xs:enumeration value="BTV_LGBL_NR_xx_2021_from2024"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_StateEstimation_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AsIs_State"/>
+			<xs:enumeration value="planned"/>
+			<xs:enumeration value="LitterBasket"/>
+			<xs:enumeration value="Realisation_unprobable"/>
+			<xs:enumeration value="Bestpractice_planned"/>
+			<xs:enumeration value="Bestpractice_Realisation_unprobable"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_Proof_CoolingDemand_via_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Proof_via_KB_stern_provided"/>
+			<xs:enumeration value="Proof_via_OENORM_B_8110_3_1999_provided"/>
+			<xs:enumeration value="Nachweis_ueber_OENORM_B_8110_3_2012_gefuehrt"/>
+			<xs:enumeration value="Proof_not_provided"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_Proof_CoolingDemand_fulfilled_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NewBuilding_Requirement_fulfilled"/>
+			<xs:enumeration value="NewBuilding_Requirement_not_fulfilled"/>
+			<xs:enumeration value="Requirement_for_MajorRenovation_fulfilled"/>
+			<xs:enumeration value="Requirement_for_MajorRenovation_not_fulfilled"/>
+			<xs:enumeration value="no_Requirement"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_SummerSuitability_Proof_B8110_3_1999_WG_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="performed_complied"/>
+			<xs:enumeration value="performed_complied_not"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_SummerSuitability_Proof_B8110_3_2012_WG_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="performed_complied"/>
+			<xs:enumeration value="performed_complied_not"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_HousingSubsidyRegulation_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OEWB_2016"/>
+			<xs:enumeration value="OEWB_2014"/>
+			<xs:enumeration value="OEWB_2013"/>
+			<xs:enumeration value="OEWB_2012"/>
+			<xs:enumeration value="OEWB_2011"/>
+			<xs:enumeration value="OEWB_2010"/>
+			<xs:enumeration value="OEWB_2009"/>
+			<xs:enumeration value="OEWB_2008"/>
+			<xs:enumeration value="no_HousingSubsidy"/>
+			<xs:enumeration value="NB_2016_2017_Private_Housing"/>
+			<xs:enumeration value="NB_2016_2017_Public_Housing_Hostels_not_StartupApartments"/>
+			<xs:enumeration value="NB_2016_2017_Public_Housing_integrative_supervised_Apartments"/>
+			<xs:enumeration value="San_2016"/>
+			<xs:enumeration value="San_2017"/>
+			<xs:enumeration value="NB_2018_2019_Private_Housing"/>
+			<xs:enumeration value="NB_2018_2019_Public_Housing"/>
+			<xs:enumeration value="San_2018_2019"/>
+			<xs:enumeration value="NB_2020_2021_Private_Housing"/>
+			<xs:enumeration value="NB_2020_2021_Public_Housing"/>
+			<xs:enumeration value="San_2020_2021"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_State">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="First_Installation"/>
+			<xs:enumeration value="renewed"/>
+			<xs:enumeration value="PredominatlyRefurbished"/>
+			<xs:enumeration value="unchangeable_Existing"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EAWZ">
+		<xs:sequence>
+			<xs:element name="isSchema_4_12_2019" type="xs:boolean"/>
+			<xs:element name="alsoHousingSubsidy" type="xs:boolean"/>
+			<xs:element name="HousingSubsidyGuideline" type="ENUM_EAWZ_HousingSubsidyRegulation_Type"/>
+			<xs:element name="LegalBase" type="ENUM_EAWZ_LegalBasis_Type"/>
+			<xs:element name="XML_TimeOfCreation" type="xs:dateTime"/>
+			<xs:element name="BeginningOfCalculation" type="xs:dateTime"/>
+			<xs:element name="StateOfRealisation" type="ENUM_EAWZ_StateOfRealisation"/>
+			<xs:element name="BuildingPart_short_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="BuildingPart_detailed_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Reason_Type" type="ENUM_EAWZ_Reason_Type"/>
+			<xs:element name="Acquisition_BuildingGeometry_simplified" type="xs:boolean"/>
+			<xs:element name="Acquisition_TechnicalBuildingEquipment_simplified" type="xs:boolean"/>
+			<xs:element name="Purchaser" type="xs:string" minOccurs="0"/>
+			<xs:element name="EstimationOfCondition" type="ENUM_EAWZ_StateEstimation_Type"/>
+			<xs:element name="DescripionOfObject" type="xs:string" minOccurs="0"/>
+			<xs:element name="UtilizationUnit" type="xs:int"/>
+			<xs:element name="UtilizationUnit_EAW" type="xs:int"/>
+			<xs:element name="UpperFloors" type="xs:int"/>
+			<xs:element name="BasementFloors" type="xs:int"/>
+			<xs:element name="StartOfConstruction" type="xs:int"/>
+			<xs:element name="CompletionOfBuilding" type="xs:int"/>
+			<xs:element name="EAW_includes_x_AreaPercent" type="xs:int"/>
+			<xs:element name="Background_of_Issueing_Sale_Leasing" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_PostingDuty" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_RefurbischmentAdvice" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_OtherReasons" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_Subsidy" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_HousingSubsidy" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_EnergySubsidy" type="xs:boolean"/>
+			<xs:element name="Background_of_Issueing_BuildingLawProcedure" type="xs:boolean"/>
+			<xs:element name="Description_BuildingStructure" type="ENUM_EAWZ_Despription_BuildingStructure_Type"/>
+			<xs:element name="BasesOfCalculation_and_general_Hints_to_EAW" type="xs:string" minOccurs="0"/>
+			<xs:element name="TerracedBuildingType" type="xs:boolean"/>
+			<xs:element name="NoneProfit_PropertyDeveloper" type="xs:boolean"/>
+			<xs:element name="Public_Building" type="ENUM_EAWZ_Public_Buildings"/>
+			<xs:element name="Detail_BasementStorey" type="ENUM_EAWZ_BasementStorey"/>
+			<xs:element name="Detail_NoneLined_Attic_existent" type="xs:boolean"/>
+			<xs:element name="Proof_CoolingDemand_via" type="ENUM_EAWZ_Proof_CoolingDemand_via_Type"/>
+			<xs:element name="Proof_CoolingDemand_complied" type="ENUM_EAWZ_Proof_CoolingDemand_fulfilled_Type"/>
+			<xs:element name="SummerSuitability" type="EAWSummerSuitability"/>
+			<xs:element name="Condition_Ventilation" type="ENUM_EAWZ_State"/>
+			<xs:element name="Condition_RaisingPipes" type="ENUM_EAWZ_State"/>
+			<xs:element name="Condition_DistributionPipes" type="ENUM_EAWZ_State"/>
+			<!-- min = 1, max = 32 -->
+			<!-- min = 1 -->
+			<!-- min = 1, max = 256 -->
+			<!-- min = 1 -->
+			<!-- 0-100 -->
+			<!-- 0-100 -->
+			<!-- 0-100 -->
+			<!-- 100-2020 -->
+			<!-- 100-2020 -->
+			<!-- int, 0-100 -->
+			<!-- min = 1 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUM_EAWZ_SummerSuitability_Proof">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="no_Proof"/>
+			<xs:enumeration value="OENORM_B_8110_3_1999"/>
+			<xs:enumeration value="OENORM_B_8110_3_2012"/>
+			<xs:enumeration value="via_external_Shading"/>
+			<xs:enumeration value="via_KB_Stern"/>
+			<xs:enumeration value="via_operational_Temperature"/>
+			<xs:enumeration value="not_relevant"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_SummerSuitability_Proof_1999">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Proof_Daily_OperationalTemperature"/>
+			<xs:enumeration value="Proof_ThermalCapacityBuildingMass"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_EAWZ_SummerSuitability_Proof_2012">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Proof_Daily_OperationalTemperature"/>
+			<xs:enumeration value="Proof_Simplified_Method"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EAWSummerSuitability">
+		<xs:sequence>
+			<xs:element name="EvidenceAccording" type="ENUM_EAWZ_SummerSuitability_Proof"/>
+			<xs:element name="Proof1999_Type" type="ENUM_EAWZ_SummerSuitability_Proof_1999"/>
+			<xs:element name="Proof1999_complied" type="ENUM_EAWZ_SummerSuitability_Proof_B8110_3_1999_WG_Type"/>
+			<xs:element name="t_Stern" type="xs:float"/>
+			<xs:element name="t_BER" type="xs:float"/>
+			<xs:element name="V_L_s" type="xs:float"/>
+			<xs:element name="m_w_AI" type="xs:float"/>
+			<xs:element name="m_w" type="xs:float"/>
+			<xs:element name="Proof2012_Type" type="ENUM_EAWZ_SummerSuitability_Proof_2012"/>
+			<xs:element name="Proof2012_complied" type="ENUM_EAWZ_SummerSuitability_Proof_B8110_3_2012_WG_Type"/>
+			<xs:element name="Maximum_operational_Temperature" type="xs:float"/>
+			<xs:element name="m_w_I_min" type="xs:float"/>
+			<xs:element name="m_w_I" type="xs:float"/>
+			<xs:element name="T_op" type="xs:float"/>
+			<xs:element name="T_op_zul" type="xs:float"/>
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+			<!-- Zahl_min_0_Typ -->
+		</xs:sequence>
+	</xs:complexType>
+	<!-- KST 14.08.2013 Simulator -->
+	<xs:simpleType name="ENUMSimulatorBuildingComponentMethod">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UValueDirect"/>
+			<xs:enumeration value="InsulationThickness"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_SimulatorOverrideSource">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="No_Change"/>
+			<xs:enumeration value="Direct_Values"/>
+			<xs:enumeration value="Catalogue"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SimulatorBuildingComponent">
+		<xs:sequence>
+			<xs:element name="IsActive" type="xs:boolean"/>
+			<xs:element name="UValue" type="xs:float"/>
+			<xs:element name="BuildingComponentMethod" type="ENUMSimulatorBuildingComponentMethod"/>
+			<xs:element name="InsulationThicknessMeter" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Simulator">
+		<xs:sequence>
+			<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SimulatorVariant">
+							<xs:attribute name="ID"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SimulatorVariant">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Print" type="xs:boolean"/>
+			<xs:element name="Active" type="xs:boolean"/>
+			<xs:element name="BuildingComponents" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="SimulatorBuildingComponent">
+										<xs:attribute name="ECTConstructionID"/>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InsulationMaterialOverrideECTClasslibString" type="xs:string" minOccurs="0"/>
+			<xs:element name="WindowOverrideUvalue" type="xs:float"/>
+			<xs:element name="WindowOverrideSource" type="ENUM_SimulatorOverrideSource"/>
+			<xs:element name="WindowOverridegValue" type="xs:float"/>
+			<xs:element name="WindowOverrideECTClasslibString" type="xs:string" minOccurs="0"/>
+			<xs:element name="DoorOverrideUvalue" type="xs:float"/>
+			<xs:element name="DoorOverrideSource" type="ENUM_SimulatorOverrideSource"/>
+			<xs:element name="DoorOverridegValue" type="xs:float"/>
+			<xs:element name="DoorOverrideECTClasslibString" type="xs:string" minOccurs="0"/>
+			<xs:element name="SystemIsActive" type="xs:boolean"/>
+			<xs:element name="SystemXMLString" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- KST 14.08.2013 Simulator END -->
+	<xs:simpleType name="ENUMMajorRenovationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Thermal_only"/>
+			<xs:enumeration value="Refurbishment_TechnicalBuildingEquipment"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FederalStateCalcData">
+		<xs:sequence>
+			<xs:element name="UpperAustria" type="FederalStateCalcDataUpperAustria"/>
+			<xs:element name="Vienna" type="HWKBCalcDataFederalStateVienna"/>
+			<xs:element name="LowerAustria" type="HWKBCalcDataFederalStateLowerAustria"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FederalStateCalcDataUpperAustria">
+		<xs:sequence>
+			<xs:element name="WBFDate" type="ENUMFederalStateUpperAustriaWBFDate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMFederalStateUpperAustriaWBFDate">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="from_20190101"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HWKBCalcDataFederalStateVienna">
+		<xs:sequence>
+			<xs:element name="WUKSEA" type="WUKSEA"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="a13_BasementStorey">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="a14_AtticStorey">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="m14z14_OIB_detail">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="m14z15_antique">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="m14z17_wbf">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="x14_ea_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!-- K – konkret-->
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!-- T – Teil-EA-->
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!--D – abgeleitet (deduktiv)-->
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="a16_StateOfRealisation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!--Planung-->
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!--Bestand-->
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+				<!--Ist-Zustand-->
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- KHO 2022 add for version 4.4 (V06)-->
+	<xs:simpleType name="x05_ProjectID">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="m14z22_ProjectID_detail">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="m14z23_pvbo">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="02">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="04">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="06">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="07">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="08">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="09">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="11">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="12">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+				<xs:annotation>
+					<xs:appinfo>
+						<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- KHO 2022 add for version 4.4 (V06) end-->
+	<xs:complexType name="WUKSEA">
+		<xs:sequence>
+			<xs:element name="WUKSEA_ID" type="xs:string" minOccurs="0"/>
+			<xs:element name="AdressID_Vienna" type="xs:int"/>
+			<xs:element name="isNE" type="xs:boolean"/>
+			<xs:element name="m14z04_Notation" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z05_TopDoorNr">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z06_IsTop" type="xs:boolean" nillable="true"/>
+			<xs:element name="m14z07_PostalCode" type="xs:int"/>
+			<xs:element name="m14z08_Site" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="x01_Objnr" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{7}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="x02_ntzlnr" type="xs:int"/>
+			<xs:element name="m14z09_RefNr_MA37" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z09_RefNr_MA25" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z09_RefNr_WF" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="kg" type="xs:string" minOccurs="0"/>
+			<xs:element name="a06_kgnr" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="\d{5}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="a07_gnrbau" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(( )|(\.))"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="a08_gnr1" type="xs:string" minOccurs="0"/>
+			<xs:element name="a09_gnr2" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{0,5}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14b09_ContentCreatorMail" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14b10_ContenCreatorPhone" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="x03_ZoneNumber" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="z04_ZoneDescripion" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="d02_HeightAboveSeaLevel">
+				<xs:simpleType>
+					<xs:restriction base="xs:short">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="750"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="a12_NumberOfStoreys">
+				<xs:simpleType>
+					<xs:restriction base="xs:short">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="a13_BasementStorey" type="a13_BasementStorey"/>
+			<xs:element name="a14_AtticStorey" type="a14_AtticStorey"/>
+			<xs:element name="w01_muvalue_opaque_top" type="xs:decimal"/>
+			<xs:element name="w02_area_opaque_top" type="xs:decimal"/>
+			<xs:element name="w03_muvalue_opaque_hor" type="xs:decimal"/>
+			<xs:element name="w04_area_opaque_hor" type="xs:decimal"/>
+			<xs:element name="w05_muvalue_opaque_down" type="xs:decimal"/>
+			<xs:element name="w06_area_opaque_down" type="xs:decimal"/>
+			<xs:element name="w07_muvalue_transparent_top" type="xs:decimal"/>
+			<xs:element name="w08_area_transparent_top" type="xs:decimal"/>
+			<xs:element name="w09_muvalue_transparent_hor" type="xs:decimal"/>
+			<xs:element name="w10_area_transparent_hor" type="xs:decimal"/>
+			<xs:element name="w11_muvalue_transparent_down" type="xs:decimal"/>
+			<xs:element name="w12_area_transparent_down" type="xs:decimal"/>
+			<xs:element name="w13_mgvalue_transparent_top" type="xs:decimal"/>
+			<xs:element name="w14_mgvalue_transparent_hor" type="xs:decimal"/>
+			<xs:element name="w15_mgvalue_transparent_down" type="xs:decimal"/>
+			<!--<xs:element name="w16mfcwerttranspoben" type="xs:decimal"/> removed in version 4.3-->
+			<!--<xs:element name="w17mfcwerttransphor" type="xs:decimal"/> removed in version 4.3-->
+			<!--<xs:element name="w18mfcwerttranspunten" type="xs:decimal"/> removed in version 4.3-->
+			<xs:element name="w19_mgtot_transparent_top" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="w20_mgtot_transparent_hor" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="w21_mgtot_transparent_down" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="GNR_manuell" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BGF_Stair" type="xs:decimal"/>
+			<xs:element name="m14z14_OIB_detail" type="m14z14_OIB_detail"/>
+			<xs:element name="m14z15_antique" type="m14z15_antique"/>
+			<xs:element name="m14z16_antique_detail" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="256"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z17_wbf" type="m14z17_wbf"/>
+			<xs:element name="m14z19_Comment" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2048"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="m14z20_partialEA" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="x14_ea_type" type="x14_ea_type"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="a16_StateOfRealisation" type="a16_StateOfRealisation"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="c11_PartialGrossGroundArea" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="c12_PartialReferenceGroundArea" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="c13_PartialGrossVolume" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="q25BatterySystem" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="e43co2eqsks" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="e44co2eqskz" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="e45eawzww" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<xs:element name="e46eawzrh" type="xs:decimal"/>
+			<!-- MGR 20191209 add for version 4.3-->
+			<!-- KHO 2022 add for version 4.4 (V06)-->
+			<xs:element name="x05_ProjectID" type="x05_ProjectID" nillable="true"/>
+			<xs:element name="m14z22_ProjectID_detail" type="m14z22_ProjectID_detail"/>
+			<xs:element name="m14z23_pvbo" type="m14z23_pvbo"/>
+			<xs:element name="e47pebhebnernrks" type="xs:decimal"/>
+			<!-- KHO 2022 add for version 4.4 (V06) end-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBCalcDataFederalStateLowerAustria">
+		<xs:sequence>
+			<xs:element name="ConstructionTechnologyRegulationDate" type="ENUMNiederoesterreichBautechnikVerordnungDatum"/>
+			<xs:element name="WBF2019" type="LowerAustriaWBF2019"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LowerAustriaWBF2019NewBuildingENUMSubsidyModel">
+		<xs:annotation>
+			<xs:documentation>
+				Eigenheim
+				Wohnungsbau
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OwnerOccupiedHouse"/>
+			<xs:enumeration value="Housing"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NiederoesterreichWBF2019WohnungsbauENUMVersion">
+		<xs:annotation>
+			<xs:documentation>
+				4. Änderung Datenblatt Stand 29.Juni 2021
+				20. Änderung Datenblatt Stand 2 Juli 2024
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Aenderung_4_Datenblatt_Stand_29_Juni_2021"/>
+			<xs:enumeration value="Aenderung_20_Datenblatt_Stand_2_Juli_2024"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="LowerAustriaWBF2019">
+		<xs:sequence>
+			<xs:element name="SubsidyModel" type="LowerAustriaWBF2019NewBuildingENUMSubsidyModel"/>
+			<xs:element name="OwnerOccupiedHouse" type="LowerAustriaWBF2019OwnerOccupiedHouse"/>
+			<xs:element name="Housing" type="LowerAustriaWBF2019Housing"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LowerAustriaWBF2019OwnerOccupiedHouse">
+		<xs:sequence>
+			<xs:element name="BirthDate" type="xs:dateTime"/>
+			<xs:element name="Surname" type="xs:string" minOccurs="0"/>
+			<xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Person_2_existent" type="xs:boolean"/>
+			<xs:element name="Geburtsdatum_2" type="xs:dateTime"/>
+			<xs:element name="Surname_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="FirstName_2" type="xs:string" minOccurs="0"/>
+			<xs:element name="SolarPlant_m2" type="FreieEingabeWert"/>
+			<xs:element name="PV_System_kWp" type="FreieEingabeWert"/>
+			<xs:element name="DuringDay_contactable_at" type="xs:string" minOccurs="0"/>
+			<xs:element name="Green_Infrastucture_at_the_House" type="xs:boolean"/>
+			<xs:element name="Passive_SunProtection" type="xs:boolean"/>
+			<xs:element name="AlarmSystem" type="xs:boolean"/>
+			<xs:element name="EH_UseableDwellingArea" type="xs:float"/>
+			<xs:element name="EH_Ecological_GardenDesign" type="xs:boolean"/>
+			<xs:element name="EH_PartlyGreening_on_House" type="xs:boolean"/>
+			<xs:element name="GW_Number_DwellingUnits" type="xs:float"/>
+			<xs:element name="GW_Satety_DwellingDoorRC3" type="xs:boolean"/>
+			<xs:element name="GW_DwellingsBuiltByAuthorizedDevelopersAsMultyStoreyResidentialBuildings" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LowerAustriaWBF2019Housing">
+		<xs:sequence>
+			<xs:element name="Version" type="NiederoesterreichWBF2019WohnungsbauENUMVersion"/>
+			<xs:element name="HighlyEfficient_alternative_EnergySystem" type="xs:boolean"/>
+			<xs:element name="Number_DwellingUnit" type="xs:float"/>
+			<xs:element name="ReferenceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="SubsidyApplicantAdress" type="xs:string" minOccurs="0"/>
+			<xs:element name="SiteOfConstruction" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShortNameBuildingProject" type="xs:string" minOccurs="0"/>
+			<xs:element name="ConstructionPermitNumberDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="PlanNumberDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="Heating_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Heating_monovalent_HeatPump_with_EHPA_Cachet" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="Heating_Biogas" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="Heating_Miscellaneous" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="Heating_Miscellaneous_Description" type="xs:string" minOccurs="0"/>
+			<!--Version Mai2021-->
+			<xs:element name="WaterHeating_Desription" type="xs:string" minOccurs="0"/>
+			<xs:element name="WaterHeating_Storage_central_with_CirculationPipe" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="WaterHeating_Storage_central_with_DwellingStations" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="WaterHeating_Storage_per_WE_RH" type="xs:boolean"/>
+			<!--Version Mai2021-->
+			<xs:element name="PV_System_Descrition" type="xs:string" minOccurs="0"/>
+			<xs:element name="SolarPlant_Desripion" type="xs:string" minOccurs="0"/>
+			<xs:element name="LivingAreaVentilation_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="Safety_DwelligDoorRC3" type="xs:boolean"/>
+			<xs:element name="Safety_AlarmSystem" type="xs:boolean"/>
+			<xs:element name="Greening_PartlyGreening_of_Roof" type="xs:boolean"/>
+			<xs:element name="Greening_predominant_TotalGreening_of_Roof" type="xs:boolean"/>
+			<xs:element name="Greening_Green_Facade" type="xs:boolean"/>
+			<xs:element name="Garden_Gardendesign" type="xs:boolean"/>
+			<xs:element name="Garden_Infiltration_of_Rainwater_on_OwnGround" type="xs:boolean"/>
+			<xs:element name="External_moveable_Shading" type="xs:boolean"/>
+			<xs:element name="External_moveable_Shading_Description" type="xs:string" minOccurs="0"/>
+			<xs:element name="External_moveable_Shading_g_tot" type="xs:float"/>
+			<xs:element name="EmptyPiping_for_Retrofitting_of_ChargingStations" type="xs:boolean"/>
+			<xs:element name="ParkingFacilities_for_MotorVehicles_in_UndergroundCarParks" type="xs:boolean"/>
+			<xs:element name="ParkingFacilities_for_MotorVehicles_in_UndergroundCarParks_Number" type="xs:float"/>
+			<xs:element name="ParkingFacilities_for_MotorVehicles" type="xs:boolean"/>
+			<xs:element name="ParkingFacilities_for_MotorVehicles_Number" type="xs:float"/>
+			<xs:element name="SingleRoomVentilationDevice" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SalzburgTVERequirements">
+		<xs:sequence>
+			<xs:element name="NewBuilding_Needed" type="xs:boolean"/>
+			<xs:element name="NewBuildingDwellingHouseWithMoreThen5DwellingUnits" type="xs:boolean"/>
+			<xs:element name="InstallationOfADecentralizedHeatSupplySystemForMoreThan5Units" type="xs:boolean"/>
+			<xs:element name="ExtensionWithConnectionToExistingHeatingSystem_Needed" type="xs:boolean"/>
+			<xs:element name="ExtensionWithConnectionToExistingHeatingSystem" type="xs:boolean"/>
+			<xs:element name="Transmissiones_Needed" type="xs:boolean"/>
+			<xs:element name="PEB_Needed" type="xs:boolean"/>
+			<xs:element name="CO2_Needed" type="xs:boolean"/>
+			<xs:element name="LEK_T_Needed" type="xs:boolean"/>
+			<xs:element name="P_i_Needed" type="xs:boolean"/>
+			<xs:element name="VentilationSystemWithHeatRecoveryOrOutletAirDemandControled" type="xs:boolean"/>
+			<xs:element name="VentilationSystemWithHeatRecoveryOrOutletAirDemandControled_Needed" type="xs:boolean"/>
+			<xs:element name="VentilationSystemWithHeatRecoveryOrOutletAirDemandControled_Complied" type="xs:boolean"/>
+			<xs:element name="CentralHeatMeter" type="xs:boolean"/>
+			<xs:element name="CentralHeatMeter_Needed" type="xs:boolean"/>
+			<xs:element name="CentralHeatMeter_Complied" type="xs:boolean"/>
+			<xs:element name="TwoPipeSystemHeatDistributionNet" type="xs:boolean"/>
+			<xs:element name="TwoPipeSystemHeatDistributionNet_Needed" type="xs:boolean"/>
+			<xs:element name="TwoPipeSystemHeatDistributionNet_Complied" type="xs:boolean"/>
+			<xs:element name="CommunityHeatingTempDifferenceMax2KReturnSecondarySystem" type="xs:boolean"/>
+			<xs:element name="CommunityHeatingTempDifferenceMax2KReturnSecondarySystem_Needed" type="xs:boolean"/>
+			<xs:element name="CommunityHeatingTempDifferenceMax2KReturnSecondarySystem_Complied" type="xs:boolean"/>
+			<xs:element name="CommunityHeatingSecondarySystemNotExistent" type="xs:boolean"/>
+			<xs:element name="InletTemperature_Needed" type="xs:boolean"/>
+			<xs:element name="ReturnTemperature" type="xs:boolean"/>
+			<xs:element name="ElectricallyOperatedHeatPumpsSEERMinimumThree" type="xs:boolean"/>
+			<xs:element name="ElectricallyOperatedHeatPumpsSEERMinimumThree_Needed" type="xs:boolean"/>
+			<xs:element name="ElectricallyOperatedHeatPumpsSEERMinimumThree_Complied" type="xs:boolean"/>
+			<xs:element name="Refurbishment_Efficiency_not_feasable" type="xs:boolean"/>
+			<xs:element name="RefurbishmentHeatDistibution_Needed" type="xs:boolean"/>
+			<xs:element name="RefurbishmentHeatDistibution" type="xs:boolean"/>
+			<xs:element name="RefurbishmentHeatGenerationSystem_Needed" type="xs:boolean"/>
+			<xs:element name="RefurbishmentHeatGenerationSystem" type="xs:boolean"/>
+			<xs:element name="PV_Needed" type="xs:boolean"/>
+			<xs:element name="PV_BGF_Minumum_1000_sqm" type="xs:boolean"/>
+			<xs:element name="PV_NVPE_per_BGF_Value" type="xs:float"/>
+			<xs:element name="PV_not_feasible" type="xs:boolean"/>
+			<xs:element name="PV_complied" type="xs:boolean"/>
+			<xs:element name="EnergySystemNeeded" type="xs:boolean"/>
+			<xs:element name="Proofs_ExtensionOrTopUp" type="xs:boolean"/>
+			<xs:element name="Proofs_not_feasible" type="xs:boolean"/>
+			<xs:element name="Proofs_not_feasible_Reason" type="xs:string" minOccurs="0"/>
+			<xs:element name="InternalTeperature_other_Buildings" type="xs:float"/>
+			<xs:element name="SubmissionUntil" type="ENUMSbgSubmissionUntil"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OI3">
+		<xs:sequence>
+			<xs:element name="HEROES" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="HEROES_apply" type="xs:boolean"/>
+						<xs:element name="A_TG" type="xs:float">
+							<!-- Brutto-Grundfläche der Tiefgarage", "m²", 2)-->
+						</xs:element>
+						<xs:element name="SP_TG" type="xs:float">
+							<!-- Anzahl der Stellplätze der Tiefgarage", "m²", 2)-->
+						</xs:element>
+						<xs:element name="h_UG_TG" type="xs:float">
+							<!-- Höhe der TG; UK-Bodenplatte bis UK-Decke", "m", 2)-->
+						</xs:element>
+						<xs:element name="FloorCovering_TG" type="HEROESENUMFloorCovering"/>
+						<xs:element name="Insulation_TG" type="HEROESENUMInsulation"/>
+						<xs:element name="A_K" type="xs:float">
+							<!-- Brutto-Grundfläche unkonditionierte Kellerflächen", "m²", 2)-->
+						</xs:element>
+						<xs:element name="h_UG_K" type="xs:float">
+							<!-- Höhe der Kellerflächen; UK-Bodenplatte bis UK-Decke", "m", 2)-->
+						</xs:element>
+						<xs:element name="FloorCovering_K" type="HEROESENUMFloorCovering"/>
+						<xs:element name="Insulation_K" type="HEROESENUMInsulation"/>
+						<xs:element name="A_HT" type="xs:float">
+							<!-- Brutto-Grundfläche von Flächen, welche für haustechnischen Anlagen genutzt werden", "m²", 2)-->
+						</xs:element>
+						<xs:element name="h_UG_HT" type="xs:float">
+							<!-- Höhe des Haustechnikraumes; UK-Bodenplatte bis UK-Decke", "m", 2)-->
+						</xs:element>
+						<xs:element name="FloorCovering_HT" type="HEROESENUMFloorCovering"/>
+						<xs:element name="Insulation_HT" type="HEROESENUMInsulation"/>
+						<xs:element name="A_Er" type="xs:float">
+							<!-- Brutto-Grundfläche von unkonditionierten Flächen, welche für die Erschließung genutzt werden", "m²", 2)-->
+						</xs:element>
+						<xs:element name="h_UG_ER" type="xs:float">
+							<!-- Höhe der Erschließungsflächen; UK-Bodenplatte bis UK-Decke", "m", 2)-->
+						</xs:element>
+						<xs:element name="FloorCovering_ER" type="HEROESENUMFloorCovering"/>
+						<xs:element name="GrossGroundAreaOfExternalRamps" type="xs:float">
+							<!-- Bruttogrundfläche außenliegender Rampen", "m²", 2)-->
+						</xs:element>
+						<xs:element name="GrossAreaUndergroundCarParks_and_BasementCeilingToUnheated" type="xs:float">
+							<!-- Bruttofläche Tiefgaragen und Kellerdecke gegen Unbeheizt", "m²", 2)-->
+						</xs:element>
+						<xs:element name="Form" type="HEROESENUMForm"/>
+						<xs:element name="PressingWater" type="HEROESENUMPressingWater"/>
+						<xs:element name="SharePartitionWall" type="HEROESENUMSharePartitionWalls"/>
+						<xs:element name="PartitionWallsBearingBaubookInfoID" type="xs:string" minOccurs="0"/>
+						<xs:element name="PartitionWallsNotBearingBaubookInfoID" type="xs:string" minOccurs="0"/>
+						<xs:element name="BuildingType" type="HEROESENUMBuildingType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="HEROESENUMForm">
+		<xs:annotation>
+			<xs:documentation>
+				Quadrat
+				Rechteckck
+				l-Form
+				h-Form
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Quadrat"/>
+			<xs:enumeration value="Rectangle"/>
+			<xs:enumeration value="L_Shape"/>
+			<xs:enumeration value="H_Shape"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HEROESENUMPressingWater">
+		<xs:annotation>
+			<xs:documentation>
+				drückendes Wasser mit weißer Wanne
+				drückendes Wasser mit schwarzer Wanne
+				kein drückendes Wasser
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Pressing_water_with_white_tub"/>
+			<xs:enumeration value="Pressing_water_with_black_tub"/>
+			<xs:enumeration value="no_PressingWater"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HEROESENUMInsulation">
+		<xs:annotation>
+			<xs:documentation>
+				Perimeterdämmung
+				ungedämmt
+				gedämmt
+				ungedämmt Perimeterdämmung
+				Erschließung
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PerimeterInsulation"/>
+			<xs:enumeration value="Uninsulated_2"/>
+			<xs:enumeration value="insulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HEROESENUMFloorCovering">
+		<xs:annotation>
+			<xs:documentation>
+				geglättet
+				PU-Beschichtung
+				Fliesen
+				PU-Beschichtung leicht
+				Asphalt
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="smoothed"/>
+			<xs:enumeration value="PU_Coating"/>
+			<xs:enumeration value="Tiles"/>
+			<xs:enumeration value="PU_Coating_Light"/>
+			<xs:enumeration value="Asphalt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HEROESENUMSharePartitionWalls">
+		<xs:annotation>
+			<xs:documentation>
+				niedriger Anteil an	Zwischenwänden/	große Raume
+				mittlerer Anteil an	Zwischenwänden/	mittelgroße	Räume (Default)
+				erhöhter Anteil an	Zwischenwänden/	kleine Räume
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="low_share"/>
+			<xs:enumeration value="Average_Share"/>
+			<xs:enumeration value="increased_share"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HEROESENUMBuildingType">
+		<xs:annotation>
+			<xs:documentation>
+				Doppel- und Reihenhäuser
+				Ein- und Zweifamilienhäuser
+				Mehrfamilienhäuser bis zu 6 WE
+				Mehrfamilienhäuser mit 6 bis 19 WE
+				Mehrfamilienhäuser mit mehr als 20 WE
+				Seniorenwohnungen
+				Wohnheime und Internate
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SemiDetached_and_TerracedHouses"/>
+			<xs:enumeration value="One_and_TwoFamilyHouses"/>
+			<xs:enumeration value="MultiFamilyHouses_up_to_6WE"/>
+			<xs:enumeration value="MultiFamilyHouses_with_6_to_19WE"/>
+			<xs:enumeration value="MultiFamilyHouses_with_more_then_20WE"/>
+			<xs:enumeration value="SeniorResidences"/>
+			<xs:enumeration value="ResidentialHomes_and_BoardingSchools"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

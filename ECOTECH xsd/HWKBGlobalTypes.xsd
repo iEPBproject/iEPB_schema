@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="FreieEingabeWert">
+		<xs:sequence>
+			<xs:element name="Wert" type="xs:float"/>
+			<xs:element name="FreieEingabe" type="xs:boolean"/>
+			<xs:element name="Default" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMUmsetzungsstand">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Bestand"/>
+			<xs:enumeration value="IstZustand"/>
+			<xs:enumeration value="Planung"/>
+			<xs:enumeration value="Sanierung"/>
+			<xs:enumeration value="SollZustand"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMEA_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="K"/>
+			<xs:enumeration value="T"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Verschattung_Typ">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="detailliert"/>
+			<xs:enumeration value="direkt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMRanddaemmung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undefinded"/>
+			<xs:enumeration value="NoConveyer"/>
+			<xs:enumeration value="senkrecht"/>
+			<xs:enumeration value="waagrecht"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTVerschattung_B_8110_6_2010_Einstellung">
+		<xs:sequence>
+			<xs:element name="WinkelHorizont" type="xs:float"/>
+			<xs:element name="WinkelUeberhang" type="xs:float"/>
+			<xs:element name="WinkelSeite" type="xs:float"/>
+			<xs:element name="Type_2" type="ENUM_Verschattung_Typ"/>
+			<xs:element name="F_s_Direkt" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMEPBDAnforderung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="irrelevant"/>
+			<xs:enumeration value="erfuellt"/>
+			<xs:enumeration value="nichtErfuellt"/>
+			<xs:enumeration value="nochZuBearbeiten"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMBeleuchtung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Benchmark"/>
+			<xs:enumeration value="LENI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMBundesland">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Vienna" id="ID_1"/>
+			<xs:enumeration value="Niederösterreich" id="ID_2"/>
+			<xs:enumeration value="Burgenland" id="ID_3"/>
+			<xs:enumeration value="Oberösterreich" id="ID_4"/>
+			<xs:enumeration value="Salzburg" id="ID_5"/>
+			<xs:enumeration value="Tirol" id="ID_6"/>
+			<xs:enumeration value="Vorarlberg" id="ID_7"/>
+			<xs:enumeration value="Steiermark" id="ID_8"/>
+			<xs:enumeration value="Kaernten" id="ID_9"/>
+			<xs:enumeration value="Undefined_BESTAND" id="ID_10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOIBGebaeudetyp">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Einfamilienhaus"/>
+			<xs:enumeration value="Mehrfamilienhaus"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOIBBauweise">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normale_Bauweise"/>
+			<xs:enumeration value="Montagebauweise"/>
+			<xs:enumeration value="Systembauweise"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOIBFoerderung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Keine"/>
+			<xs:enumeration value="Wohnbauförderung"/>
+			<xs:enumeration value="Zusatzförderung_für_NEH"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMVerschattungFlaeche">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="vereinfacht"/>
+			<xs:enumeration value="detailliert"/>
+			<xs:enumeration value="direkt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMVerschattung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="vereinfacht"/>
+			<xs:enumeration value="detailliert"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMVerschattungWintergarten">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pauschaler_Reduktionsfaktor"/>
+			<xs:enumeration value="Glas_Doppelfassade"/>
+			<xs:enumeration value="Freie_Eingabe"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMWaermebruecken">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="vereinfacht"/>
+			<xs:enumeration value="detailliert"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMErdverluste">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="vereinfacht"/>
+			<xs:enumeration value="detailliert"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMAnforderungFuer">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NewBuilding"/>
+			<xs:enumeration value="Umfassende_Sanierung"/>
+			<xs:enumeration value="keine_Anforderungen"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMAnforderungUeber">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EEB"/>
+			<xs:enumeration value="fGEE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMAnforderungZeitraum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ab_2019_07_01"/>
+			<xs:enumeration value="ab_2021_01_01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_HWB_KB_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Heizwärmebedarf"/>
+			<xs:enumeration value="Kühlbedarf"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_L_n50_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Luftwechselrate_groesser_1_5"/>
+			<xs:enumeration value="Luftwechselrate_0_6_bis_1_5"/>
+			<xs:enumeration value="Luftwechselrate_kleiner_0_6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_Gebaeude_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Wohngebaeude"/>
+			<xs:enumeration value="NichtWohngebaeude"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_L_EWT_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Erdwaermetauscher_15"/>
+			<xs:enumeration value="Erdwaermetauscher_10"/>
+			<xs:enumeration value="Nachweis_durch_Berechnungsprogramm"/>
+			<xs:enumeration value="nicht_vorhanden"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_L_Lage_Equipment">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="konditioniert"/>
+			<xs:enumeration value="nicht_konditioniert"/>
+			<xs:enumeration value="im_Freien"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_L_Daemmung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gedaemmt_R_groesser_5"/>
+			<xs:enumeration value="gedaemmt_R_groesser_2_5"/>
+			<xs:enumeration value="Uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUM_L_Art">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="natuerlich"/>
+			<xs:enumeration value="mechanisch"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMKlimaregion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNDEFINIERT"/>
+			<xs:enumeration value="W"/>
+			<xs:enumeration value="NF"/>
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="ZA"/>
+			<xs:enumeration value="SB"/>
+			<xs:enumeration value="SSO"/>
+			<xs:enumeration value="NSO"/>
+			<xs:enumeration value="REFERENZ"/>
+			<!-- KST 10.07.2013, damit numerische Werte der Klimaregionen bei 1 beginnen! -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOberflaeche_Gebaeude">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="weiss"/>
+			<xs:enumeration value="grau"/>
+			<xs:enumeration value="schwarz"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMSonnenschutzEinrichtung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NoConveyer"/>
+			<xs:enumeration value="Aussen_Lamellenbehang_fast_geschlossen"/>
+			<xs:enumeration value="Aussen_Lamellenbehang_halboffen"/>
+			<xs:enumeration value="Aussen_Lamellenbehang_offen"/>
+			<xs:enumeration value="Aussen_Fassadenmarkise_alubeschichtet_lochanteil_kleiner_gleich_5_prozent"/>
+			<xs:enumeration value="Aussen_Fassadenmarkise_unbeschichtet_lochanteil_kleiner_gleich_5_prozent"/>
+			<xs:enumeration value="Aussen_Fassadenmarkise_mit_und_ohne_beschichtung_lochanteil_kleiner_15_prozent"/>
+			<xs:enumeration value="Aussen_Fassadenmarkise_acryl"/>
+			<xs:enumeration value="Aussen_Rolladen_dicht_geschlossen"/>
+			<xs:enumeration value="Aussen_Rolladen_Luftschlitz_offen"/>
+			<xs:enumeration value="Aussen_Rolladen_unteren_25_Prozent_nicht_beschattet"/>
+			<xs:enumeration value="Innen_Textile_Behänge"/>
+			<xs:enumeration value="Innen_Lamellen_und_Folien"/>
+			<xs:enumeration value="Innen_Alubedampfte_textile_Behänge"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMSonnenschutzEinrichtungOberflaeche">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SehrHell"/>
+			<xs:enumeration value="Hell"/>
+			<xs:enumeration value="Dunkel"/>
+			<xs:enumeration value="SehrDunkel"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMSonnenschutzSteuerung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NoConveyer"/>
+			<xs:enumeration value="manuell"/>
+			<xs:enumeration value="vorsorglich_manuell"/>
+			<xs:enumeration value="strahlungsabhaengig_zeitgesteuert"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMGlasvorbau">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Einfachverglasung"/>
+			<xs:enumeration value="Isolierglas"/>
+			<xs:enumeration value="Waermeschutzglas"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMKellerdaemmung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Insulated"/>
+			<xs:enumeration value="Uninsulated"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMBauweise">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="leicht"/>
+			<xs:enumeration value="mittel"/>
+			<xs:enumeration value="schwer"/>
+			<!--<xs:enumeration value="sehrschwer"/> MGR 20191211 git es lt. RTH nicht mehr/-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMNutzungsprofil">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Einfamilienhaus"/>
+			<xs:enumeration value="Mehrfamilienhaus"/>
+			<xs:enumeration value="Buerogebaeude"/>
+			<xs:enumeration value="Krankenhaus"/>
+			<xs:enumeration value="Gaststaette"/>
+			<xs:enumeration value="Veranstaltungsstaette"/>
+			<xs:enumeration value="Sportstaette"/>
+			<xs:enumeration value="Verkausfsstaette"/>
+			<xs:enumeration value="SonstigeGebaeude"/>
+			<xs:enumeration value="Geschosswohnbauten"/>
+			<xs:enumeration value="Schulen"/>
+			<xs:enumeration value="Heime"/>
+			<xs:enumeration value="Hotels"/>
+			<!--neu OIB 2018-->
+			<!--aus: Mehrfamilienhaus mit mehr als 9 Wohneinheiten-->
+			<!--KindergartenPflichtschule + HoehereSchuleHochschule-->
+			<!--Pflegeheim-->
+			<!--Pension + Hotel-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMNutzungsprofilFeuchteanforderung">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Keine"/>
+			<xs:enumeration value="mitToleranz"/>
+			<xs:enumeration value="ohneToleranz"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HWKBLueftungResults">
+		<xs:sequence>
+			<xs:element name="Fensterlueftung" type="xs:boolean"/>
+			<xs:element name="Nachtlueftung" type="xs:boolean"/>
+			<xs:element name="n_50" type="xs:float"/>
+			<xs:element name="phi_WRG" type="xs:float"/>
+			<xs:element name="phi_EWT_h" type="xs:float"/>
+			<xs:element name="phi_EWT_c" type="xs:float"/>
+			<xs:element name="phi_FRG" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HWKBLueftungResultsDruck">
+		<xs:sequence>
+			<xs:element name="phi_WRG" type="xs:float"/>
+			<xs:element name="phi_EWT" type="xs:float"/>
+			<xs:element name="phi_FRG" type="xs:float"/>
+			<xs:element name="phi_GES" type="xs:float"/>
+			<xs:element name="BGF" type="xs:float"/>
+			<xs:element name="V_V" type="xs:float"/>
+			<xs:element name="c_pL_rho_L" type="xs:float"/>
+			<xs:element name="n_x" type="xs:float"/>
+			<xs:element name="Standort" type="xs:string" minOccurs="0"/>
+			<xs:element name="Art" type="ENUM_HWB_KB_Art"/>
+			<xs:element name="n_L_hyg" type="xs:float"/>
+			<xs:element name="n_L_NL" type="xs:float"/>
+			<xs:element name="t_Nutz_d" type="xs:float"/>
+			<xs:element name="t_NL_d" type="xs:float"/>
+			<xs:element name="Ventilation_Type" type="ENUM_L_Art"/>
+			<xs:element name="Building_Type" type="ENUM_Gebaeude_Art"/>
+			<xs:element name="v_V_LuftvolumenStrom" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTPolygonPoint">
+		<xs:sequence>
+			<xs:element name="X" type="xs:float"/>
+			<xs:element name="Y" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTPolygon">
+		<xs:sequence>
+			<xs:element name="Item" type="ECTPolygonPoint" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUM_OI3_Calc_Method">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undefinded"/>
+			<xs:enumeration value="OI3_LF_17"/>
+			<xs:enumeration value="OI3_LF_20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--KST 01.10.2013 Bei Änderungen an diesem Typ:
+      Convert für HWKB.xsd und HWKBSanierungData.xsd!!
+      Dieser Typ wird in beiden verwendet!
+      Bei Generieren der Klassen:
+      - Klasse in HWKB.designer.vb belassen
+      - Klasse in HWKBSanierungData.designer.vb ausdokumentieren.
+      -> GRUND: In aktueller XSD2Code Version funktioniert Flag /eit 
+      (für inkludierte Type code nicht erzeugen) nicht
+  -->
+	<xs:complexType name="TyrolWBF2013AddonData">
+		<xs:sequence>
+			<xs:element name="GeometriePlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+			<xs:element name="AllgemeinPlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+			<xs:element name="BauteilePlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+			<xs:element name="FensterTuerenPlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+			<xs:element name="HaustechnikPlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+			<xs:element name="SonstigePlausibelAnmerkungen" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMNiederoesterreichBautechnikVerordnungDatum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ab_01_10_2019"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMOberoesterreichWBFDatum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="from_20190101"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

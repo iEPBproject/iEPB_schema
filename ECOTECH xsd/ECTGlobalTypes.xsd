@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="ENUMInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Direkt"/>
+			<xs:enumeration value="Detailed"/>
+			<xs:enumeration value="Reference"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTGenericParameter">
+		<xs:sequence>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ECTZones">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTZone" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ECTZone">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Type" type="xs:string"/>
+			<xs:element name="AssignedECTGeometryUnits">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTZoneAssignedECTGeometryUnit" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTZoneAssignedECTGeometryUnit">
+		<xs:attribute name="ECTGeometryUnitId"/>
+	</xs:complexType>
+</xs:schema>

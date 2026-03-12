@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+	<xs:include schemaLocation="HWKBGlobalTypes.xsd"/>
+	<xs:include schemaLocation="HWKBProjectData.xsd"/>
+	<xs:include schemaLocation="HWKBCalcData.xsd"/>
+	<xs:include schemaLocation="HWKBResults.xsd"/>
+	<xs:simpleType name="ENUMSchemaVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SchemaVersion_113"/>
+			<!-- unterschiedliche Versionsnummern HWKB.xsd und HWBCalcdata.xsd! zwei unterschiedliche converts (convert und  ConvertCalcData, wenn HWBCalcdata.xsd Version erhöht wird, muss auch HWKB.xsd erhöht werden!!! -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="HWKB">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProjectData" minOccurs="0"/>
+				<xs:element ref="CalcData" minOccurs="0"/>
+				<xs:element ref="Results" minOccurs="0"/>
+				<xs:element name="SchemaVersion" type="ENUMSchemaVersion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

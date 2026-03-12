@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="ECTMaterialAddonsProperty">
+		<xs:sequence>
+			<xs:element name="PropertyId" type="xs:string"/>
+			<xs:element name="Value" type="xs:float"/>
+			<xs:element name="ValueBaseUnit" type="ENUMMaterialBaseUnit"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMMaterialBaseUnit">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PIECE"/>
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="M3"/>
+			<xs:enumeration value="M2"/>
+			<xs:enumeration value="KG"/>
+			<xs:enumeration value="M"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ECTMaterialAddonsMaterialType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ISOLATION"/>
+			<xs:enumeration value="BRICK"/>
+			<xs:enumeration value="WOOD"/>
+			<xs:enumeration value="PLASTER"/>
+			<xs:enumeration value="WINDOWS"/>
+			<xs:enumeration value="DOOR"/>
+			<xs:enumeration value="ENVIRONMENTALLY_COMPATIBLE"/>
+			<xs:enumeration value="AIR"/>
+			<xs:enumeration value="CONCRETE"/>
+			<xs:enumeration value="MATERIAL_FOR_WALLS"/>
+			<xs:enumeration value="MATERIAL_FOR_FLOOR"/>
+			<xs:enumeration value="MATERIAL_FOR_SLABS"/>
+			<xs:enumeration value="MATERIAL_FOR_ROOFS"/>
+			<xs:enumeration value="TRANSPARENT_ISOLATION"/>
+			<xs:enumeration value="GLAS"/>
+			<xs:enumeration value="FRAME"/>
+			<xs:enumeration value="METAL"/>
+			<xs:enumeration value="ISOLATING_GLAZING"/>
+			<xs:enumeration value="ECO_BALANCED_PROPERTIES_AVALIABLE"/>
+			<xs:enumeration value="ECO_BALANCED_BENCHMARK"/>
+			<xs:enumeration value="ECO_BALANCED_PRODUCT"/>
+			<xs:enumeration value="NON_VENTILATED_AIR_SPACE_LENGTH_WIDTH_MORE_THAN_10_TIMES_THICKNESS"/>
+			<xs:enumeration value="NON_VENTILATED_AIR_SPACE_SMALL_OR_DEVIDED"/>
+			<xs:enumeration value="INSULATION_WITH_BINDERS_POSSIBLE"/>
+			<xs:enumeration value="VERTICAL_AIR_LAYER"/>
+			<xs:enumeration value="HORIZONTAL_AIR_LAYER_WITH_HEAT_FLOW_UPWARDS"/>
+			<xs:enumeration value="HORIZONTAL_AIR_LAYER_WITH_HEAT_FLOW_DOWNWARDS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMMaterialMeasurePossibilitiesType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNDEF"/>
+			<xs:enumeration value="VALUES"/>
+			<xs:enumeration value="MIN_MAX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTMaterialMeasurePossibilities">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="ENUMMaterialMeasurePossibilitiesType"/>
+			<xs:element name="Min" type="xs:float" minOccurs="0"/>
+			<xs:element name="Max" type="xs:float" minOccurs="0"/>
+			<xs:element name="PossibleValues" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Values" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="float" type="xs:float"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ECTMaterialAddonsMaterialBinderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal"/>
+			<xs:enumeration value="Recessed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTMaterial">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element
+</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="DateCreated" type="xs:dateTime"/>
+			<xs:element name="DateChanged" type="xs:dateTime"/>
+			<xs:element name="ManufactorersID" type="xs:string"/>
+			<xs:element name="Addons">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Quantity" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Length" type="xs:float"/>
+									<xs:element name="UnitsPerPallet" type="xs:float"/>
+									<xs:element name="UnitWeight" type="xs:float"/>
+									<xs:element name="HorizontalJointHeight" type="xs:float"/>
+									<xs:element name="VerticalJointWidth" type="xs:float"/>
+									<xs:element name="Unit" type="ENUMMaterialBaseUnit"/>
+									<xs:element name="TenderUnit" type="ENUMMaterialBaseUnit"/>
+									<xs:element name="BinderDiameter" type="xs:float"/>
+									<xs:element name="BinderLengthD1" type="xs:float"/>
+									<xs:element name="Thickness" type="ECTMaterialMeasurePossibilities"/>
+									<xs:element name="Width" type="ECTMaterialMeasurePossibilities"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Physics" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="F_F" type="xs:float"/>
+									<xs:element name="density" type="xs:float"/>
+									<xs:element name="lambda" type="xs:float"/>
+									<xs:element name="mue" type="xs:float"/>
+									<xs:element name="Ue" type="xs:float"/>
+									<xs:element name="gTi" type="xs:float"/>
+									<xs:element name="absorptionCoefficient" type="xs:float"/>
+									<xs:element name="g" type="xs:float"/>
+									<xs:element name="Ts" type="xs:float"/>
+									<xs:element name="Rw" type="xs:int"/>
+									<xs:element name="eDyn" type="xs:float"/>
+									<xs:element name="thermalCapacity" type="xs:float"/>
+									<xs:element name="speicherwirksameMasse" type="xs:float"/>
+									<xs:element name="BinderType" type="ECTMaterialAddonsMaterialBinderType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="OekoBaustoffe" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="OekoZuordnungFixiert" type="xs:boolean"/>
+									<xs:element name="OekoBsName" type="xs:string"/>
+									<xs:element name="OekoBsDensity" type="xs:float"/>
+									<xs:element name="OekoBsDateCreated" type="xs:dateTime"/>
+									<xs:element name="OekoBsDateChanged" type="xs:dateTime"/>
+									<xs:element name="OekoBsManufactorersID" type="xs:string"/>
+								</xs:sequence>
+								<xs:attribute name="IDOekoBs"/>
+								<xs:attribute name="IDOekokennzahlen"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Display" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="texturename" type="xs:string"/>
+									<xs:element name="Color_Front" type="xs:int"/>
+									<xs:element name="Color_Top" type="xs:int"/>
+									<xs:element name="Color_Side" type="xs:int"/>
+									<xs:element name="Color" type="xs:int"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Properties" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Item" type="ECTMaterialAddonsProperty" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Types" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Item" type="ECTMaterialAddonsMaterialType" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ManufactorerName" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name="MaterialGroupID"/>
+	</xs:complexType>
+	<xs:element name="ECTMaterials">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTMaterial" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

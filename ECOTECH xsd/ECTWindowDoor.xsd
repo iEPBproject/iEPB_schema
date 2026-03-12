@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="ENUMWindowDoorRenovationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none"/>
+			<xs:enumeration value="onlyInnerFillArea"/>
+			<xs:enumeration value="complete"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMWindowDoorType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EXTERNALWINDOW"/>
+			<xs:enumeration value="EXTERNALDOOR"/>
+			<xs:enumeration value="INTERNALWINDOW"/>
+			<xs:enumeration value="INTERNALDOOR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTWindowDoorAddonsBodyMaterial">
+		<xs:sequence>
+			<xs:element name="Thickness" type="xs:float"/>
+			<xs:element name="Polygon" type="ECTPolygon"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="MaterialID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTWindowDoor">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WindowDoorType" type="ENUMWindowDoorType"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Info" type="xs:string"/>
+			<xs:element name="DateChanged" type="xs:dateTime"/>
+			<xs:element name="DateCreated" type="xs:dateTime"/>
+			<xs:element name="Addons">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Body">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="InputType" type="ENUMInputType"/>
+									<xs:element name="IsReferenceWindow" type="xs:boolean"/>
+									<xs:element name="Eingabetyp_gWert" type="ENUMInputType"/>
+									<xs:element name="Width" type="xs:float"/>
+									<xs:element name="Height" type="xs:float"/>
+									<xs:element name="GlasThickness" type="xs:float"/>
+									<xs:element name="FrameThickness" type="xs:float"/>
+									<xs:element name="FrameWidth" type="xs:float"/>
+									<xs:element name="SillWidth" type="xs:float"/>
+									<xs:element name="LintelWidth" type="xs:float"/>
+									<xs:element name="WindowbarThickness" type="xs:float"/>
+									<xs:element name="VerticalWindowbarCount" type="xs:float"/>
+									<xs:element name="VerticalWindowbarWidth" type="xs:float"/>
+									<xs:element name="HorizontalWindowbarCount" type="xs:float"/>
+									<xs:element name="HorizontalWindowbarWidth" type="xs:float"/>
+									<xs:element name="Glasratio" type="xs:float"/>
+									<xs:element name="Glasperimeter_FreeInput_Checked" type="xs:boolean"/>
+									<xs:element name="Glasperimeter_FreeInput_Value" type="xs:float"/>
+									<xs:element name="Glasperimeter_Calculated" type="xs:float"/>
+									<xs:element name="Roofwindow" type="xs:boolean"/>
+									<!-- KST 27.01.2015 Renaming OtherTransparentPart -->
+									<!--      <xs:element name="OtherTransparentPart" type="xs:boolean"/>-->
+									<xs:element name="OtherTransparentPartHorizontalOrSloped" type="xs:boolean"/>
+									<xs:element name="OtherTransparentPartVertical" type="xs:boolean"/>
+									<!-- KST 27.01.2015 Renaming OtherTransparentPart END -->
+									<xs:element name="RollDoorOrSectionalDoor" type="xs:boolean"/>
+									<xs:element name="Materials">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Item" type="ECTWindowDoorAddonsBodyMaterial" minOccurs="0" maxOccurs="unbounded"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<!-- KST 27.01.2015 'Added! -->
+									<xs:element name="ReferenceSizeWidth" type="xs:float"/>
+									<xs:element name="ReferenceSizeHeight" type="xs:float"/>
+									<!-- KST 27.01.2015 'Added! END -->
+									<xs:element name="ReferenceSizeFreeInput" type="xs:boolean"/>
+								</xs:sequence>
+								<xs:attribute name="GlasMaterialID"/>
+								<xs:attribute name="FrameMaterialID"/>
+								<xs:attribute name="WindowbarMaterialID"/>
+								<xs:attribute name="ReferenceWindowDoorID"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Physics">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="u" type="xs:float"/>
+									<xs:element name="ThermalBridge_Psi" type="xs:float"/>
+									<xs:element name="ThermalBridge_FreeInput" type="xs:boolean"/>
+									<xs:element name="ThermalBridge_Description" type="xs:string"/>
+									<xs:element name="u_Info" type="xs:string"/>
+									<xs:element name="g" type="xs:float"/>
+									<!--KST 27.01.2014 renamed -->
+									<!--<xs:element name="u_1_23_x_1_48" type="xs:float"/> -->
+									<xs:element name="u_ReferenceSize" type="xs:float"/>
+									<!--KST 27.01.2014 renamed END -->
+								</xs:sequence>
+								<xs:attribute name="ThermalBridge_ID"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Acustic">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="R" type="xs:float"/>
+									<xs:element name="R_Info" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="WindowDoorRenovationType" type="ENUMWindowDoorRenovationType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AutoGenerateName" type="xs:boolean"/>
+			<xs:element name="GenericParameters">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name=" ConstructionGroupID"/>
+	</xs:complexType>
+	<xs:element name="ECTWindowDoors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTWindowDoor" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

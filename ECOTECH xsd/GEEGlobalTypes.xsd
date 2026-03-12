@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+	<xs:simpleType name="enumEnergietraeger">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotDefined"/>
+			<xs:enumeration value="Kohle"/>
+			<xs:enumeration value="Stueckholz"/>
+			<xs:enumeration value="Hackschnitzel"/>
+			<xs:enumeration value="Pellets"/>
+			<xs:enumeration value="Heizoel"/>
+			<xs:enumeration value="Heizoel_EL"/>
+			<xs:enumeration value="Biobrennstoff_fluessig"/>
+			<xs:enumeration value="Erdgas"/>
+			<xs:enumeration value="Biogas"/>
+			<xs:enumeration value="Biomasse_sonstig"/>
+			<xs:enumeration value="Strom_Mix"/>
+			<xs:enumeration value="Strom_Heizen"/>
+			<xs:enumeration value="Strom_Waermepumpe"/>
+			<xs:enumeration value="FW_Heizwerk_ern"/>
+			<xs:enumeration value="FW_Heizwerk_nern"/>
+			<xs:enumeration value="FW_KWK_ern"/>
+			<xs:enumeration value="FW_KWK_nern"/>
+			<xs:enumeration value="Abwaerme"/>
+			<xs:enumeration value="CommunityCooling"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

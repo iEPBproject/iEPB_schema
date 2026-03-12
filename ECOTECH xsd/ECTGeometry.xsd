@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Markus Graf (ecotech) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Markus Graf (Ecotech Bauphysik & Energietechnik Software GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ECTGeometries">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item" type="ECTGeometry" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ENUMECTGeometryVolumeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Direkt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTGeometryUnitVolume">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Type" type="ENUMECTGeometryVolumeType"/>
+			<xs:element name="Sign" type="xs:int"/>
+			<xs:element name="Parameters" type="xs:string"/>
+			<xs:element name="Volume" type="xs:float"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMECTGeometryUnitType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Exterior"/>
+			<xs:enumeration value="Earth_more_than_1.5m_below"/>
+			<xs:enumeration value="Earth_less_than_1.5m_below"/>
+			<xs:enumeration value="Interior"/>
+			<xs:enumeration value="Cellar"/>
+			<xs:enumeration value="Stairway"/>
+			<xs:enumeration value="Garage"/>
+			<xs:enumeration value="Wintergarden"/>
+			<xs:enumeration value="Attic"/>
+			<xs:enumeration value="Neighbour"/>
+			<xs:enumeration value="Deep_level_garage"/>
+			<xs:enumeration value="Other_appartment"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMThermalBridgeGenerationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="User"/>
+			<xs:enumeration value="Automatic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMThermalBridgeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="2D"/>
+			<xs:enumeration value="3D"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ENUMShadowInputType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Detailed"/>
+			<xs:enumeration value="Direct"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTGeometryUnit">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Type" type="ENUMECTGeometryUnitType"/>
+			<xs:element name="Volumes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGeometryUnitVolume" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Heated" type="xs:boolean"/>
+			<xs:element name="Temperature" type="xs:float"/>
+			<xs:element name="DepthToGround" type="xs:float"/>
+			<xs:element name="RoomLength" type="xs:float"/>
+			<xs:element name="RoomWidth" type="xs:float"/>
+			<xs:element name="RoomHeight" type="xs:float"/>
+			<xs:element name="RoomArea" type="xs:float"/>
+			<xs:element name="RoomHeightMiddleAboveGround" type="xs:float"/>
+			<xs:element name="BruttoFloorAreaReduction" type="xs:float"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ThermalBridges" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTThermalBridge" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTGeometry">
+		<xs:sequence>
+			<xs:element name="ECTGeometryUnits">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGeometryUnit" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ECTGeometryAreas">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGeometryArea" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BuildingYear" type="xs:integer"/>
+			<xs:element name="Stories" type="xs:integer"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTGeometryArea">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="BruttoArea" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGeometryShape" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WindowsDoors" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGeometryAreaWindowDoor" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PerimeterToGround" type="xs:float"/>
+			<xs:element name="Orientation" type="xs:float"/>
+			<xs:element name="Pitch" type="xs:float"/>
+			<xs:element name="BoundingDim1" type="xs:float"/>
+			<xs:element name="BoundingDim2" type="xs:float"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ShapePicture" type="xs:base64Binary" minOccurs="0"/>
+			<xs:element name="NeighbourUnitName" type="xs:string"/>
+			<xs:element name="IncludedInBGF" type="xs:boolean"/>
+			<xs:element name="U_Anforderung" type="xs:float"/>
+			<xs:element name="U_erfuellt" type="xs:boolean"/>
+			<xs:element name="U_Anforderung_Typ" type="xs:int"/>
+			<xs:element name="IsPartOfHeatedHull" type="xs:boolean"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name="ECTConstructionID"/>
+		<xs:attribute name="ECTGeometryUnit1ID"/>
+		<xs:attribute name="ECTGeometryUnit2ID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTGeometryAreaWindowDoor">
+		<xs:sequence>
+			<xs:element name="Count" type="xs:float"/>
+			<xs:element name="GenericParameters" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Item" type="ECTGenericParameter" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="U_Anforderung" type="xs:float"/>
+			<xs:element name="U_erfuellt" type="xs:boolean"/>
+			<xs:element name="ShadowSettings" type="ECTShadowSetting"/>
+			<xs:element name="U_Anforderung_Typ" type="xs:int"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+		<xs:attribute name="ECTWindowDoorID"/>
+	</xs:complexType>
+	<xs:complexType name="ECTThermalBridge">
+		<xs:sequence>
+			<xs:element name="UniqueID" type="xs:string"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Conductance" type="xs:float"/>
+			<xs:element name="Length" type="xs:float"/>
+			<xs:element name="UniqueIDNeighbour" type="xs:string"/>
+			<xs:element name="Condition" type="xs:integer"/>
+			<xs:element name="Type" type="ENUMThermalBridgeType"/>
+			<xs:element name="GenerationType" type="ENUMThermalBridgeGenerationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ECTShadowSetting">
+		<xs:sequence>
+			<xs:element name="InputType" type="ENUMShadowInputType"/>
+			<xs:element name="HorizontalAngel" type="xs:int"/>
+			<xs:element name="OverhangAngel" type="xs:int"/>
+			<xs:element name="SideAngel" type="xs:int"/>
+			<xs:element name="DirectInput_F_s_Winter" type="xs:float"/>
+			<xs:element name="DirectInput_F_s_Summer" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ENUMECTGeometryShapeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Direkt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ECTGeometryShape">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="Type" type="ENUMECTGeometryShapeType"/>
+			<xs:element name="Sign" type="xs:int"/>
+			<xs:element name="Parameters" type="xs:string"/>
+			<xs:element name="Area" type="xs:float"/>
+		</xs:sequence>
+		<xs:attribute name="ID"/>
+	</xs:complexType>
+</xs:schema>
