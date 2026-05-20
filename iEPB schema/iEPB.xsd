@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.efinovatic.es/iepb"
+			xmlns="http://www.efinovatic.es/iepb"
+            xmlns:SpainBuilding="http://www.efinovatic.es/Spain/Building"
+			xmlns:AustriaBuilding="http://www.builddesk.at/Austria/Building"
+			xmlns:TheNetherlandsBuilding="http://www.bdh.nl/TheNetherlands/Building"
+			xmlns:ce3x="http://www.efinovatic.es/ce3x"
+			xmlns:ecotech="http://www.builddesk.at/ecotech"
+			xmlns:uniec3="http://www.bdh.nl/uniec3"
+			xmlns:sri2market="http://www.efinovatic.es/sri2market"
+			xmlns:datosEnergeticosDelEdificio="http://www.efinovatic.es/datosEnergeticosDelEdificio"
+			xmlns:AustriaOfficialEPCResults="http://www.builddesk.at/AustriaOfficialEPCResults"
+			xmlns:TheNetherlandsOfficialEPCResults="http://www.builddesk.at/TheNetherlandsOfficialEPCResults"
+            elementFormDefault="qualified">
+			
+<!-- 1. Import other xsd schema -->
+<xs:import namespace="http://www.efinovatic.es/Spain/Building" 
+             schemaLocation="SpainBuilding.xsd"/>
+<xs:import namespace="http://www.builddesk.at/Austria/Building" 
+             schemaLocation="AustriaBuilding.xsd"/>
+<xs:import namespace="http://www.bdh.nl/TheNetherlands/Building" 
+             schemaLocation="TheNetherlandsBuilding.xsd"/>
+<xs:import namespace="http://www.efinovatic.es/ce3x" 
+             schemaLocation="CE3X_v2306.xsd"/>
+<xs:import namespace="http://www.builddesk.at/ecotech" 
+             schemaLocation="Ecotech.xsd"/>
+<xs:import namespace="http://www.bdh.nl/uniec3" 
+             schemaLocation="Uniec3.xsd"/>			 
+<xs:import namespace="http://www.efinovatic.es/sri2market" 
+             schemaLocation="sri2market_iEPB.xsd"/>		
+<xs:import namespace="http://www.efinovatic.es/datosEnergeticosDelEdificio" 
+             schemaLocation="DatosEnergeticosDelEdificioSchema21.xsd"/>
+<xs:import namespace="http://www.builddesk.at/AustriaOfficialEPCResults" 
+             schemaLocation="AustriaOfficialEPCResults.xsd"/>
+<xs:import namespace="http://www.bdh.nl/TheNetherlandsOfficialEPCResults" 
+             schemaLocation="TheNetherlandsOfficialEPCResults.xsd"/>				 
+
+<!-- ========================================================= -->
+<!-- Common abstract element for countries                   -->
+<!-- ========================================================= -->			 
+<xs:element name="CountryElement" abstract="true"/>
+
+<!-- ========================================================= -->
+<!-- Concrete elements that replace the abstract        -->
+<!-- ========================================================= -->
+<xs:element name="Spain" type="SpainType" substitutionGroup="CountryElement"/>
+<xs:element name="Austria" type="AustriaType" substitutionGroup="CountryElement"/>
+<xs:element name="TheNetherlands" type="TheNetherlandsType" substitutionGroup="CountryElement"/>
+
+<!-- ========================================================= -->
+<!-- iEPBxml base element                                  -->
+<!-- ========================================================= -->
+
+  <xs:element name="iEPBxml">
+    <xs:complexType>
+      <xs:sequence>
+		<!-- Before: <xs:element name="Spain"/> -->
+        <xs:element ref="CountryElement" minOccurs="1" maxOccurs="1"/> 
+      </xs:sequence>
+	        <xs:attribute name="version" use="required">	  
+	  	<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1.0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	  </xs:attribute>
+	  <xs:attribute name="areaUnit" use="required">
+	  	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="SquareMeters"/>
+			</xs:restriction>
+		</xs:simpleType>
+      </xs:attribute>  
+	  <xs:attribute name="lengthUnit" use="required">
+	  	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Meters"/>
+			</xs:restriction>
+		</xs:simpleType>
+	  </xs:attribute>
+      <xs:attribute name="temperatureUnit" use="required">
+	  	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="C"/>
+				<xs:enumeration value="K"/>
+			</xs:restriction>
+		</xs:simpleType>
+      </xs:attribute>
+	  <xs:attribute name="volumeUnit" use="required">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CubicMeters"/>
+			</xs:restriction>
+		</xs:simpleType>
+	  </xs:attribute>
+      <xs:attribute name="useSIUnitsForResults" type="xs:boolean"/>
+      <xs:attribute name="SurfaceReferenceLocation" type="xs:string"/> 
+    </xs:complexType>
+  </xs:element>
+
+<!-- ========================================================= -->
+<!-- SpainType                                              -->
+<!-- ========================================================= -->
+  <xs:complexType name="SpainType">
+    <xs:sequence>
+	  <xs:element ref="SpainBuilding:Building"/>
+      <xs:element name="EPC">
+        <xs:complexType>
+          <xs:sequence>
+		   	<xs:element name="ProgramType" type="ProgramTypeType"/>	
+			<xs:element ref="PersonInfo"/>
+			<xs:element ref="ce3x:CE3X"/>				
+            <xs:element name="Results">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Class_CO2_Emissions" type="xs:string" minOccurs="0"/>
+						<xs:element ref="datosEnergeticosDelEdificio:DatosEnergeticosDelEdificio"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SRI">
+		<xs:complexType>
+          <xs:sequence>
+			<xs:element ref="sri2market:SRI2MARKET"/>
+			<xs:element name="Results" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="TableDetail" type="TableDetailType" minOccurs="0"/>
+					<xs:element name="TotalSriScore" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF1" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF2" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF3" type="xs:string" minOccurs="0"/>
+				  </xs:sequence>
+				</xs:complexType>
+		  </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+<!-- ========================================================= -->
+<!-- AustriaType                                              -->
+<!-- ========================================================= -->
+  <xs:complexType name="AustriaType">
+    <xs:sequence>
+	  <xs:element ref="AustriaBuilding:Building"/>
+      <xs:element name="EPC">
+        <xs:complexType>
+          <xs:sequence>
+		   	<xs:element name="ProgramType" type="ProgramTypeType"/>	
+			<xs:element ref="PersonInfo"/>
+			<xs:element ref="ecotech:ecotech"/>					
+            <xs:element name="Results">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Class_CO2_Emissions" type="xs:string" minOccurs="0"/>
+						<xs:element ref="AustriaOfficialEPCResults:AustriaOfficialResults"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SRI">
+		<xs:complexType>
+          <xs:sequence>
+			<xs:element ref="sri2market:SRI2MARKET"/>
+			<xs:element name="Results" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="TableDetail" type="TableDetailType" minOccurs="0"/>
+					<xs:element name="TotalSriScore" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF1" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF2" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF3" type="xs:string" minOccurs="0"/>
+				  </xs:sequence>
+				</xs:complexType>
+		  </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <!-- ========================================================= -->
+<!-- TheNetherlandsType                                                 -->
+<!-- ========================================================= -->
+  <xs:complexType name="TheNetherlandsType">
+    <xs:sequence>
+	  <xs:element ref="TheNetherlandsBuilding:Building"/>
+      <xs:element name="EPC">
+        <xs:complexType>
+          <xs:sequence>
+		   	<xs:element name="ProgramType" type="ProgramTypeType"/>	
+			<xs:element ref="PersonInfo"/>	
+			<xs:element ref="uniec3:Uniec3"/>				
+            <xs:element name="Results">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Class_CO2_Emissions" type="xs:string" minOccurs="0"/>
+						<xs:element ref="TheNetherlandsOfficialEPCResults:TheNetherlandsOfficialResults"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SRI">
+		<xs:complexType>
+          <xs:sequence>
+			<xs:element ref="sri2market:SRI2MARKET"/>
+			<xs:element name="Results" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="TableDetail" type="TableDetailType" minOccurs="0"/>
+					<xs:element name="TotalSriScore" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF1" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF2" type="xs:string" minOccurs="0"/>
+					<xs:element name="ScoreKF3" type="xs:string" minOccurs="0"/>
+				  </xs:sequence>
+				</xs:complexType>
+		  </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  
+
+
+  <xs:complexType name="TableDetailType">
+    <xs:sequence>
+      <xs:element name="ImpactScores" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="Heating" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="DHW" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="Cooling" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="Ventilation" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="Lighting" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="DynamicBuildingEnvelope" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="Electricity" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="ElectricVehicleCharging" type="ResultImpactType" minOccurs="0"/>
+      <xs:element name="MonitoringAndControl" type="ResultImpactType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultImpactType">
+    <xs:sequence>
+      <xs:element name="EnergyEfficiency" type="xs:string" minOccurs="0"/>
+      <xs:element name="EnergyFlexibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="Comfort" type="xs:string" minOccurs="0"/>
+      <xs:element name="Convenience" type="xs:string" minOccurs="0"/>
+      <xs:element name="HealthAccesibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="MaintenanceFaultPrediction" type="xs:string" minOccurs="0"/>
+      <xs:element name="InformationOccupants" type="xs:string" minOccurs="0"/>
+      <xs:element name="SRI" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TextWithLang">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+ 
+<xs:simpleType name="ProgramTypeType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Residencial"/>
+		<xs:enumeration value="Pequeño Terciario"/>
+		<xs:enumeration value="Gran Terciario"/>
+	</xs:restriction>
+</xs:simpleType>
+<xs:element name="PersonInfo">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="Cif" minOccurs="0"/>
+			<xs:element ref="Nif" minOccurs="0"/>
+			<xs:element ref="QualifyingDegree"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:byte">
+					<xs:enumeration value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:element>
+<xs:element name="Cif">
+	<xs:simpleType>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:element>
+<xs:element name="Nif">
+	<xs:simpleType>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:element>
+<xs:element name="QualifyingDegree">
+	<xs:simpleType>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:element>
+</xs:schema>

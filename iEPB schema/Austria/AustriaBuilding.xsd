@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.builddesk.at/Austria/Building"
+			xmlns="http://www.builddesk.at/Austria/Building"
+			elementFormDefault="qualified">
+	
+	<xs:element name="Building" minOccurs="0">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CadastralCommunityName" type="xs:string"/>
+				<xs:element name="CadastralCommunityNumber" type="xs:string"/>
+				<xs:element name="Street" type="xs:string"/>
+				<xs:element name="PropertyNumber" type="xs:string"/>
+				<xs:element name="ZIP" type="xs:string"/>
+				<xs:element name="City" type="xs:string"/>
+				<xs:element name="State" type="xs:string"/>
+				<xs:element name="HeightAboveSeaLevel" type="xs:string"/>
+				<xs:element name="ConstructionYear" type="xs:string"/>
+				<xs:element name="ApplicableLegislation" type="xs:string"/>
+				<xs:element name="UtilizationProfile" type="xs:string"/>
+				<xs:element name="HeatingSystem" type="xs:string"/>
+				<xs:element name="WarmWaterSystem" type="xs:string"/>
+				<xs:element name="VentilationSystem" type="xs:string"/>
+				<xs:element name="PV_nominalPower" type="xs:string"/>
+				<xs:element name="PV_Batterie" type="xs:string"/>
+				<xs:element name="cellar" type="xs:string"/>
+				<xs:element name="roof" type="xs:string"/>
+				<xs:element name="num_stories" type="xs:string"/>
+				<xs:element name="roof_avg_u" type="xs:string"/>
+				<xs:element name="roof_area" type="xs:string"/>
+				<xs:element name="exteriorWall_avg_u" type="xs:string"/>
+				<xs:element name="exteriorWall_area" type="xs:string"/>
+				<xs:element name="groundfloor_avg_u" type="xs:string"/>
+				<xs:element name="groundfloor_area" type="xs:string"/>
+				<xs:element name="slab_heatflow_upwords_avg_u" type="xs:string"/>
+				<xs:element name="slab_heatflow_upwords_area" type="xs:string"/>
+				<xs:element name="slab_heatflow_downwards_avg_u" type="xs:string"/>
+				<xs:element name="slab_heatflow_downwards_area" type="xs:string"/>
+				<xs:element name="windowsDoors_avg_u" type="xs:string"/>
+				<xs:element name="windowsDoors_area" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.efinovatic.es/sri2market"
+            xmlns="http://www.efinovatic.es/sri2market"
+            elementFormDefault="qualified">
+
+   <xs:element name="SRI2MARKET">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Project">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:element name="AssessmentPurpose" type="xs:string" minOccurs="0"/>
+			  <xs:element name="Organisation" type="xs:string" minOccurs="0"/>
+			  <xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+			  <xs:element name="TelephoneNumber" type="xs:string" minOccurs="0"/>
+			  <xs:element name="BuildingState" type="xs:string" minOccurs="0"/>
+			  <xs:element name="EffectiveRatedOutputHVACSystem" type="xs:string" minOccurs="0"/>
+			  <xs:element name="Country" minOccurs="0" type="CountryType"/>
+			  <xs:element name="Climate" minOccurs="0" type="ClimateType"/>
+			  <xs:element name="User__id" type="xs:string" minOccurs="0"/>
+			  <xs:element name="User__name" type="xs:string" minOccurs="0"/>
+			  <xs:element name="BuildingType" minOccurs="0" type="BuildingTypeType"/>
+			  <xs:element name="DomainWeighting" minOccurs="0" type="DomainWeightingType"/>
+			  <xs:element name="Catalogue" minOccurs="0" type="CatalogueType"/>
+			  <xs:element name="AssessableDomains" minOccurs="0" type="AssessableDomainsType"/>
+			  <xs:element name="Data" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="Datum" maxOccurs="unbounded" type="DatumType"/>
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			</xs:sequence>
+			<xs:attribute name="buildingIdRef" type="xs:string" use="required"/>
+		  </xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	  <xs:attribute name="version" type="xs:string"/>
+	</xs:complexType>
+  </xs:element>
+ 
+  <xs:complexType name="TextWithLang">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+ 
+  <xs:complexType name="DatumType">
+    <xs:sequence>
+      <xs:element name="ChosenFuncionality" type="xs:string" minOccurs="0"/>
+      <xs:element name="Comments" type="xs:anyType" minOccurs="0"/>
+      <xs:element name="Justification" type="xs:anyType" minOccurs="0"/>
+      <xs:element name="Percentage" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="CountryType">
+    <xs:sequence>
+      <xs:element name="Name" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="HeatingMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="DHWMandatoryForResidential" type="xs:string" minOccurs="0"/>
+      <xs:element name="DHWMandatoryForTertiary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CoolingMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="VentilationMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="LightingMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="DynamicBuildingEnvelopeMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="ElectricityMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="ElectricVehicleChargingMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="MonitoringAndControlMandatory" type="xs:string" minOccurs="0"/>
+      <xs:element name="DomainClassNames" type="xs:string" minOccurs="0"/>
+      <xs:element name="AllowUserDefineDomainWeightings" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="ClimateType">
+    <xs:sequence>
+      <xs:element name="Description" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="BuildingTypeType">
+    <xs:sequence>
+      <xs:element name="Description" type="TextWithLang" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="DomainWeightingType">
+    <xs:sequence>
+      <xs:element name="Name" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="Heating" type="WeightsType" minOccurs="0"/>
+      <xs:element name="Cooling" type="WeightsType" minOccurs="0"/>
+      <xs:element name="DHW" type="WeightsType" minOccurs="0"/>
+      <xs:element name="Ventilation" type="WeightsType" minOccurs="0"/>
+      <xs:element name="Lighting" type="WeightsType" minOccurs="0"/>
+      <xs:element name="Electricity" type="WeightsType" minOccurs="0"/>
+      <xs:element name="DynamicBuildingEnvelope" type="WeightsType" minOccurs="0"/>
+      <xs:element name="ElectricVehicleCharging" type="WeightsType" minOccurs="0"/>
+      <xs:element name="MonitoringAndControl" type="WeightsType" minOccurs="0"/>
+      <xs:element name="ImpactWeighting" minOccurs="0" type="ImpactWeightingType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="WeightsType">
+    <xs:sequence>
+      <xs:element name="EnergyEfficiency" type="xs:string" minOccurs="0"/>
+      <xs:element name="EnergyFlexibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="Comfort" type="xs:string" minOccurs="0"/>
+      <xs:element name="Convenience" type="xs:string" minOccurs="0"/>
+      <xs:element name="HealthAccesibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="MaintenanceFaultPrediction" type="xs:string" minOccurs="0"/>
+      <xs:element name="InformationOccupants" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ImpactWeightingType">
+    <xs:sequence>
+      <xs:element name="EnergyEfficiency" type="xs:string" minOccurs="0"/>
+      <xs:element name="EnergyFlexibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="Comfort" type="xs:string" minOccurs="0"/>
+      <xs:element name="Convenience" type="xs:string" minOccurs="0"/>
+      <xs:element name="HealthAccesibility" type="xs:string" minOccurs="0"/>
+      <xs:element name="MaintenanceFaultPrediction" type="xs:string" minOccurs="0"/>
+      <xs:element name="InformationOccupants" type="xs:string" minOccurs="0"/>
+      <xs:element name="KF1_energyPerformanceAndOperation" type="xs:string" minOccurs="0"/>
+      <xs:element name="KF2_responseToUserNeeds" type="xs:string" minOccurs="0"/>
+      <xs:element name="KF3_energyFlexibility" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="CatalogueType">
+    <xs:sequence>
+      <xs:element name="Description" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="Domains" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Domain" maxOccurs="unbounded" type="DomainType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="DomainType">
+    <xs:sequence>
+      <xs:element name="Description" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="NameAttr" type="xs:string" minOccurs="0"/>
+      <xs:element name="Services" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Service" maxOccurs="unbounded" type="ServiceType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="ServiceType">
+    <xs:sequence>
+      <xs:element name="Description" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="Functionalities" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Functionality" maxOccurs="unbounded" type="FunctionalityType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="code" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="FunctionalityType">
+    <xs:sequence>
+      <xs:element name="Description" type="TextWithLang" minOccurs="0"/>
+      <xs:element name="EnergyEfficiencyImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="EnergyFlexibilityImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="ComfortImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="ConvenienceImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="HealthAccesibilityImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="MaintenanceFaultPredictionImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="InformationOccupantsImpact" type="xs:string" minOccurs="0"/>
+      <xs:element name="En15232Residential" type="xs:string" minOccurs="0"/>
+      <xs:element name="En15232NonResidential" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="AssessableDomainsType">
+    <xs:sequence>
+      <xs:element name="Heating" type="xs:string" minOccurs="0"/>
+      <xs:element name="DHW" type="xs:string" minOccurs="0"/>
+      <xs:element name="Cooling" type="xs:string" minOccurs="0"/>
+      <xs:element name="Ventilation" type="xs:string" minOccurs="0"/>
+      <xs:element name="Lighting" type="xs:string" minOccurs="0"/>
+      <xs:element name="DynamicBuildingEnvelope" type="xs:string" minOccurs="0"/>
+      <xs:element name="Electricity" type="xs:string" minOccurs="0"/>
+      <xs:element name="ElectricVehicleCharging" type="xs:string" minOccurs="0"/>
+      <xs:element name="MonitoringAndControl" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

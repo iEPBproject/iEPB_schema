@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2025 (x64) (https://www.altova.com) by Markus Graf (BuildDesk) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.builddesk.at/ecotech"
+			xmlns="http://www.builddesk.at/ecotech"
+			elementFormDefault="qualified">
+			
+	<xs:include schemaLocation="ECTClasslib.xsd"/>
+	<xs:include schemaLocation="HWKB.xsd"/>
+	<xs:include schemaLocation="HWKBGlobalTypes.xsd"/>
+	<xs:include schemaLocation="HWKBProjectData.xsd"/>
+	<xs:include schemaLocation="HWKBCalcData.xsd"/>
+	<xs:include schemaLocation="GEEEingabe.xsd"/>
+	<xs:include schemaLocation="EAWDATA.xsd"/>
+
+
+	<xs:element name="ecotech" minOccurs="0">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ECTEPBDProject" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="ECTClasslib" minOccurs="0"/>
+							<xs:element ref="GEEInput" minOccurs="0"/>
+							<xs:element ref="CalcData" minOccurs="0"/>
+							<xs:element ref="ProjectData" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="EAWDATA" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
