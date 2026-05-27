@@ -1,0 +1,1815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.efinovatic.es/ce3x"
+            xmlns="http://www.efinovatic.es/ce3x"
+            elementFormDefault="qualified">
+
+  <!-- =========================
+       ELEMENTS
+       ========================= -->
+
+	<xs:element name="A" type="dectype2digits"/>	
+	<xs:element name="B" type="dectype2digits"/>	
+	<xs:element name="C" type="dectype2digits"/>	
+	<xs:element name="D" type="dectype2digits"/>	
+	<xs:element name="E" type="dectype2digits"/>	
+	<xs:element name="F" type="dectype2digits"/>	
+	<xs:element name="Absortance">
+	<xs:complexType>
+	  <xs:simpleContent>
+		<xs:extension base="xs:string">
+		  <xs:attribute name="colorType" use="required">
+			<xs:simpleType>
+			  <xs:restriction base="xs:string">
+				<xs:enumeration value="blanco" />
+				<xs:enumeration value="amarillo" />
+				<xs:enumeration value="beige" />
+				<xs:enumeration value="marron" />
+				<xs:enumeration value="rojo" />
+				<xs:enumeration value="verde" />
+				<xs:enumeration value="azul" />
+				<xs:enumeration value="gris" />
+				<xs:enumeration value="negro" />
+			  </xs:restriction>
+			</xs:simpleType>
+		  </xs:attribute>
+		</xs:extension>
+	  </xs:simpleContent>
+	</xs:complexType>
+	</xs:element>	
+	<xs:element name="Acimut1">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="-180"/>
+				<xs:maxInclusive value="180"/>				
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Acimut2">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="-180"/>
+				<xs:maxInclusive value="180"/>						
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Acimut3">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="-180"/>
+				<xs:maxInclusive value="180"/>						
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Acimut4">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="-180"/>
+				<xs:maxInclusive value="180"/>						
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Activity">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Administrativo en general"/>
+				<xs:enumeration value="Pabellones de exposición o ferias"/>
+				<xs:enumeration value="Salas de diagnóstico"/>
+				<xs:enumeration value="Aulas y laboratorios"/>
+				<xs:enumeration value="Habitaciones de hospital"/>
+				<xs:enumeration value="Zonas comunes"/>
+				<xs:enumeration value="Almacenes, archivos, salas técnicas y cocinas"/>
+				<xs:enumeration value="Espacios deportivos"/>
+				<xs:enumeration value="Estaciones de transporte"/>
+				<xs:enumeration value="Supermercados, hipermercados y grandes almacenes"/>
+				<xs:enumeration value="Bibliotecas, museos y galerías de arte"/>
+				<xs:enumeration value="Zonas comunes en edificios residenciales"/>
+				<xs:enumeration value="Centros comerciales (excluidas tiendas)"/>
+				<xs:enumeration value="Hostelería y restauración"/>
+				<xs:enumeration value="Religioso en general"/>
+				<xs:enumeration value="Auditorios, salas de actos, usos múltiples, convenciones, estectáculos..."/>
+				<xs:enumeration value="Tiendas y pequeño comercio"/>
+				<xs:enumeration value="Habitaciones de hoteles, hostales..."/>
+				<xs:enumeration value="Otros"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Address">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AdjacentSurfaceId">
+		<xs:complexType>
+			<xs:attribute name="surfaceIdRef" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AdjacentWindowId">
+		<xs:complexType>
+			<xs:attribute name="windowIdRef" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AgeOfHeatPump">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Posterior a 2013"/>
+				<xs:enumeration value="Entre 1994 y 2013"/>
+				<xs:enumeration value="Anterior a 1994"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AirCavityType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="No ventilada"/>
+				<xs:enumeration value="Ligeramente ventilada"/>
+				<xs:enumeration value="Ventilada"/>
+				<xs:enumeration value="Rellena de Aislamiento"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Airflow">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AirflowResistance" type="xs:decimal"/>
+	<xs:element name="AirLoop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AirLoopEquipment"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="AirLoopEquipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Zone"/>
+				<xs:element ref="TypeOfFan"/>
+				<xs:element ref="Service"/>
+				<xs:element ref="Consumption"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="NumberOfHoursWithDemand" minOccurs="0"/>
+					<xs:element ref="WorksWhenNoDemand" minOccurs="0"/>
+					<xs:sequence minOccurs="0">
+						<xs:element ref="HeatingSeasonDuration" minOccurs="0"/>
+						<xs:element ref="CoolingSeasonDuration" minOccurs="0"/>
+						<xs:element ref="FractionPowerWhenNoDemand" minOccurs="0"/>
+					</xs:sequence>
+				</xs:sequence>
+			</xs:sequence>
+			<xs:attribute name="calculationType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Conocido (Ensayado/justificado)"/>
+						<xs:enumeration value="Estimado"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AirPrimaryEquipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Zone"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="Airflow"/>
+				<xs:element ref="HasHeatRecoveryUnit"/>
+				<xs:element ref="SeasonalPerformance"/>
+			</xs:sequence>
+			<xs:attribute name="equipmentType" type="xs:string" use="required"/>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Area">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Area">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareMeters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AwningFabric">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Tejido opaco"/>
+				<xs:enumeration value="Tejido translúcido"/>
+			</xs:restriction>	
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AwningTilt">
+		<xs:simpleType>
+			<xs:restriction base="xsd:double">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="180"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AwningType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Caso A"/>
+				<xs:enumeration value="Caso B"/>
+			</xs:restriction>	
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Blind"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OverhangDepth"/>
+				<xs:element ref="OverhangHeight"/>
+				<xs:element ref="BlindTilt"/>
+				<xs:element ref="BlindAzimuth"/>
+				<xs:element ref="BlindTransmittance"/>
+				<xs:element ref="BlindReflectance"/>
+				<xs:element ref="AwningType"/>
+				<xs:element ref="AwningTilt"/>
+				<xs:element ref="AwningFabric"/>
+				<xs:element ref="SkylightWidth"/>
+				<xs:element ref="SkylightLength"/>
+				<xs:element ref="SkylightDepth"/>
+			</xs:sequence>
+			<xs:attribute name="calculationType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="DA1Table12Overhang"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BlindAzimuth">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="360"/>				
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BlindReflectance">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BlindTilt">
+		<xs:simpleType>
+			<xs:restriction base="xsd:double">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="180"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BlindTransmittance">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BoilerInsulationLevel">
+		<xs:complexType>
+			<xs:attribute name="unit" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SquareM"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CE3X">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CustomerData"/>
+				<xs:element ref="Opening" maxOccurs="unbounded"/>
+				<xs:element ref="Blind" maxOccurs="unbounded"/>
+				<xs:element ref="ThermalBridge" maxOccurs="unbounded"/>
+				<xs:element ref="ShadowPattern" maxOccurs="unbounded"/>
+				<xs:element ref="HydronicLoop" maxOccurs="unbounded"/>
+				<xs:element ref="EnergyContribution" maxOccurs="unbounded"/>
+				<xs:element ref="LightingSystem" maxOccurs="unbounded"/>
+				<xs:element ref="AirPrimaryEquipment" maxOccurs="unbounded"/>
+				<xs:element ref="FanEquipment" maxOccurs="unbounded"/>
+				<xs:element ref="PumpEquipment" maxOccurs="unbounded"/>	
+				<xs:element ref="CoolingTowerEquipment" maxOccurs="unbounded"/>
+				<xs:element ref="Construction" maxOccurs="unbounded"/>
+				<xs:element ref="Material" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="order" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:byte">
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="City">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CombustionEfficiency">
+		<xs:complexType>
+			<xs:attribute name="units" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Percent"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CombustionLoadFactor" type="xs:decimal"/>
+	<xs:element name="Construction">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element ref="ConstructionType" type="xs:string"/>
+					<xs:element ref="WallComposition" type="xs:string"/>
+					<xs:sequence minOccurs="0">
+						<xs:choice>
+							<xs:sequence>
+								<xs:element ref="SlabType"/>
+								<xs:element ref="AirCavityType"/>
+								<xs:element ref="InsulationIsPresent"/>
+							</xs:sequence>
+							<xs:sequence>
+								<xs:element ref="AirCavityType"/>
+								<xs:element ref="InsulationIsPresent"/>
+								<xs:element ref="InsulationPosition"/>
+							</xs:sequence>
+						</xs:choice>
+						<xs:element ref="InsulationType"/>
+						<xs:element ref="Thickness"/>
+						<xs:element ref="R-value"/>
+					</xs:sequence>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element ref="SlabDepth"/>
+					<xs:element ref="Perimeter"/>
+					<xs:element ref="InsulationIsPresent"/>
+					<xs:element ref="InsulationLocation"/>
+					<xs:element ref="HowDefineInsulationResistance"/>
+					<xs:element ref="Thickness"/>
+					<xs:element ref="R-value"/>
+				</xs:sequence>
+				<xs:element ref="NonHabitableSpaceType"/>
+				<xs:element ref="Mass"/>
+			</xs:choice>
+			<xs:attribute name="calculationType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CerramientoConocido"/>
+						<xs:enumeration value="CubiertaExteriorEstimada"/>
+						<xs:enumeration value="FachadaExteriorEstimada"/>
+						<xs:enumeration value="ParticionInteriorHorizontalConNHInferiorConocida"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+			<xs:attribute name="caculationType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CubiertaExteriorDefecto"/>
+						<xs:enumeration value="SueloConTerrenoEstimado"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConstructionType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Cubierta"/> 
+				<xs:enumeration value="Cubierta plana"/>
+				<xs:enumeration value="Cubierta plana ventilada"/>
+				<xs:enumeration value="Cubierta ajardinada"/>
+				<xs:enumeration value="Cubierta inclinada"/>
+				<xs:enumeration value="Cubierta inclinada ventildad"/>
+				<xs:enumeration value="Doble hoja con cámara"/>
+				<xs:enumeration value="Una hoja"/>
+				<xs:enumeration value="Facahada ventilada"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Consumption">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Consumption">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="kilowatt-hour"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ComsumptionCurveDefinition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="CurveCoefficient1"/>
+				<xs:element ref="CurveCoefficient2"/>
+				<xs:element ref="CurveCoefficient3"/>
+				<xs:element ref="CurveCoefficient4"/>
+			</xs:sequence>
+		</xs:complexType>							
+	</xs:element>													
+	<xs:element name="CoolingCoverage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_CoolingCoverage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareM"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CoolingDemandCoveragePercentage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_CoolingDemandCoveragePercentage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="percentage"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="CoolingSeasonDuration">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_CoolingSeasonDuration">
+					<xs:attribute name="unit" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="hours"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CurveCoefficient1">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveCoefficient2">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveCoefficient3">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CurveCoefficient4">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CustomerData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Name"/>
+				<xs:element ref="Address"/>
+				<xs:element name="State" type="StateType"/>
+				<xs:element ref="City"/>
+				<xs:element ref="ZipcodeOrPostalCode"/>
+				<xs:element ref="PhoneNumber"/>
+				<xs:element ref="e-mail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DHWCoverage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_DHWCoverage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareM"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DHWDemandCoveragePercentage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_DHWDemandCoveragePercentage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="percentage"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DHWTankPresent">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DHWUA">  
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DifussionResistanceFactor" type="xs:decimal"/>
+	<xs:element name="DynamicStiffness" type="xs:decimal"/>
+	<xs:element name="ElasticMaterial" type="xs:decimal"/>
+	<xs:element name="Elevacion1">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Elevacion2">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Elevacion3">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Elevacion4">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EnergyConsumed">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EnergyContribution">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Zone"/>
+				<xs:element ref="Name"/>
+				<xs:element ref="RenewableEnergySourcesArePresent"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="DHWDemandCoveragePercentage"/>
+					<xs:element ref="HeatingDemandCoveragePercentage"/>
+					<xs:element ref="CoolingDemandCoveragePercentage"/>
+				</xs:sequence>
+				<xs:element name="RenewableElectricityOrCHPIsPresent"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="SelfConsumedElectricityGeneratedEnergy"/>
+					<xs:element ref="RecoveredHeatForDomesticHotWater"/>
+					<xs:element ref="RecoveredHeatForHeating"/>
+					<xs:element ref="RecoveredCoolingEnergy"/>
+					<xs:element ref="EnergyConsumed"/>
+					<xs:element ref="FuelType"/>
+					<xs:element ref="NominalPower"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="FanEquipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="AirLoop"/> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FractionPowerInput">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FractionPowerWhenNoDemand">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FractionPowerSupplied">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Frame">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="U-value"/>
+				<xs:element ref="Absortance"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FrameRate">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_FrameRate">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Percent"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FrameType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Metálico con RPT"/>
+				<xs:enumeration value="Metálico sin RPT"/>
+				<xs:enumeration value="PVC"/>
+				<xs:enumeration value="Madera"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FuelType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Gas Natural"/>
+				<xs:enumeration value="Gasóleo-C"/>
+				<xs:enumeration value="Electricidad"/>
+				<xs:enumeration value="GLP"/>
+				<xs:enumeration value="Carbón"/>
+				<xs:enumeration value="Biocarburante"/>
+				<xs:enumeration value="Biomasa no densificada"/>
+				<xs:enumeration value="Biomasa densificada (pelets)"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="GeneratorType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Caldera Estándar"/>
+				<xs:enumeration value="Caldera Condensación"/>
+				<xs:enumeration value="Caldera Baja Temperatura"/>
+				<xs:enumeration value="Bomba de Calor"/>
+				<xs:enumeration value="Bomba de Calor - Caudal Ref. Variable"/>
+				<xs:enumeration value="Efecto Joule"/>
+				<xs:enumeration value="Equipo de Rendimiento Constante"/>
+				<xs:enumeration value="Maquina frigorífica"/>
+				<xs:enumeration value="Maquina frigorífica - Caudal Ref. Variable"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="GlazeType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Simple"/>
+				<xs:enumeration value="Doble"/>
+				<xs:enumeration value="Doble bajo emisivo"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Group">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Petreos y suelos"/>
+				<xs:enumeration value="Metales"/>
+				<xs:enumeration value="Maderas"/>
+				<xs:enumeration value="Hormigones"/>
+				<xs:enumeration value="Morteros"/>
+				<xs:enumeration value="Yesos"/>
+				<xs:enumeration value="Enlucidos"/>
+				<xs:enumeration value="Plásticos"/>
+				<xs:enumeration value="Cerámicos"/>
+				<xs:enumeration value="Cauchos"/>
+				<xs:enumeration value="Sellantes"/>
+				<xs:enumeration value="Bituminosos"/>
+				<xs:enumeration value="Textiles"/>
+				<xs:enumeration value="Vidrios"/>
+				<xs:enumeration value="Aislantes"/>
+				<xs:enumeration value="Fábricas de ladrillo"/>
+				<xs:enumeration value="Fábricas de bloque cerámico de arcilla aligerada"/>
+				<xs:enumeration value="Fábricas de bloque de hormigón convencional"/>
+				<xs:enumeration value="Fábricas de bloque de hormigón aligerado"/>
+				<xs:enumeration value="Forjados unidireccionales"/>
+				<xs:enumeration value="Forjados reticulares"/>
+				<xs:enumeration value="Losas alveolares"/>
+				<xs:enumeration value="Cámaras de aire"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HasHeatRecoveryUnit">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HeatPumpType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Aire-Aire"/>
+				<xs:enumeration value="Aire-Agua"/>
+				<xs:enumeration value="Agua-Aire"/>
+				<xs:enumeration value="Agua-Agua"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HeatingCoverage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_HeatingCoverage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareM"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HeatingDemandCoveragePercentage">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_HeatingDemandCoveragePercentage">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="percentage"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HeatingSeasonDuration"> 
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_HeatingSeasonDuration">
+					<xs:attribute name="unit" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="hours"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HighTemperature">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_HighTemperature">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="C"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HorizontalAverageIlluminance">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_HorizontalAverageIlluminance">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="lux"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HowDefineInsulationResistance"> <!-- He añadido el enum con las opciones aquí y en la webapp -->
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="Conocida"/>
+				<xs:enumeration value="No conocida"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HydronicLoop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HydronicLoopEquipment"/>
+			</xs:sequence>
+			<xs:attribute name="fluidType" type="fluidTypeEnum" use="required"/>			
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+			<xs:attribute name="loopType" type="loopTypeEnum" use="required"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="HydronicLoopEquipment">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Always -->
+				<xs:element ref="Zone"/>
+				<xs:choice minOccurs="0">
+					<xs:sequence>
+						<!-- Optional coverages -->
+						<xs:element ref="HeatingCoverage" minOccurs="0"/>
+						<xs:element ref="CoolingCoverage" minOccurs="0"/>
+						<xs:element ref="DHWCoverage" minOccurs="0"/>
+						<!-- Generator -->
+						<xs:element ref="GeneratorType" minOccurs="0"/>
+						<!-- ================= SECTIONS ================= -->
+						<!-- BOILER or JOULE-->
+						<xs:choice minOccurs="0">
+							<xs:sequence>
+								<xs:element ref="CombustionLoadFactor"/>
+								<xs:element ref="CombustionEfficiency"/>
+								<xs:element ref="InsulationBoiler" minOccurs="0"/>
+							</xs:sequence>
+							<xs:sequence>
+								<xs:element ref="NominalEfficiency"/>
+							</xs:sequence>
+						</xs:choice>
+						<!-- CHILLER / HP -->
+						<xs:choice minOccurs="0">
+							<xs:element ref="AgeOfHeatPump"/>
+							<xs:sequence>
+								<xs:element ref="refrigerationMachineAntiquity"/>
+								<xs:element ref="HeatPumpType"/>
+							</xs:sequence>
+						</xs:choice>
+						<xs:element ref="MultipleGeneratorsExistElement">
+							<xs:sequence minOccurs="0">
+								<xs:element ref="FractionPowerSupplied"/>
+								<xs:element ref="FractionPowerInput"/>
+							</xs:sequence>
+						</xs:element>
+						<xs:element ref="NominalEfficiencyCal" minOccurs="0"/>
+						<xs:element ref="NominalEfficiencyRef" minOccurs="0"/>
+						<xs:element ref="NominalEfficiencyACS" minOccurs="0"/>
+						<xs:element ref="BoilerInsulationLevel" minOccurs="0"/>					
+						<!-- DHW -->
+						<xs:element ref="DHWTankPresent" minOccurs="0"/>
+						<xs:sequence>	
+							<xs:element ref="DHWUA" minOccurs="0"/>
+							<xs:element ref="UACalculationType" minOccurs="0"/>
+							<xs:sequence>
+								<xs:element ref="HighTemperature" minOccurs="0"/>
+								<xs:element ref="LowerTemperature" minOccurs="0"/>
+								<xs:sequence>
+									<xs:element ref="TankVolume" minOccurs="0"/>
+									<xs:element ref="Multiplier" minOccurs="0"/>
+									<xs:sequence>
+										<xs:element ref="InsulationType" minOccurs="0"/>
+										<xs:element ref="Thickness" minOccurs="0"/>
+									</xs:sequence>
+								</xs:sequence>
+							</xs:sequence>	
+						</xs:sequence>
+					</xs:sequence>
+					<xs:sequence>
+						<!-- PUMPS -->
+						<xs:element ref="Name" minOccurs="0"/>
+						<xs:element ref="TypeOfPump" minOccurs="0"/>
+						<xs:element ref="Service" minOccurs="0"/>
+						<xs:element ref="Consumption" minOccurs="0"/>
+
+						<xs:sequence minOccurs="0">
+							<xs:element ref="NumberOfHoursWithDemand"/>
+							<xs:element ref="WorksWhenNoDemand" minOccurs="0"/>
+							<xs:sequence minOccurs="0">
+								<xs:element ref="HeatingSeasonDuration"/>
+								<xs:element ref="CoolingSeasonDuration"/>
+								<xs:element ref="FractionPowerWhenNoDemand"/>
+							</xs:sequence>
+						</xs:sequence>
+						<!-- COOLING TOWER -->
+						<xs:element ref="TypeOfCoolingTower" minOccurs="0"/>
+						<xs:choice minOccurs="0">
+							<xs:element ref="ComsumptionCurveDefinition"/>
+							<xs:element ref="StepPowerFractionDefinition"/>
+						</xs:choice>
+					</xs:sequence>				
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="calculationType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Conocido (Ensayado/justificado)"/>
+						<xs:enumeration value="Estimado según Instalación"/>
+						<xs:enumeration value="Estimado"/>
+						<xs:enumeration value="Estimado por curva"/>
+						<xs:enumeration value="Estimado por escalones"/><!-- El calculationType debería ser un enum? o únicamente un string? -->
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="serviceType" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Equipo ACS"/>
+						<xs:enumeration value="Equipo sólo calefacción"/>
+						<xs:enumeration value="Equipo sólo refrigeración"/>
+						<xs:enumeration value="Equipo mixto de calefacción y refrigeración"/>
+						<xs:enumeration value="Equipo mixto de calefacción y ACS"/>
+						<xs:enumeration value="Equipo mixto de calefacción, refrigeración y ACS"/>						
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+			<xs:attribute name="equipmentType" type="hydronicEquipTypeEnum" use="required"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="Image">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="aislante.bmp"/>
+				<xs:enumeration value="arcilla.bmp"/>
+				<xs:enumeration value="asfalto.bmp"/>
+				<xs:enumeration value="blanco.bmp"/>
+				<xs:enumeration value="camara de aire.bmp"/>
+				<xs:enumeration value="camara.bmp"/>
+				<xs:enumeration value="defecto.bmp"/>
+				<xs:enumeration value="forjado.bmp"/>
+				<xs:enumeration value="hormigon.bmp"/>
+				<xs:enumeration value="ladrillo.bmp"/>
+				<xs:enumeration value="madera.bmp"/>
+				<xs:enumeration value="material1.bmp"/>
+				<xs:enumeration value="materialIsover.bmp"/>
+				<xs:enumeration value="metales.bmp"/>
+				<xs:enumeration value="mortero.bmp"/>
+				<xs:enumeration value="plastico.bmp"/>
+				<xs:enumeration value="yeso.bmp"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InsulationBoiler">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Bien aislada y mantenida"/>
+				<xs:enumeration value="Antigua con aislamiento medio"/>
+				<xs:enumeration value="Antigua con mal aislamiento"/>
+				<xs:enumeration value="Sin aislamiento"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InsulationIsPresent">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InsulationLocation">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Perimetral"/>
+				<xs:enumeration value="Continuo"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InsulationPosition">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Por el exterior"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InsulationType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="EPS"/>
+				<xs:enumeration value="XPS"/>
+				<xs:enumeration value="MW"/>
+				<xs:enumeration value="PUR"/>
+				<xs:enumeration value="Otro"/>
+				<xs:enumeration value="Desconocido"/>
+				<xs:enumeration value="Poliuretano Rígido"/>
+				<xs:enumeration value="Espuma de Poliuretano"/>
+				<xs:enumeration value="Poliuretano Proyectado"/>
+				<xs:enumeration value="Resina de Melanina"/>
+				<xs:enumeration value="Espuma de Polietileno"/>
+				<xs:enumeration value="Lana de Vidrio"/>
+				<xs:enumeration value="Poliestireno"/>
+				<xs:enumeration value="Lana Mineral"/>
+				<xs:enumeration value="Espuma Elastomérica"/>
+				<xs:enumeration value="Silicato de Calcio"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LightingControl">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="True"/>
+				<xs:enumeration value="False"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LightingControlArea" type="xs:decimal"/>
+	<xs:element name="Length">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Length">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Meters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LightingCoverage">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="LightingSystem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Zone"/>
+				<xs:element ref="LightingCoverage"/>
+				<xs:element ref="LightingControl"/>
+				<xs:element ref="LightingControlArea"/>
+				<xs:element ref="RepresentationZone"/>
+				<xs:element ref="Activity"/>
+				<xs:element ref="HorizontalAverageIlluminance"/>
+			</xs:sequence>
+			<xs:attribute name="calculationType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Conocido(ensayado/justificado)"/>
+						<xs:enumeration value="Estimado"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="equipmentType" type="xs:string" use="required"/>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LowerTemperature">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_LowerTemperature">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="C"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Mass">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Mass">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="KgPerSquareMeter"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Material">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DifussionResistanceFactor"/>
+				<xs:element ref="Group"/>
+				<xs:element ref="Image"/>
+				<xs:element ref="ElasticMaterial"/>
+				<xs:element ref="DynamicStiffness"/>
+				<xs:element ref="AirflowResistance"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MultipleGeneratorsExistElement">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Multiplier">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="NominalEfficiency">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_NominalEfficiency">
+					<xs:attribute name="units" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Percent"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NominalEfficiencyCal">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_NominalEfficiencyCal">
+					<xs:attribute name="units" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Percent"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NominalEfficiencyRef">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_NominalEfficiencyRef">
+					<xs:attribute name="units" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Percent"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NominalPower">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="NonHabitableSpaceType">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_NonHabitableSpaceType">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareMeters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NumberOfHoursWithDemand">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_NumberOfHoursWithDemand">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="hours"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Opening">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="WindowType"/>
+				<xs:element ref="Multiplier"/>
+				<xs:element ref="Area"/>
+				<xs:element ref="FrameRate"/>
+				<xs:element ref="WindowAirPermeabilityDefinition"/>
+				<xs:element ref="WindowAirPermeability"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OverhangDepth" type="xs:decimal"/>
+	<xs:element name="OverhangHeight" type="xs:decimal"/>
+	<xs:element name="Perimeter">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Perimeter">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Meters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PhoneNumber" type="xs:string"/>
+	<xs:element name="Power">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Power">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="kilowatt"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PowerFractionAt10Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt20Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt30Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt40Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt50Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt60Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt70Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt80Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt90Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PowerFractionAt100Percent">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Psi">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Psi">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="WPerMeterK"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PumpEquipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="HydronicLoop"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="R-value">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_R-value">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SquareMeterKPerW"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RecoveredCoolingEnergy">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RecoveredHeatForDomesticHotWater">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RecoveredHeatForHeating">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RenewableElectricityOrCHPIsPresent">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RenewableEnergySourcesArePresent">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RepresentationZone">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="True"/>
+				<xs:enumeration value="False"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SeasonalPerformance">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SelfConsumedElectricityGeneratedEnergy">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Service">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Calefacción"/>
+				<xs:enumeration value="Refrigeración"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ShadowPattern">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Name"/>
+				<xs:element ref="AdjacentSurfaceId" minOccurs="0"/>
+				<xs:element ref="AdjacentWindowId" maxOccurs="unbounded"/>
+				<xs:element ref="ShadowPolygon" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShadowPolygon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Acimut1"/>
+				<xs:element ref="Elevacion1"/>
+				<xs:element ref="Acimut2"/>
+				<xs:element ref="Elevacion2"/>
+				<xs:element ref="Acimut3"/>
+				<xs:element ref="Elevacion3"/>
+				<xs:element ref="Acimut4"/>
+				<xs:element ref="Elevacion4"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SkylightDepth" type="xs:decimal"/>
+	<xs:element name="SkylightLength"type="xs:decimal"/>
+	<xs:element name="SkylightWidth" type="xs:decimal"/>
+	<xs:element name="SlabDepth" type="xs:decimal"/>
+	<xs:element name="SlabType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Unidireccional"/>
+				<xs:enumeration value="Reticular"/>
+				<xs:enumeration value="Casetones recuperables"/>
+				<xs:enumeration value="Losa"/>
+				<xs:enumeration value="De Madera"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="StepPowerFractionDefinition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PowerFractionAt10Percent"/>
+				<xs:element ref="PowerFractionAt20Percent"/>
+				<xs:element ref="PowerFractionAt30Percent"/>
+				<xs:element ref="PowerFractionAt40Percent"/>
+				<xs:element ref="PowerFractionAt50Percent"/>
+				<xs:element ref="PowerFractionAt60Percent"/>
+				<xs:element ref="PowerFractionAt70Percent"/>
+				<xs:element ref="PowerFractionAt80Percent"/>
+				<xs:element ref="PowerFractionAt90Percent"/>
+				<xs:element ref="PowerFractionAt100Percent"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TankVolume">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_TankVolume">
+					<xs:attribute name="unit" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="CubicMeters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ThermalBridge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Name"/>
+				<xs:element ref="AdjacentSurfaceId"/>
+				<xs:element ref="Psi"/>
+				<xs:element ref="Length"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+			<xs:attribute name="type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pilar integrado en fachada"/>
+						<xs:enumeration value="Pilar en Esquina"/>
+						<xs:enumeration value="Contorno de hueco"/>
+						<xs:enumeration value="Caja de Persiana"/>
+						<xs:enumeration value="Encuentro de fachada con forjado"/>
+						<xs:enumeration value="Encuentro de fachada con cubierta"/>
+						<xs:enumeration value="Encuentro de fachada con suelo en contacto con el aire"/>
+						<xs:enumeration value="Encuentro de fachada con solera"/>					
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Thickness">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_Thickness">
+					<xs:attribute name="unit">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Meters"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TypeOfFan">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Ventilador de caudal constante"/>
+				<xs:enumeration value="Ventilador de varias velocidades"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TypeOfPump">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Bomba de caudal constante"/>
+				<xs:enumeration value="Bomba de varias velocidades"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="U-value">
+		<xs:complexType>
+			<xs:attribute name="unit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="WPerSquareMeterK"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="UACalculationType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Conocido"/>
+				<xs:enumeration value="Estimado"/>
+				<xs:enumeration value="Por defecto"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WallComposition">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="1/2 pie de fábrica de ladrillo"/>
+				<xs:enumeration value="cubierta2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WindowAirPermeability" type="xs:decimal"/>
+	<xs:element name="WindowAirPermeabilityDefinition">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Valor estimado"/>
+				<xs:enumeration value="Estanco"/>
+				<xs:enumeration value="Poco estanco"/>
+			</xs:restriction>	
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WindowType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="GlazeType" minOccurs="0"/>
+				<xs:element ref="FrameType"/>
+				<xs:element ref="Frame"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="WorksWhenNoDemand">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="False"/>
+				<xs:enumeration value="True"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ZipcodeOrPostalCode">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Zone">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="e-mail">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="refrigerationMachineAntiquity">
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Posterior a 2013"/>
+			<xs:enumeration value="Entre 1994 y 2013"/>
+			<xs:enumeration value="Anterior a 1994"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+
+  <!-- ============================================================
+       SIMPLE TYPES 
+       ============================================================ -->	
+	<xs:simpleType name="dectype2digits">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Area">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Consumption">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_CoolingCoverage">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_CoolingDemandCoveragePercentage">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="ST_DHWCoverage">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="ST_DHWDemandCoveragePercentage">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_FrameRate">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_HeatingCoverage">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_HeatingDemandCoveragePercentage">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_HighTemperature">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_HorizontalAverageIlluminance">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Length">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_LowerTemperature">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Mass">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_NominalEfficiency">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_NominalEfficiencyCal">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_NominalEfficiencyRef">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_NonHabitableSpaceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Cámara Sanitaria"/>
+			<xs:enumeration value="Garaje/espacio enterrado"/>
+			<xs:enumeration value="Local en superficie"/>
+			<xs:enumeration value="Espacio bajo cubierta inclinada"/>
+			<xs:enumeration value="Otro"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_HeatingSeasonDuration">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_CoolingSeasonDuration">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_NumberOfHoursWithDemand">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Perimeter">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Power">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Psi">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_R-value">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_TankVolume">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_Thickness">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+
+	
+</xs:schema>

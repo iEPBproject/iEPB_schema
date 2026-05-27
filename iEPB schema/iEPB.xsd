@@ -22,7 +22,7 @@
 <xs:import namespace="http://www.bdh.nl/TheNetherlands/Building" 
              schemaLocation="TheNetherlandsBuilding.xsd"/>
 <xs:import namespace="http://www.efinovatic.es/ce3x" 
-             schemaLocation="CE3X_v2306.xsd"/>
+             schemaLocation="CE3X_v2_3_08.xsd.xsd"/>
 <xs:import namespace="http://www.builddesk.at/ecotech" 
              schemaLocation="Ecotech.xsd"/>
 <xs:import namespace="http://www.bdh.nl/uniec3" 
